@@ -1,0 +1,63 @@
+    SMODS.Enhancement({
+        key = 'arm',
+        atlas = 'bld_blindrank',
+        pos = {x = 3, y = 1},
+        config = {
+            extra = {
+                value = 10,
+                chance = 1,
+                trigger = 2,
+                hues = {"Purple"}
+            }},
+        replace_base_card = true,
+        no_rank = true,
+        no_suit = true,
+        overrides_base_rank = true,
+        always_scores = true,
+        in_pool = function(self, args)
+            if G.GAME.selected_back.effect.center.config.extra then
+                if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
+                return true
+            else
+            return false
+            end
+        end,
+        pools = {
+            ["bld_obj_blindcard_generate"] = true,
+            ["bld_obj_blindcard_cool"] = true,
+            ["bld_obj_blindcard_single"] = true,
+            ["bld_obj_blindcard_purple"] = true,
+        },
+        calculate = function(self, card, context)
+                if context.cardarea == G.play and context.before then
+                    if SMODS.pseudorandom_probability(card, pseudoseed("flip"), card.ability.extra.chance, card.ability.extra.trigger, 'flip') and card.facing ~= 'back' then
+                            card:flip()
+                            card:flip()
+                        return {
+                            card = card,
+                            level_up = true,
+                            message = localize('k_level_up_ex')
+                        }
+                    else
+                    if card.facing ~= 'back' then 
+                    card:flip()
+                    end
+                    return {
+                        message = "Nope!",
+                        colour = G.C.GREEN
+                    }
+                end
+            end
+        end,
+        loc_vars = function(self, info_queue, card)
+            local chance, trigger = SMODS.get_probability_vars(card, card.ability.extra.chance, card.ability.extra.trigger, 'flip')
+            return {
+                vars = {
+                    chance,
+                    trigger
+                }
+            }
+        end
+    })
+----------------------------------------------
+------------MOD CODE END----------------------
