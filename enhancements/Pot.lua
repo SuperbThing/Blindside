@@ -4,7 +4,7 @@
         pos = {x = 7, y = 2},
         config = {
             extra = {
-                money = 2,
+                money = 1,
                 value = 1,
                 hues = {"Yellow"}
             }},
@@ -25,7 +25,7 @@
             ["bld_obj_blindcard_yellow"] = true,
         },
         calculate = function(self, card, context)
-            if context.cardarea == G.hand and context.main_scoring then
+            if (context.cardarea == G.hand or context.cardarea == G.play) and context.main_scoring then
                 return {
                     dollars = card.ability.extra.money
                 }

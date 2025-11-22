@@ -14,7 +14,6 @@ return {
 			["k_slow_ex"] = "Hold!",
 			["k_go_ex"] = "GO!",
 			["k_broke_ex"] = "Shattered!",
-			["k_tryfree_ex"] = "Flash Sale!",
 			["k_snow_ex"] = "Snow!",
 			["k_filmcard_ex"] = "Channel!",
 			["k_reroll_ex"] = "Reroll!",
@@ -122,10 +121,10 @@ return {
                 "be played with up to 1 other unscored Blind"
             },
             ['bld_blind_stack'] = {
-                "A Flush of different unique blinds",
+                "A Flush of 5 unique blinds",
             },
             ['bld_allin'] = {
-                "5 Blinds with the same type and hue"
+                "5 of the same blind"
             }
 		}
 	},
@@ -149,7 +148,7 @@ return {
 			['v_bld_prosthetic'] = {
 				["name"] = "Prosthetic",
 				["text"] = {
-					"+1 {C:blue}Hands{} at",
+					"+1 {C:blue}Hand{} at",
 					"start of round",
 				}
 			},
@@ -163,7 +162,7 @@ return {
 			['v_bld_bagofholding'] = {
 				["name"] = "Bag of Holding",
 				["text"] = {
-					"+2 {C:red}Discards{} at",
+					"+1 {C:red}Discard{} at",
 					"start of round",
 				}
 			},
@@ -177,16 +176,18 @@ return {
 			["v_bld_swearjar"] = {
 				["name"] = "Swear Jar",
 				["text"] = {
-					"Gain {C:money}$1{} for each",
+					"Earn {C:money}interest{} on",
+					"held {C:money}money"
+					--[["Gain {C:money}$1{} for each",
 					"held {C:money}$5{} at end",
-					"of round",
+					"of round",]]
 				},
 			},
 			["v_bld_magnifyingglass"] = {
 				["name"] = "Magnifying Glass",
 				["text"] = {
-					"Create a {C:attention}Reroll{} Tag",
-					"after beating a {C:attention}Joker{}"
+					"Create a {C:attention}Reroll{} Tag after",
+					"each {C:attention}Joker{} is defeated"
 				},
 			},
 			["v_bld_coolrock"] = {
@@ -207,7 +208,7 @@ return {
 				["name"] = "Juggling Balls",
 				["text"] = {
 					"Create a {C:attention}Juggle{} Tag after",
-					"beating a {C:attention} Boss Joker{}"
+					"each {C:attention}Boss Joker{} is defeated"
 				},
 			},
 		},
@@ -251,8 +252,8 @@ return {
 			["tag_bld_magnifyingglass_relic"] = {
 				["name"] = "Magnifying Glass",
 				["text"] = {
-					"Create a {C:attention}Reroll{} Tag",
-					"after beating a {C:attention}Joker{}"
+					"Create a {C:attention}Reroll{} Tag after",
+					"each {C:attention}Joker{} is defeated"
 				},
 			},
 			["tag_bld_coolrock_relic"] = {
@@ -273,7 +274,7 @@ return {
 				["name"] = "Juggling Balls",
 				["text"] = {
 					"Create a {C:attention}Juggle{} Tag after",
-					"beating a {C:attention} Boss Joker{}"
+					"each {C:attention}Boss Joker{} is defeated"
 				},
 			},
 			["tag_bld_bindle_relic"] = {
@@ -293,8 +294,8 @@ return {
 			["tag_bld_debuff"] = {
 				["name"] = "Debuff Tag",
 				["text"] = {
-					"{C:red}Debuffs{} played hand",
-					"if it is a {C:attention}#1#{}"
+					"If hand is a {C:attention}#1#{},",
+					"hand will not score"
 				},
 			},
 			["tag_bld_maxim"] = {
@@ -795,7 +796,7 @@ return {
 				["name"] = "Wily Joker",
 				["text"] = {
 					"Once per Round,",
-					"Gains X2.5 Chips if",
+					"gains X2.5 Chips if",
 					"played hand contains",
 					"a Three of a Blind",
 				},
@@ -804,7 +805,7 @@ return {
 				["name"] = "Clever Joker",
 				["text"] = {
 					"Once per Round,",
-					"Gains X2 Chips if",
+					"gains X2 Chips if",
 					"played hand contains",
 					"a Two Pair",
 				},
@@ -813,7 +814,7 @@ return {
 				["name"] = "Devious Joker",
 				["text"] = {
 					"Once per Round,",
-					"Gains X3 Chips if",
+					"gains X3 Chips if",
 					"played hand contains",
 					"a Raise",
 				},
@@ -822,7 +823,7 @@ return {
 				["name"] = "Crafty Joker",
 				["text"] = {
 					"Once per Round,",
-					"Gains X3 Chips if",
+					"gains X3 Chips if",
 					"played hand contains",
 					"a Flush",
 				},
@@ -913,8 +914,9 @@ return {
 			["bl_bld_mime"] = {
 				["name"] = "Baron's Court",
 				["text"] = {
-					"Gains +0.5 Mult for",
-					"each unplayed blind",
+					"Gains +0.5",
+					"Mult for each",
+					"unplayed blind"
 				},
 			},
 			["bl_bld_burglar"] = {
@@ -943,10 +945,10 @@ return {
 			["m_bld_beta"] = {
 				["name"] = "BETA.Blind",
 				["text"] = {
-					"{X:blue,C:white}Blue{}",
-					"Always Scores",
+					{"{X:blue,C:white}Blue{}",
 					"{C:chips}+#1#{} Chips",
-					"{C:attention}Temporary",
+					"Always Scores"},
+					{"{C:attention}Temporary"},
 				},
 			},
 			["m_bld_sharp"] = {
@@ -959,206 +961,213 @@ return {
 			["m_bld_flip"] = {
 				["name"] = "The Flip",
 				["text"] = {
-					"{X:green,C:white}Green{}",
-					"{C:green}#2#{} in {C:green}#3#{} chance to score,",
-					"when in played hand",
-					"{C:mult}+#1#{} Mult or {C:chips}+#4#{} Chips"
+					{"{X:green,C:white}Green{}",
+					"{C:mult}+#1#{} Mult or {C:chips}+#4#{} Chips",},
+					{"{C:attention,E:1}Self-Scoring{} with a",
+					"{C:green}#2#{} in {C:green}#3#{} chance"}
 				},
 			},
 			["m_bld_hook"] = {
 				["name"] = "The Hook",
 				["text"] = {
-					"{X:mult,C:white}Red{}",
-					"{C:red}+#2#{} discard when scored,",
-					"{C:mult}+#1#{} Mult"
+					{"{X:mult,C:white}Red{}",
+					"{C:mult}+#1#{} Mult"},
+					{"{C:red}+#2#{} discard",
+					"when scored"}
 				},
 			},
 			["m_bld_hoard"] = {
 				["name"] = "The Hoard",
 				["text"] = {
-					"{X:mult,C:white}Red{}",
-					"{C:mult}+#1#{} Mult,",
-					"{X:mult,C:white}X#2#{} Mult if you have",
-					"{C:attention}3{} or less {C:attention}Trinkets{}"
+					{"{X:mult,C:white}Red{}",
+					"{C:mult}+#1#{} Mult"},
+					{"{X:mult,C:white}X#2#{} Mult if you own",
+					"{C:attention}3{} or less {C:attention}Trinkets{}"}
 				},
 			},
 			["m_bld_blood"] = {
 				["name"] = "The Blood",
 				["text"] = {
-					"{X:mult,C:white}Red{}",
-					"{C:attention}Destroys{} leftmost trinket",
-					"and gains {C:mult}+#2#{} Mult",
-					"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
+					{"{X:mult,C:white}Red{}",
+					"Currently {C:mult}+#1#{} Mult"},
+					{"When played, {C:attention}destroys{}",
+					"the leftmost owned trinket",
+					"and gains {C:mult}+#2#{} Mult"},
 				},
 			},
 			["m_bld_fire"] = {
 				["name"] = "The Fire",
 				["text"] = {
-					"{X:mult,C:white}Red{}",
-					"{C:chips}+#1#{} Chips",
-					"{C:attention}Burns{}"
+					{"{X:mult,C:white}Red{}",
+					"{C:chips}+#1#{} Chips"},
+					{"{C:attention}Burns{}"}
 				},
 			},
 			["m_bld_ox"] = {
 				["name"] = "The Ox",
 				["text"] = {
-					"{X:money,C:white}Yellow{}",
-					"{C:money}+#1#${} when scored",
-					"if {C:attention}played hand{} is",
-					"most played this run",
-					"Otherwise, {C:mult}+#2#{} Mult"
+					{"{X:money,C:white}Yellow{}",
+					"{C:money}+#1#${} if played",
+					"{C:attention}poker hand{} is most",
+					"played this run"},
+					{"Otherwise, {C:mult}+#2#{} Mult"}
 				},
 			},
 			["m_bld_wall"] = {
 				["name"] = "The Wall",
 				["text"] = {
-					"{X:purple,C:white}Purple{}",
-					"Always scores and",
-					"gains {X:mult,C:white}X#2#{} Mult",
-					"{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)"
+					{"{X:purple,C:white}Purple{}",
+					"Currently {X:mult,C:white}X#1#{} Mult"},
+					{"Gains {X:mult,C:white}X#2#{} Mult",
+					"after being played"},
+					{"Always scores"},
 				},
 			},
 			["m_bld_house"] = {
 				["name"] = "The House",
 				["text"] = {
-					"{X:blue,C:white}Blue{}",
-					"Drawn {C:attention}face down{},",
-					"Returns other played",
-					"blinds back to hand",
-					"{C:chips}+#1#{} Chips",
+					{"{X:blue,C:white}Blue{}",
+					"{C:chips}+#1#{} Chips"},
+					{"Returns other played",
+					"blinds back to hand"},
+					{"Drawn {C:attention}face down{}"},
 				},
 			},
 			["m_bld_arm"] = {
 				["name"] = "The Arm",
 				["text"] = {
-					"{X:purple,C:white}Purple{}",
-					"{C:green}#1#{} in {C:green}#2#{} chance to",
-					"level up played hand",
-					"and score"
+					{"{X:purple,C:white}Purple{}",
+					"{C:bld_obj_mineral}Upgrades{} played hand"},
+					{"{C:attention,E:1}Self-Scoring{} with a",
+					"{C:green}#1#{} in {C:green}#2#{} chance"}
 				},
 			},
 			["m_bld_club"] = {
 				["name"] = "The Club",
 				["text"] = {
-					"{X:money,C:white}Yellow{} {X:dark_edition,C:white}Faded{}",
-					"{C:red}Debuffs{} all",
-					"scoring {X:mult,C:white}Red{} Blinds",
-					"{C:mult}+#1#{} Mult"
+					{"{X:money,C:white}Yellow{} {X:dark_edition,C:white}Faded{}",
+					"{C:mult}+#1#{} Mult"},
+					{"{C:red}Debuffs{} all",
+					"scoring {X:mult,C:white}Red{} Blinds",}
 				},
 			},
 			["m_bld_fish"] = {
 				["name"] = "The Fish",
 				["text"] = {
-					"{X:blue,C:white}Blue{}",
-					"Flip all Blinds {C:attention}held in hand{},",
-					"{X:chips,C:white}X1.1{} Chips for each",
-					"Blind {C:attention}held in hand"
+					{"{X:blue,C:white}Blue{}",
+					"{X:chips,C:white}X1{} Chips and",
+					"{X:chips,C:white}+X0.1{} Chips for each",
+					"Blind {C:attention}held in hand"},
+					{"Flips all Blinds",
+					"{C:attention}held in hand"},
 				},
 			},
 			["m_bld_path"] = {
 				["name"] = "The Path",
 				["text"] = {
-					"{X:red,C:white}Red{} {X:blue,C:white}Blue{}",
-					"Scores {C:attention}in hand{} if played",
-					"hand contains a {C:attention}Two Pair{}",
-					"{C:mult}+#1#{} Mult"
+					{"{X:red,C:white}Red{} {X:blue,C:white}Blue{}",
+					"{C:mult}+#1#{} Mult"},
+					{"Also scores while",
+					"{C:attention}held in hand{} if played",
+					"hand contains {C:attention}Two Pair{}"},
 				},
 			},
 			["m_bld_wheel"] = {
 				["name"] = "The Wheel",
 				["text"] = {
-					"{X:green,C:white}Green{}",
-					"Drawn {C:attention}face down{},",
-					"{C:green}#2#{} in {C:green}#3#{} chance to score,",
-					"when in played hand",
-					"{C:chips}+#1#{} Chips"
+					{"{X:green,C:white}Green{}",
+					"{C:chips}+#1#{} Chips"},
+					{"{C:attention,E:1}Self-Scoring{} with a",
+					"{C:green}#2#{} in {C:green}#3#{} chance"},
+					{"Drawn {C:attention}face down{}"},
 				},
 			},
 			["m_bld_thorn"] = {
 				["name"] = "The Thorn",
 				["text"] = {
-					"{X:green,C:white}Green{} {X:red,C:white}Red",
-					"{C:green}#2#{} in {C:green}#3#{} chance to score",
-					"when in played hand,",
-					"{C:mult}-#1#{} Mult to {C:attention}Joker"
+					{"{X:green,C:white}Green{} {X:red,C:white}Red",
+					"{C:mult}-#1#{} Mult to {C:attention}Joker"},
+					{"{C:attention,E:1}Self-Scoring{} with a",
+					"{C:green}#2#{} in {C:green}#3#{} chance"},
 				},
 			},
 			["m_bld_clover"] = {
 				["name"] = "The Clover",
 				["text"] = {
-					"{X:money,C:white}Yellow{} {X:green,C:white}Green{}",
-					"{C:green}#2#{} in {C:green}#3#{} chance to score",
-					"when in played hand",
-					"{X:mult,C:white}X#1#{} Mult, {C:green}Chance{} increases",
-					"for each {C:attention}Tag{} held"
+					{"{X:money,C:white}Yellow{} {X:green,C:white}Green{}",
+					"{X:mult,C:white}X#1#{} Mult"},
+					{"{C:attention,E:1}Self-Scoring{} with a",
+					"{C:green}#2#{} in {C:green}#3#{} chance"},
+					{"{C:green}Chance{} increases",
+					"for each {C:attention}Tag{} held"}
 				},
 			},
 			["m_bld_wedge"] = {
 				["name"] = "The Wedge",
 				["text"] = {
-					"{X:green,C:white}Green{}",
-					"Always Scores",
-					"When {C:attention}discarded{}, play",
-					"discarded hand",
-					"{C:attention}Burns{}"
+					{"{X:green,C:white}Green{}",
+					"When {C:red}discarded{}, play",
+					"discarded hand"},
+					{"Always Scores",
+					"and {C:attention}Burns{}"}
 				},
 			},
 			["m_bld_cell"] = {
 				["name"] = "The Cell",
 				["text"] = {
-					"{X:green,C:white}Green{}",
+					{"{X:green,C:white}Green{}",
 					"{C:chips}+#1#{} Chips for each",
 					"The Cell in full deck",
-					"{C:green}#2# in #3#{} chance to copy",
-					"after scoring",
-					"{C:inactive}(Currently {C:chips}+#4#{C:inactive} Chips)",
+					"{C:inactive}(Currently {C:chips}+#4#{C:inactive} Chips)"},
+					{"{C:green}#2# in #3#{} chance to copy",
+					"after scoring",}
 				},
 			},
 			["m_bld_psychic"] = {
 				["name"] = "The Psychic",
 				["text"] = {
 					"{X:money,C:white}Yellow{}",
-					"When held in hand or scored",
-					"with a {C:attention}5 blind hand{},",
-					"Create a {C:attention}Tag{}"
+					"When held in hand or scored,",
+					"if poker hand contains {C:attention}5{} blinds,",
+					"creates a random {C:attention}Tag{}"
 				},
 			},
 			["m_bld_goad"] = {
 				["name"] = "The Goad",
 				["text"] = {
-					"{X:purple,C:white}Purple{}",
-					"{C:red}Debuffs{} all ",
-					"scoring {X:chips,C:white}Blue{} Blinds,",
-					"{C:chips}+#1#{} Chips"
+					{"{X:purple,C:white}Purple{}",
+					"{C:chips}+#1#{} Chips"},
+					{"{C:red}Debuffs{} all",
+					"scoring {X:chips,C:white}Blue{} Blinds"},
 				},
 			},
 			["m_bld_blend"] = {
 				["name"] = "The Blend",
 				["text"] = {
-					"{X:purple,C:white}Purple{}",
-					"{C:red}Debuffs{} all scoring",
-					"{X:mult,C:white}Red{} and {X:chips,C:white}Blue{} Blinds,",
-					"Creates up to {C:attention}2 {C:bld_obj_filmcard}Channel{} cards",
-					"{C:inactive,S:0.8}(Must have room)"
+					{"{X:purple,C:white}Purple{}",
+					"Creates up to",
+					"{C:attention}2{} random {C:bld_obj_filmcard}Channel{} cards",
+					"{C:inactive,S:0.8}(Must have room)"},
+					{"{C:red}Debuffs{} all scoring",
+					"{X:mult,C:white}Red{} and {X:chips,C:white}Blue{} Blinds"},
 				},
 			},
 			["m_bld_bolt"] = {
 				["name"] = "The Bolt",
 				["text"] = {
-					"{X:purple,C:white}Purple{} {X:money,C:white}Yellow{}",
-					"{C:attention}Upgrade{} played hand,",
-					"{C:red}Debuff{} it for the",
-					"rest of the round",
+					{"{X:purple,C:white}Purple{} {X:money,C:white}Yellow{}",
+					"{C:bld_obj_mineral}Upgrades{} played hand"},
+					{"Creates a {C:red}Debuff Tag{}",
+					"for played hand"},
 				},
 			},
 			["m_bld_ore"] = {
 				["name"] = "The Ore",
 				["text"] = {
-					"{X:money,C:white}Yellow{}",
-					"{C:money}+#1#${}, gives",
-					"{X:mult,C:white}X1.5{} Mult for the",
-					"rest of the round",
-					"and {C:attention}Burns",
+					{"{X:money,C:white}Yellow{}",
+					"{C:money}+#1#${} and creates",
+					"a {C:attention}Max Tag"},
+					{"{C:attention}Burns"},
 				},
 			},
 			["m_bld_paint"] = {
@@ -1172,85 +1181,89 @@ return {
 			["m_bld_skull"] = {
 				["name"] = "The Skull",
 				["text"] = {
-					"{X:purple,C:white}Purple{}",
-					"{C:attention}Destroys{} a random",
-					"unscoring Blind and",
-					"gains {C:mult}+#1#{} Mult",
-					"{C:inactive}(Currently: {C:mult}+#2#{C:inactive} Mult)"
+					{"{X:purple,C:white}Purple{}",
+					"Currently {C:mult}+#2#{} Mult)"},
+					{"{C:attention}Destroys{} a random",
+					"played, unscored Blind and",
+					"gains {C:mult}+#1#{} Mult"},
 				},
 			},
 			["m_bld_water"] = {
 				["name"] = "The Water",
 				["text"] = {
-					"{X:chips,C:white}Blue{} {X:dark_edition,C:white}Faded{}",
-					"When played, gains {C:chips}+#2#{} Chips",
-					"and {C:attention}Burns",
-					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
+					{"{X:chips,C:white}Blue{} {X:dark_edition,C:white}Faded{}",
+					"Currently {C:chips}+#1#{} Chips"},
+					{"When played,",
+					"gains {C:chips}+#2#{} Chips"},
+					{"{C:attention}Burns"},
 				},
 			},
 			["m_bld_bones"] = {
 				["name"] = "The Bones",
 				["text"] = {
 					"{X:green,C:white}Green{} {X:dark_edition,C:white}Faded{}",
-					"Increase all {C:green,E:1}probabilities{}",
+					"Increases all {C:green,E:1}probabilities{}",
 					"by {C:green}#1#{} this hand",
 				},
 			},
 			["m_bld_fruit"] = {
 				["name"] = "The Fruit",
 				["text"] = {
-					"{X:red,C:white}Red{} {X:dark_edition,C:white}Faded{}",
-					"{C:red}Debuff{} all adjacent,",
-					"played blinds",
+					{"{X:red,C:white}Red{} {X:dark_edition,C:white}Faded{}",
 					"Retriggers all scoring",
-					"{X:red,C:white}Red{} Blinds",
+					"{X:red,C:white}Red{} Blinds"},
+					{"{C:red}Debuffs{} all adjacent",
+					"played blinds"},
 				},
 			},
 			["m_bld_window"] = {
 				["name"] = "The Window",
 				["text"] = {
-					"{X:dark_edition,C:white}Faded{}",
-					"{C:red}Debuffs{} all",
-					"scoring {X:money,C:white}Yellow{} Blinds,",
-					"{C:money}+#1#${} when scored"
+					{"{X:dark_edition,C:white}Faded{}",
+					"{C:money}+#1#${}"},
+					{"{C:red}Debuffs{} all",
+					"scoring {X:money,C:white}Yellow{} Blinds"},
 				},
 			},
 			["m_bld_manacle"] = {
 				["name"] = "The Manacle",
 				["text"] = {
-					"{X:dark_edition,C:white}Faded{}",
-					"Always Scores",
-					"Doesn't score in a {C:attention}5 blind hand{}",
-					"Retriggers all {C:attention}scored blinds"
+					{"{X:dark_edition,C:white}Faded{}",
+					"Retriggers all {C:attention}scored blinds"},
+					{"Always Scores"},
+					{"If played hand conatins",
+					"{C:attention}5{} Blinds, debuffs self",}
+					
 				},
 			},
 			["m_bld_pot"] = {
 				["name"] = "The Pot",
 				["text"] = {
 					"{X:money,C:white}Yellow{}",
-					"{C:money}+#1#${} when",
-					"held in hand",
+					"{C:money}+1${} when scored",
+					"or held in hand",
 				},
 			},
 			["m_bld_price"] = {
 				["name"] = "The Price",
 				["text"] = {
-					"{X:money,C:white}Yellow{}",
-					"{C:money}-#3#${} and gains",
-					"{C:red}+#2#{} Mult when scored",
-					"{C:inactive}(Currently: {C:mult}+#1#{C:inactive} Mult)",
+					{"{X:money,C:white}Yellow{}",
+					"{C:money}-#3#${} and",
+					"currently {C:mult}+#1#{} Mult"},
+					{"Gains {C:red}+#2#{} Mult",
+					"when scored"},
 				},
 			},
 			["m_bld_eye"] = {
 				["name"] = "The Eye",
 				["text"] = {
-					"{X:blue,C:white}Blue{}",
-					"{C:mult}+#2#{} Mult when scored",
-					"{X:chips,C:white}X#1#{} Chips while",
-					"{C:attention}held in hand{}.",
+					{"{X:blue,C:white}Blue{}",
+					"{C:mult}+#2#{} Mult"},
+					{"{X:chips,C:white}X#1#{} Chips while",
+					"{C:attention}held in hand{}"},
 				},
 			},
-			["m_bld_peace"] = {
+			["m_bld_peace"] = { -- base will loc later, do not remove note
 				["name"] = "The Peace",
 				["text"] = {
 					"{X:blue,C:white}Blue{}",
@@ -1259,7 +1272,7 @@ return {
 					"card {C:attention}held in hand",
 				},
 			},
-			["m_bld_lantern"] = {
+			["m_bld_lantern"] = { -- base will loc later, do not remove note
 				["name"] = "The Lantern",
 				["text"] = {
 					"{X:blue,C:white}Blue{}",
@@ -1269,7 +1282,7 @@ return {
 					"{C:inactive}(Currently: {X:blue,C:white}X#1#{C:inactive} Chips)",
 				},
 			},
-			["m_bld_meteor"] = {
+			["m_bld_meteor"] = { -- base will loc later, do not remove note
 				["name"] = "The Meteor",
 				["text"] = {
 					"{X:blue,C:white}Blue{}",
@@ -1277,7 +1290,7 @@ return {
 					"Must be a {C:attention}Bet",
 				},
 			},
-			["m_bld_joy"] = {
+			["m_bld_joy"] = { -- base will loc later, do not remove note
 				["name"] = "The Joy",
 				["text"] = {
 					"{X:blue,C:white}Blue{} {X:yellow,C:white}Yellow",
@@ -1286,7 +1299,7 @@ return {
 					"{C:inactive}(Currently: {C:blue}+#2#{C:inactive} Chips)",
 				},
 			},
-			["m_bld_hat"] = {
+			["m_bld_hat"] = { -- base will loc later, do not remove note
 				["name"] = "The Hat",
 				["text"] = {
 					"{X:dark_edition,C:white}Faded{}",
@@ -1294,7 +1307,7 @@ return {
 					"random effect",
 				},
 			},
-			["m_bld_earth"] = {
+			["m_bld_earth"] = { -- base will loc later, do not remove note
 				["name"] = "The Earth",
 				["text"] = {
 					"{X:green,C:white}Green{}",
@@ -1305,28 +1318,28 @@ return {
 			["m_bld_mouth"] = {
 				["name"] = "The Mouth",
 				["text"] = {
-					"{X:purple,C:white}Purple{}",
-					"Scores if hand has already",
-					"been played this round",
-					"{X:mult,C:white}X#1#{} Mult when scored",
+					{"{X:purple,C:white}Purple{}",
+					"{X:mult,C:white}X#1#{} Mult"},
+					{"Debuffed if hand has not",
+					"been played this round"},
 				},
 			},
 			["m_bld_plant"] = {
 				["name"] = "The Plant",
 				["text"] = {
-					"{X:green,C:white}Green{}",
-					"{C:green}#2#{} in {C:green}#3#{} chance to {C:red}debuff",
-					"all other played Blinds",
-					"{X:mult,C:white}X#1#{} Mult when scored",
+					{"{X:green,C:white}Green{}",
+					"{X:mult,C:white}X#1#{} Mult"},
+					{"{C:green}#2#{} in {C:green}#3#{} chance to {C:red}debuff",
+					"all other played Blinds"},
 				},
 			},
 			["m_bld_serpent"] = {
 				["name"] = "The Serpent",
 				["text"] = {
-					"{X:green,C:white}Green{}",
-					"Always Scores",
+					{"{X:green,C:white}Green{}",
 					"Draw {C:attention}#1#{} additional",
-					"blinds after scoring",
+					"blinds after scoring"},
+					{"Always Scores"},
 				},
 			},
 			["m_bld_pillar"] = {
@@ -1341,20 +1354,21 @@ return {
 			["m_bld_needle"] = {
 				["name"] = "The Needle",
 				["text"] = {
-					"{X:green,C:white}Green{}",
+					{"{X:green,C:white}Green{}",
 					"If in {C:attention}first played hand{}",
-					" of round, {X:mult,C:white}X#1#{} Mult",
-					"Otherwise, {C:mult}+#2#{} Mult and {C:attention}Burns",
+					"of round, {X:mult,C:white}X#1#{} Mult"},
+					{"Otherwise, {C:mult}+#2#{} Mult",
+					"and {C:attention}Burns"},
 				},
 			},
 			["m_bld_head"] = {
 				["name"] = "The Head",
 				["text"] = {
-					"{X:purple,C:white}Purple{} {X:dark_edition,C:white}Faded{}",
-					"{C:red}Debuffs{} all scoring ",
-					"{X:purple,C:white}Purple{} Blinds",
-					"{X:mult,C:white}X#1#{} Mult for each",
-					"Blind debuffed"
+					{"{X:purple,C:white}Purple{} {X:dark_edition,C:white}Faded{}",
+					"{X:mult,C:white}+X#1#{} Mult for each",
+					"debuffed {X:purple,C:white}Purple{} Blind"},
+					{"{C:red}Debuffs{} all scoring ",
+					"{X:purple,C:white}Purple{} Blinds"},
 				},
 			},
 			["m_bld_tooth"] = {
@@ -1368,27 +1382,28 @@ return {
 			["m_bld_flint"] = {
 				["name"] = "The Flint",
 				["text"] = {
-					"{X:money,C:white}Yellow{}",
-					"{C:money}+#2#${} when scored",
-					"{C:mult}+#1#{} Mult while",
-					"{C:attention}held in hand{}.",
+					{"{X:money,C:white}Yellow{}",
+					"{C:money}+#2#${} when scored"},
+					{"{C:mult}+#1#{} Mult while",
+					"{C:attention}held in hand{}"},
 				},
 			},
 			["m_bld_mark"] = {
 				["name"] = "The Mark",
 				["text"] = {
-					"{X:red,C:white}Red{}",
-					"Drawn face down",
-					"Always Scores",
-					"{X:mult,C:white}X#1#{} Mult",
+					{"{X:red,C:white}Red{}",
+					"{X:mult,C:white}X#1#{} Mult"},
+					{"Drawn face down"},
+					{"Always scores"},
 				},
 			},
 			["m_bld_blank"] = {
 				["name"] = "The Blank",	
 				["text"] = {
-					"{X:dark_edition,C:white}Faded{}",
-					"Always Scores",
-					"Retriggers {C:attention}adjacent Blinds",
+					{"{X:dark_edition,C:white}Faded{}",
+					"Retriggers",
+					"{C:attention}adjacent Blinds"},
+					{"Always scores"},
 				},
 			},
 			["m_bld_deck"] = {
@@ -1401,32 +1416,32 @@ return {
 				},
 			},
 			["m_bld_vast"] = {
-				["name"] = "The Vast",	
+				["name"] = "The Vast",
 				["text"] = {
 					"{X:chips,C:white}Blue{}",
 					"If scoring hand contains",
-					"{C:attention}#1#{} {X:chips,C:white}Blue{} Blinds, creates",
-					"a random {C:mineral}Mineral{} card",
+					"{C:attention}#1#{} {X:chips,C:white}Blue{} Blinds, creates a",
+					"random {C:attention}Mineral{} card",
 					"{C:inactive,S:0.8}(Must have room)"
 				},
 			},
 			["m_bld_pile"] = {
 				["name"] = "The Pile",	
 				["text"] = {
-					"{X:chips,C:white}Blue{}",
-					"Discard up to {C:attention}#1#{}",
-					"Non-{X:blue,C:white}Blue{} Blinds",
-					"when scored",
-					"{C:chips}+#2#{} Chips",
+					{"{X:chips,C:white}Blue{}",
+					"{C:chips}+#2#{} Chips"},
+					{"Discards up to {C:attention}#1#{}",
+					"non-{X:blue,C:white}Blue{} Blinds",
+					"when scored"},
 				},
 			},
 			["m_bld_top"] = {
 				["name"] = "The Top",	
 				["text"] = {
-					"{X:chips,C:white}Blue{} {X:purple,C:white}Purple{}",
-					"Gains {C:chips}+#1#{} Chips for",
-					"each blind {C:attention}held in hand{}",
-					"{C:inactive}(Currently: {C:chips}+#2#{C:inactive} Chips)"
+					{"{X:chips,C:white}Blue{} {X:purple,C:white}Purple{}",
+					"Currently {C:chips}+#2#{} Chips"},
+					{"Gains {C:chips}+#1#{} Chips for",
+					"each blind {C:attention}held in hand{}"},
 				},
 			},
 		},
@@ -1434,9 +1449,9 @@ return {
 			['j_bld_paycheck'] = {
 				["name"] = "Paycheck",
 				["text"] = {
-					"Earn {C:money}$#1#{} at end of round",
-					"Payout increases by {C:money}$#2#{}",
-					"when {C:attention}Raise{} is played"
+					{"Earn {C:money}$#1#{} at end of round"},
+					{"Payout increases by {C:money}$#2#{}",
+					"when {C:attention}Raise{} is played"}
 				}
 			},
 			['j_bld_taglock'] = {
@@ -1450,7 +1465,7 @@ return {
 				["text"] = {
 					"If {C:attention}Discard{} contains",
 					"only 1 Blind, play it",
-					"then {C:attention}Burn{} it"
+					"and {C:attention}Burn{} it"
 				}
 			},
 			['j_bld_canvas'] = {
@@ -1471,8 +1486,8 @@ return {
 			['j_bld_actionfigure'] = {
 				["name"] = "Action Figure",
 				["text"] = {
-					"{X:mult,C:white}Red{} Blinds held in",
-					"hand give {C:mult}+#1#{} Mult",
+					"Each {X:mult,C:white}Red{} Blind held in",
+					"hand gives {C:mult}+#1#{} Mult",
 				}
 			},
 			['j_bld_pirateship'] = {
@@ -1540,7 +1555,7 @@ return {
 			['j_bld_microphone'] = {
 				["name"] = "Microphone",
 				["text"] = {
-					"Provides {C:chips}Chips{} equal to",
+					"Gives {C:chips}Chips{} equal to",
 					"{C:attention}half{} the Chips of {C:attention}previous hand",
 					"{C:inactive}(Currently: {C:chips}+#1#{C:inactive} Chips)",
 				}
@@ -1548,16 +1563,16 @@ return {
 			['j_bld_cellphone'] = {
 				["name"] = "Cellphone",
 				["text"] = {
-					"Discarded {B:1,C:white}#2#{} Blinds",
-					"give {C:money}+#1#${}",
+					"Earn {C:money}+#1#${} for each",
+					"discarded {B:1,C:white}#2#{} Blind",
 					"{C:inactive,S:0.8}(Changes at end of round)"
 				}
 			},
 			['j_bld_fineart'] = {
 				["name"] = "Fine Art",
 				["text"] = {
-					"Scoring {B:1,C:white}#2#{} Blinds increase",
-					"sell value by {C:money}+#1#${}",
+					"Gains {C:money}+#1#${} of sell value",
+					"when a {B:1,C:white}#2#{} Blind is scored",
 					"{C:inactive,S:0.8}(Changes at end of round)"
 				}
 			},
@@ -1569,7 +1584,7 @@ return {
 					"a {C:bld_obj_mineral}Mineral{} card"
 				}
 			},
-			['j_bld_pickaxe'] = {
+			['j_bld_pickaxe'] = {  -- base will loc later, do not remove note
 				["name"] = "Pickaxe",
 				["text"] = {
 					"Create a {C:bld_obj_mineral}Mineral{} card",
@@ -1604,9 +1619,9 @@ return {
 			['j_bld_scratchticket'] = {
 				["name"] = "Scratch Ticket",
 				["text"] = {
-					"{C:green}#2# in #3#{} chance for {C:money}+#1#${}",
-					"Chance increases for each scored",
-					"{C:attention}blind{} of a repeated {C:attention}Hue"
+					{"{C:green}#2# in #3#{} chance for {C:money}+#1#${}"},
+					{"Chance increases for each scored",
+					"{C:attention}blind{} of a repeated {C:attention}Hue"}
 				}
 			},
 			['j_bld_ensign'] = {
@@ -1635,17 +1650,17 @@ return {
 			['j_bld_pawn'] = {
 				["name"] = "Pawn",
 				["text"] = {
-					"Play a {C:attention}#3#{} to rank up",
-					"{C:mult}+#2#{} Mult per rank",
-					"{C:inactive}(Currently: {C:mult}+#1#{C:inactive} Mult)"
+					{"Play a {C:attention}#3#{} to rank up"},
+					{"{C:mult}+#2#{} Mult per rank",
+					"{C:inactive}(Currently: {C:mult}+#1#{C:inactive} Mult)"}
 				}
 			},
 			['j_bld_saltlamp'] = {
 				["name"] = "Salt Lamp",
 				["text"] = {
 					"If played hand",
-					"contains a {C:attention}Flush{},",
-					"Create two {C:bld_obj_mineral}Mineral{} cards",
+					"contains a {C:attention}Flush{}, creates",
+					"2 random {C:bld_obj_mineral}Mineral{} cards",
 					"{C:inactive,S:0.8}(Must have room)"
 				}
 			},
@@ -1658,10 +1673,10 @@ return {
 			['j_bld_sunset'] = {
 				["name"] = "Sunset",
 				["text"] = {
-					"{X:mult,C:white}Red{} and {X:money,C:white}Yellow{}",
-					"count as the same hue",
-					"{X:chips,C:white}Blue{} and {X:purple,C:white}Purple{}",
-					"count as the same hue",
+					{"{X:mult,C:white}Red{} and {X:money,C:white}Yellow{}",
+					"count as the same hue"},
+					{"{X:chips,C:white}Blue{} and {X:purple,C:white}Purple{}",
+					"count as the same hue"},
 				}
 			},
 			['j_bld_doubloon'] = {
@@ -1689,8 +1704,8 @@ return {
 				["name"] = "Award",
 				["text"] = {
 					"At the end of round,",
-					"{X:money,C:white}Yellow{} Blinds",
-					"held in hand give {C:money}+#1#${}",
+					"{X:money,C:white}Yellow{} Blinds held",
+					"in hand give {C:money}+#1#${}",
 				}
 			},
 			['j_bld_kazoo'] = {
@@ -1721,9 +1736,9 @@ return {
 			['j_bld_glasseye'] = {
 				["name"] = "Glass Eye",
 				["text"] = {
-					"{X:mult,C:white}X#1#{} Mult",
-					"Creates a {C:attention}Debuff{} Tag",
-					"after each hand"
+					{"{X:mult,C:white}X#1#{} Mult"},
+					{"Creates a {C:attention}Debuff{} Tag",
+					"after each hand"}
 				}
 			},
 			['j_bld_cowskull'] = {
@@ -1793,34 +1808,34 @@ return {
 			['j_bld_discount'] = {
 				["name"] = "Discount",
 				["text"] = {
-					"Initial Boosters in",
-					"{C:attention}Boss Shop{} are free"
+					"Shop contains {C:attention}1{}",
+					"additional free {C:bld_obj_filmcard}Channel{} Pack"
 				}
 			},
 			['j_bld_piggybank'] = {
 				["name"] = "Piggy Bank",
 				["text"] = {
-					"When {C:attention}Joker{} is selected,",
-					"Gain {C:money}+#1#${}",
-					"When {C:attention}Trinket{} is bought",
-                    "{S:1.1,C:red,E:2}self destructs{}"
+					{"When {C:attention}Joker{} is selected,",
+					"gain {C:money}+#1#${}"},
+					{"When a {C:attention}Trinket{} is bought,",
+                    "{S:1.1,C:red,E:2}self destructs{}"}
 				}
 			},
 			['j_bld_porcelaindoll'] = {
 				["name"] = "Porcelain Doll",
 				["text"] = {
-					"At end of {C:attention}Round{},",
-					"gains {C:money}+#1#{} Sell Value",
-					"{C:red}Breaks{} if scoring hand",
-					"contains {C:attention}5{} Blinds",
+					{"At end of {C:attention}Round{},",
+					"gains {C:money}+#1#{} Sell Value"},
+					{"{C:red}Breaks{} if scoring hand",
+					"contains {C:attention}5{} Blinds"},
 				}
 			},
 			['j_bld_glasses'] = {
 				["name"] = "3D Glasses",
 				["text"] = {
 					"If scoring hand contains",
-					"only {X:mult,C:white}Red{} and {X:blue,C:white}Blue{} Blinds,",
-					"Create a {C:bld_obj_filmcard}Channel{} Card",
+					"only both {X:mult,C:white}Red{} and {X:blue,C:white}Blue{} Blinds,",
+					"create a {C:bld_obj_filmcard}Channel{} Card",
 					"{C:inactive,S:0.8}(Must have room)"
 				}
 			},
@@ -1846,6 +1861,15 @@ return {
 			},
 		},
 		["Other"] = {
+			["bld_self_scoring"] = {
+				["name"] = "Self-Scoring",
+				["text"] = {
+					"{C:attention}Always scores",
+					"{s:0.2} {}",
+					"If {C:green}chance{} fails,",
+					"{C:red}debuffs{} self"
+				}
+			},
 			["bld_wild_seal"]	= {
 				["name"] = "Wild Blind",
 				["text"] = {
