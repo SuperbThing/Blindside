@@ -6,7 +6,7 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 1
+                return 2
             else
                 return 0
             end
@@ -45,7 +45,7 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 1
+                return 2
             else
                 return 0
             end
@@ -84,7 +84,7 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 1
+                return 2
             else
                 return 0
             end
@@ -123,7 +123,7 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 1
+                return 2
             else
                 return 0
             end
@@ -162,7 +162,7 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 1
+                return 2
             else
                 return 0
             end
@@ -202,7 +202,7 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 1
+                return 2
             else
                 return 0
             end
@@ -242,7 +242,7 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 1
+                return 2
             else
                 return 0
             end
@@ -282,7 +282,7 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 1
+                return 2
             else
                 return 0
             end
