@@ -58,6 +58,7 @@
             end
         end,
         loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
             return {
                 vars = {
                     card.ability.extra.chips_gain
