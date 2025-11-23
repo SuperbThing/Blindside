@@ -3,7 +3,8 @@
         atlas = 'bld_blindrank',
         pos = {x = 6, y = 0},
         config = {
-            mult = 15,
+            mult = 10,
+            x_mult = 2,
             extra = {
                 value = 100,
                 hues = {"Yellow", "Faded"}
@@ -49,7 +50,7 @@
         loc_vars = function(self, info_queue, card)
             return {
                 vars = {
-                    card.ability.mult
+                    card.ability.mult, card.ability.x_mult
                 }
             }
         end
