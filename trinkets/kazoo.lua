@@ -31,7 +31,7 @@
                 add_tag(Tag('tag_bld_maxim'))
             end
             if context.discard and context.other_card == context.full_hand[#context.full_hand] then
-                card.ability.extra.reds = false
+                card.ability.extra.reds = 0
             end
         end
     })
