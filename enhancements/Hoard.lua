@@ -29,7 +29,7 @@
         },
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.main_scoring then
-                if #G.jokers.cards <= 3 then
+                if #G.jokers.cards + G.GAME.joker_buffer <= 3 then
                     return {
                         mult = card.ability.extra.mult,
                         xmult = card.ability.extra.xmult
