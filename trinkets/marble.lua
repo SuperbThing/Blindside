@@ -28,7 +28,7 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.repetition and context.cardarea == G.play and #context.other_card.config.center.config.extra.hues > 1 and context.other_card.facing ~= "back" then
+            if context.repetition and context.cardarea == G.play and context.other_card and #context.other_card.config.center.config.extra.hues > 1 and context.other_card.facing ~= "back" then
                 return {
                     message = localize('k_again_ex'),
                     repetitions = card.ability.extra.retriggers,
