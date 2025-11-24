@@ -266,13 +266,23 @@ function BLINDSIDE.chipsupdate()
         chip_mod = ((final_chips - G.GAME.blind.chips) / 120):ceil()
     end
     local step = 0
+    local greater = false
+    if final_chips > G.GAME.blind.chips then
+        greater = true
+    end
     if final_chips ~= G.GAME.blind.chips then
         G.E_MANAGER:add_event(Event({trigger = 'after', blocking = true, delay = 0.3, func = function()
             G.GAME.blind.chips = G.GAME.blind.chips + G.SETTINGS.GAMESPEED * chip_mod
-            if G.GAME.blind.chips < final_chips then
+            if G.GAME.blind.chips < final_chips and greater then
                 G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
                 if step % 5 == 0 then
                     play_sound('chips1', 0.8 + (step * 0.005))
+                end
+                step = step + 1
+            elseif G.GAME.blind.chips > final_chips and not greater then
+                G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+                if step % 5 == 0 then
+                    play_sound('chips1', 1 - (step * 0.005))
                 end
                 step = step + 1
             else

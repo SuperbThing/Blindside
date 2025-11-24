@@ -1151,6 +1151,7 @@ match_indent = true
 position = 'after'
 payload = '''
 self.GAME.current_round.trinket = BLINDSIDE.get_next_trinket()
+G.GAME.round_resets.tags_bought = 0
 '''
 
 # current round trinkets
@@ -1166,6 +1167,7 @@ payload = '''
 for i = 1, G.GAME.shop.joker_max do
     G.GAME.current_round.trinket = BLINDSIDE.get_next_trinket()
 end
+G.GAME.round_resets.tags_bought = 0
 '''
 
 # current round trinkets
@@ -1178,6 +1180,27 @@ G.jokers:emplace(c1)
 match_indent = true
 position = 'after'
 payload = '''
-print(c1.shop_voucher)
 if c1.shop_voucher then G.GAME.current_round.trinket.spawn[c1.config.center_key] = false end
+'''
+
+# voucher refresh
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''
+if self.shop_voucher then G.GAME.current_round.voucher.spawn[self.config.center_key] = false end
+'''
+match_indent = true
+position = 'after'
+payload = '''
+if self.shop_voucher and G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then 
+G.GAME.current_round.voucher = SMODS.get_next_vouchers()
+G.GAME.round_resets.tags_bought = G.GAME.round_resets.tags_bought + 1
+for _, key in ipairs(G.GAME.current_round.voucher or {}) do
+    if G.P_CENTERS[key] and G.GAME.current_round.voucher.spawn[key] then
+        SMODS.add_voucher_to_shop(key)
+        G.shop_vouchers.cards[1].cost = G.shop_vouchers.cards[1].cost + 10*G.GAME.round_resets.tags_bought
+    end
+end
+end
 '''
