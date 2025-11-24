@@ -1185,19 +1185,19 @@ return {
 				["name"] = "The Skull",
 				["text"] = {
 					{"{X:purple,C:white}Purple{}",
-					"Currently {X:mult,C:white}+#2#{} Mult)"},
+					"Currently {X:mult,C:white}X#2#{} Mult)"},
 					{"{C:attention}Destroys{} a random",
 					"played, unscored Blind and",
-					"gains {X:mult,C:white}+#1#{} Mult"},
+					"gains {X:mult,C:white}X#1#{} Mult"},
 				},
 			},
 			["m_bld_water"] = {
 				["name"] = "The Water",
 				["text"] = {
 					{"{X:chips,C:white}Blue{} {X:dark_edition,C:white}Faded{}",
-					"Currently {X:chips,C:white}+#1#{} Chips"},
+					"Currently {X:chips,C:white}X#1#{} Chips"},
 					{"When played,",
-					"gains {X:chips,C:white}+#2#{} Chips"},
+					"gains {X:chips,C:white}X#2#{} Chips"},
 					{"{C:attention}Burns"},
 				},
 			},
@@ -1250,11 +1250,12 @@ return {
 			["m_bld_price"] = {
 				["name"] = "The Price",
 				["text"] = {
-					{"Currently {C:mult}+#1#{} Mult"},
-					{"Flips all Blinds",
-					"{C:attention}held in hand"},
+					{"{X:money,C:white}Yellow{}",
+					"Currently {C:mult}+#1#{} Mult"},
 					{"Gains {C:red}+#2#{} Mult",
 					"when scored"},
+					{"Flips all Blinds",
+					"{C:attention}held in hand"},
 				},
 			},
 			["m_bld_eye"] = {
