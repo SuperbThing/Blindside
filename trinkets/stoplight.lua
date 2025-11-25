@@ -36,15 +36,13 @@
             card.children.center:set_sprite_pos(card_table.ability.extra.x_value)
         end,
         calculate = function(self, card, context)
-            if context.joker_main and card.ability.extra.x_value.x == 2 then
-                return {
-                    mult = card.ability.extra.mult
-                }
-            end
-            if context.joker_main and card.ability.extra.x_value.x == 3 then
-                return {
-                    chips = card.ability.extra.chips
-                }
+            if context.before and card.ability.extra.x_value.x == 2 then
+                for i=1, #G.play.cards do
+                    if G.play.cards[i].facing ~= 'back' then 
+                    G.play.cards[i]:flip()
+                    end
+                    G.play.cards[i]:set_debuff(true)
+                end
             end
             if context.repetition and card.ability.extra.x_value.x == 4 and context.cardarea == G.play and context.other_card and context.other_card.facing ~= "back" then
                 return {
@@ -56,7 +54,10 @@
             end
             if context.after and not context.blueprint then
                 if card.ability.extra.x_value.x == 2 then
-                    card.ability.extra.x_value.x = 4 
+                    card.ability.extra.x_value.x = 4
+                    for i=1, #G.play.cards do
+                        G.play.cards[i]:set_debuff(false)
+                    end
                 else
                     card.ability.extra.x_value.x = card.ability.extra.x_value.x - 1
                 end

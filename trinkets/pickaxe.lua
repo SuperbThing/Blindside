@@ -16,26 +16,24 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.discard and context.other_card == context.full_hand[#context.full_hand] and context.hook == false then 
-                if G.GAME.current_round.discards_left == 1 then
-                    G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-                    return {
-                        extra = {focus = card, message = localize('k_dug_ex'), func = function()
-                            G.E_MANAGER:add_event(Event({
-                                trigger = 'before',
-                                delay = 0.0,
-                                func = (function()
-                                        local card = create_card('bld_obj_mineral',G.consumeables, nil, nil, nil, nil, nil, 'pickaxe')
-                                        card:add_to_deck()
-                                        G.consumeables:emplace(card)
-                                        G.GAME.consumeable_buffer = 0
-                                    return true
-                                end)}))
-                        end},
-                        colour = G.C.SECONDARY_SET.bld_obj_mineral,
-                        card = card
-                    }
-                end
+            if context.reshuffle then 
+                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                return {
+                    extra = {focus = card, message = localize('k_dug_ex'), func = function()
+                        G.E_MANAGER:add_event(Event({
+                            trigger = 'before',
+                            delay = 0.0,
+                            func = (function()
+                                    local card = create_card('bld_obj_mineral',G.consumeables, nil, nil, nil, nil, nil, 'pickaxe')
+                                    card:add_to_deck()
+                                    G.consumeables:emplace(card)
+                                    G.GAME.consumeable_buffer = 0
+                                return true
+                            end)}))
+                    end},
+                    colour = G.C.SECONDARY_SET.bld_obj_mineral,
+                    card = card
+                }
             end
         end
     })

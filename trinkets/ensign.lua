@@ -14,6 +14,7 @@
         blueprint_compat = false,
         eternal_compat = true,
         loc_vars = function (self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_TAGS['tag_bld_recursive']
             return {
                 vars = {
                 card.ability.extra.count,
@@ -39,10 +40,7 @@
                     focus = card,
                     message = localize('k_tagged_ex'),
                     func = function()
-                        local tag_key = get_next_tag_key()
-                        while tag_key == 'tag_orbital' do
-                            tag_key = get_next_tag_key()
-                        end
+                        local tag_key = 'tag_bld_recursive'
                         add_tag(Tag(tag_key))   
                     end,
                     card = card

@@ -6,7 +6,7 @@
         rarity = 'bld_keepsake',
         config = {
             extra = {
-                Xmult = 1.25,
+                repetitions = 1,
             }
         },
         cost = 10,
@@ -15,7 +15,7 @@
         loc_vars = function (self, info_queue, card)
             return {
                 vars = {
-                card.ability.extra.Xmult,
+                card.ability.extra.repetitions,
             }
         }
         end,
@@ -28,9 +28,14 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.individual and context.cardarea == G.play and context.other_card:is_color("Red") and context.other_card.facing ~= "back" then
+            if context.repetitions and context.other_card and context.other_card:is_color("Red") and context.other_card.facing ~= "back" then
                 return {
-                    xmult = card.ability.extra.Xmult
+                    repetitions = card.ability.extra.repetitions
+                }
+            end
+            if context.burn_card and card.ability.extra.active and context.cardarea == G.play and context.burn_card:is_color("Red") then
+                return {
+                    remove = true
                 }
             end
         end

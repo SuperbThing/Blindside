@@ -21,11 +21,17 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
+        local hasWildCanvas = false
+        for i = 1, #context.scoring_hand do
+            if context.scoring_hand[i].seal == "bld_wild" and context.scoring_hand[i].facing ~= "back" and next(SMODS.find_card('j_bld_canvas')) then
+                hasWildCanvas = true
+            end
+        end
         if context.setting_blind and not context.disabled then
             blind.active = true
         end
         if context.after and not G.GAME.blind.disabled and blind.active and next(context.poker_hands['bld_blind_2oak']) then
-            BLINDSIDE.chipsmodify(0, 0, 0, 2)
+            BLINDSIDE.chipsmodify(0, 0, 0, 2- (hasWildCanvas and 0.5 or 0))
             blind.active = false
         end
     end,
@@ -58,11 +64,17 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
+        local hasWildCanvas = false
+        for i = 1, #context.scoring_hand do
+            if context.scoring_hand[i].seal == "bld_wild" and context.scoring_hand[i].facing ~= "back" and next(SMODS.find_card('j_bld_canvas')) then
+                hasWildCanvas = true
+            end
+        end
         if context.setting_blind and not context.disabled then
             blind.active = true
         end
         if context.after and not G.GAME.blind.disabled and blind.active and next(context.poker_hands['bld_blind_3oak']) then
-            BLINDSIDE.chipsmodify(0, 0, 0, 2.5)
+            BLINDSIDE.chipsmodify(0, 0, 0, 2.5- (hasWildCanvas and 0.5 or 0))
             blind.active = false
         end
     end,
@@ -95,11 +107,17 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
+        local hasWildCanvas = false
+        for i = 1, #context.scoring_hand do
+            if context.scoring_hand[i].seal == "bld_wild" and context.scoring_hand[i].facing ~= "back" and next(SMODS.find_card('j_bld_canvas')) then
+                hasWildCanvas = true
+            end
+        end
         if context.setting_blind and not context.disabled then
             blind.active = true
         end
         if context.after and not G.GAME.blind.disabled and blind.active and next(context.poker_hands['bld_blind_2pair']) then
-            BLINDSIDE.chipsmodify(0, 0, 0, 2)
+            BLINDSIDE.chipsmodify(0, 0, 0, 2- (hasWildCanvas and 0.5 or 0))
             blind.active = false
         end
     end,
@@ -132,11 +150,17 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
+        local hasWildCanvas = false
+        for i = 1, #context.scoring_hand do
+            if context.scoring_hand[i].seal == "bld_wild" and context.scoring_hand[i].facing ~= "back" and next(SMODS.find_card('j_bld_canvas')) then
+                hasWildCanvas = true
+            end
+        end
         if context.setting_blind and not context.disabled then
             blind.active = true
         end
         if context.after and not G.GAME.blind.disabled and blind.active and next(context.poker_hands['bld_raise']) then
-            BLINDSIDE.chipsmodify(0, 0, 0, 3)
+            BLINDSIDE.chipsmodify(0, 0, 0, 3- (hasWildCanvas and 1 or 0))
             blind.active = false
         end
     end,
@@ -170,11 +194,17 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
+        local hasWildCanvas = false
+        for i = 1, #context.scoring_hand do
+            if context.scoring_hand[i].seal == "bld_wild" and context.scoring_hand[i].facing ~= "back" and next(SMODS.find_card('j_bld_canvas')) then
+                hasWildCanvas = true
+            end
+        end
         if context.setting_blind and not context.disabled then
             blind.active = true
         end
         if context.after and not G.GAME.blind.disabled and blind.active and next(context.poker_hands['bld_blind_flush']) then
-            BLINDSIDE.chipsmodify(0, 0, 0, 3)
+            BLINDSIDE.chipsmodify(0, 0, 0, 3- (hasWildCanvas and 1 or 0))
             blind.active = false
         end
     end,

@@ -14,11 +14,6 @@
         eternal_compat = true,
         loc_vars = function (self, info_queue, card)
             info_queue[#info_queue + 1] = G.P_SEALS["bld_wild"]
-            return {
-                vars = {
-                card.ability.extra.mult_mod
-            }
-        }
         end,
         in_pool = function(self, args)
             if G.GAME.selected_back.effect.center.config.extra then
@@ -34,11 +29,4 @@
             return false
             end
         end,
-        calculate = function(self, card, context)
-            if context.individual and context.cardarea == G.play and context.other_card.seal == "bld_wild" and context.other_card.facing ~= "back" then
-                return {
-                    mult = card.ability.extra.mult_mod
-                }
-            end
-        end
     })

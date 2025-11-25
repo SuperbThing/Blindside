@@ -21,7 +21,13 @@ SMODS.Blind({
     end,
     calculate = function(self, blind, context)
         if context.after and not G.GAME.blind.disabled then
-            BLINDSIDE.chipsmodify(1, 0, 0)
+            local hasWildCanvas = false
+            for i = 1, #context.scoring_hand do
+                if context.scoring_hand[i].seal == "bld_wild" and context.scoring_hand[i].facing ~= "back" and next(SMODS.find_card('j_bld_canvas')) then
+                    hasWildCanvas = true
+                end
+            end
+            BLINDSIDE.chipsmodify(1 - (hasWildCanvas and 0.5 or 0), 0, 0)
         end
     end,
     disable = function()
@@ -57,6 +63,12 @@ SMODS.Blind({
     end,
     calculate = function(self, blind, context)
         if context.after and not G.GAME.blind.disabled then
+            local hasWildCanvas = false
+            for i = 1, #context.scoring_hand do
+                if context.scoring_hand[i].seal == "bld_wild" and context.scoring_hand[i].facing ~= "back" and next(SMODS.find_card('j_bld_canvas')) then
+                    hasWildCanvas = true
+                end
+            end
             local changed = false
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i]:is_color("Red") and context.scoring_hand[i].facing ~= "back" then
@@ -64,7 +76,7 @@ SMODS.Blind({
                 end
             end
             if changed then
-            BLINDSIDE.chipsmodify(2, 0, 0)
+            BLINDSIDE.chipsmodify(2 - (hasWildCanvas and 1 or 0), 0, 0)
             end
         end
     end,
@@ -99,6 +111,12 @@ SMODS.Blind({
     end,
     calculate = function(self, blind, context)
         if context.after and not G.GAME.blind.disabled then
+            local hasWildCanvas = false
+            for i = 1, #context.scoring_hand do
+                if context.scoring_hand[i].seal == "bld_wild" and context.scoring_hand[i].facing ~= "back" and next(SMODS.find_card('j_bld_canvas')) then
+                    hasWildCanvas = true
+                end
+            end
             local changed = false
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i]:is_color("Yellow") and context.scoring_hand[i].facing ~= "back" then
@@ -106,7 +124,7 @@ SMODS.Blind({
                 end
             end
             if changed then
-                BLINDSIDE.chipsmodify(2, 0, 0)
+                BLINDSIDE.chipsmodify(2- (hasWildCanvas and 1 or 0), 0, 0)
             end
         end
     end,
@@ -141,6 +159,12 @@ SMODS.Blind({
     end,
     calculate = function(self, blind, context)
         if context.after and not G.GAME.blind.disabled then
+            local hasWildCanvas = false
+            for i = 1, #context.scoring_hand do
+                if context.scoring_hand[i].seal == "bld_wild" and context.scoring_hand[i].facing ~= "back" and next(SMODS.find_card('j_bld_canvas')) then
+                    hasWildCanvas = true
+                end
+            end
             local changed = false
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i]:is_color("Purple") and context.scoring_hand[i].facing ~= "back" then
@@ -148,7 +172,7 @@ SMODS.Blind({
                 end
             end
             if changed then
-                BLINDSIDE.chipsmodify(2, 0, 0)
+                BLINDSIDE.chipsmodify(2- (hasWildCanvas and 1 or 0), 0, 0)
             end
         end
     end,
@@ -181,6 +205,12 @@ SMODS.Blind({
     end,
     calculate = function(self, blind, context)
         if context.after and not G.GAME.blind.disabled then
+            local hasWildCanvas = false
+            for i = 1, #context.scoring_hand do
+                if context.scoring_hand[i].seal == "bld_wild" and context.scoring_hand[i].facing ~= "back" and next(SMODS.find_card('j_bld_canvas')) then
+                    hasWildCanvas = true
+                end
+            end
             local changed = false
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i]:is_color("Green") and context.scoring_hand[i].facing ~= "back" then
@@ -188,7 +218,7 @@ SMODS.Blind({
                 end
             end
             if changed then
-                BLINDSIDE.chipsmodify(2, 0, 0)
+                BLINDSIDE.chipsmodify(2- (hasWildCanvas and 1 or 0), 0, 0)
             end
         end
     end,
@@ -221,6 +251,12 @@ SMODS.Blind({
     end,
     calculate = function(self, blind, context)
         if context.after and not G.GAME.blind.disabled then
+            local hasWildCanvas = false
+            for i = 1, #context.scoring_hand do
+                if context.scoring_hand[i].seal == "bld_wild" and context.scoring_hand[i].facing ~= "back" and next(SMODS.find_card('j_bld_canvas')) then
+                    hasWildCanvas = true
+                end
+            end
             local changed = false
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i]:is_color("Blue") and context.scoring_hand[i].facing ~= "back" then
@@ -228,7 +264,7 @@ SMODS.Blind({
                 end
             end
             if changed then
-                BLINDSIDE.chipsmodify(2, 0, 0)
+                BLINDSIDE.chipsmodify(2- (hasWildCanvas and 1 or 0), 0, 0)
             end
         end
     end,

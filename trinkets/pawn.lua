@@ -6,11 +6,9 @@
         rarity = 'bld_hobby',
         config = {
             extra = {
-                mult = 0,
-                mult_mod = 3,
+                mult = 3,
                 xmult = 2,
-                hand_list = {"bld_blind_high",'bld_blind_2oak','bld_blind_2pair','bld_blind_3oak','bld_blind_fullhouse','bld_blind_4oak','bld_raise','bld_blind_flush','bld_blind_stack',"bld_blind_allin"},
-                hand_count = 1,
+                hand_count = 0,
                 x_value = {x = 8, y = 0},
                 queen = false
             }
@@ -23,9 +21,8 @@
                 key = (card.ability.extra.queen and "j_bld_queen") or card.config.center.key,
                 vars = {
                 card.ability.extra.mult,
-                card.ability.extra.mult_mod,
-                localize(card.ability.extra.hand_list[card.ability.extra.hand_count], 'poker_hands'),
                 card.ability.extra.xmult,
+                card.ability.extra.hand_count,
             }
         }
         end,
@@ -43,14 +40,7 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.before and context.scoring_name == card.ability.extra.hand_list[card.ability.extra.hand_count] and not context.blueprint and card.ability.extra.hand_count < 9 and not card.ability.extra.queen then
-                SMODS.scale_card(card, {
-                    ref_table = card.ability.extra,
-                    ref_value = "mult",
-                    scalar_value = "mult_mod",
-                    operation = '+',
-                    message_colour = G.C.MULT
-                })
+            if context.before and not context.blueprint and card.ability.extra.hand_count < 9 and not card.ability.extra.queen then
                 card.ability.extra.hand_count = card.ability.extra.hand_count+1
             end
             if context.joker_main and not card.ability.extra.queen then
@@ -58,7 +48,7 @@
                     mult = card.ability.extra.mult
                 }
             end
-            if context.before and card.ability.extra.hand_count == 9 and not context.blueprint and not card.ability.extra.queen then 
+            if context.before and card.ability.extra.hand_count == 8 and not context.blueprint and not card.ability.extra.queen then 
                 G.E_MANAGER:add_event(Event({
                     func = function()
                     play_sound('tarot1')

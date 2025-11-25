@@ -1521,8 +1521,8 @@ return {
 			['j_bld_canvas'] = {
 				["name"] = "Canvas",
 				["text"] = {
-					"{C:attention}Wild Blinds{} give {C:red}+#1#",
-					"Mult when scored"
+					"If played hand contains a {C:attention}Wild Blind{}",
+					"reduce effect of {C:attention}Big{} and {C:attention}Small Jokers"
 				}
 			},
 			['j_bld_toysoldier'] = {
@@ -1552,7 +1552,7 @@ return {
 			['j_bld_talkingfish'] = {
 				["name"] = "Talking Fish",
 				["text"] = {
-					"If scoring hand contains",
+					"If held hand contains",
 					"only {X:blue,C:white}Blue{} Blinds,",
 					"{C:red}+1{} Discard",
 				}
@@ -1560,14 +1560,14 @@ return {
 			['j_bld_stoplight'] = {
 				["name"] = "Stoplight",
 				["text"] = {
-					"{C:mult}+#1#{} Mult",
+					"{C:mult}Debuffs{} all blinds",
 					"{C:inactive}(Changes next hand){}",
 				}
 			},
 			['j_bld_stoplight_yellow'] = {
 				["name"] = "Stoplight",
 				["text"] = {
-					"{C:chips}+#2#{} Chips",
+					"{C:inactive}Does nothing..?{}",
 					"{C:inactive}(Changes next hand){}",
 				}
 			},
@@ -1622,8 +1622,7 @@ return {
 				["name"] = "Fine Art",
 				["text"] = {
 					"Gains {C:money}+#1#${} of sell value",
-					"when a {B:1,C:white}#2#{} Blind is scored",
-					"{C:inactive,S:0.8}(Changes at end of round)"
+					"when a {X:money,C:white}Yellow{} Blind is scored",
 				}
 			},
 			['j_bld_bedazzler'] = {
@@ -1640,8 +1639,7 @@ return {
 				["name"] = "Pickaxe",
 				["text"] = {
 					"Create a {C:bld_obj_mineral}Mineral{} card",
-					"after running out",
-					"of {C:red}Discards{}",
+					"after {C:attention}reshuffling{} deck",
 					"{C:inactive,S:0.8}(Must have room)"
 				}
 			},
@@ -1680,7 +1678,7 @@ return {
 				["name"] = "Amber Ensign",
 				["text"] = {
 					"Every {C:attention}third{} scoring {X:money,C:white}Yellow{} Blind",
-					"creates a random tag",
+					"creates a recursive tag",
 					"{C:inactive}(Currently: #1# of #2#)"
 				}
 			},
@@ -1702,9 +1700,8 @@ return {
 			['j_bld_pawn'] = {
 				["name"] = "Pawn",
 				["text"] = {
-					{"Play a {C:attention}#3#{} to rank up"},
-					{"{C:mult}+#2#{} Mult per rank",
-					"{C:inactive}(Currently: {C:mult}+#1#{C:inactive} Mult)"}
+					{"{C:mult}+#1#{} Mult"},
+					{"{C:inactive}(#2#{}/8){}",}
 				}
 			},
 			['j_bld_saltlamp'] = {
@@ -1719,7 +1716,7 @@ return {
 			['j_bld_queen'] = {
 				["name"] = "Queen",
 				["text"] = {
-					"{X:mult,C:white}X#4#{} Mult",
+					"{X:mult,C:white}X#3#{} Mult",
 				}
 			},
 			['j_bld_sunset'] = {

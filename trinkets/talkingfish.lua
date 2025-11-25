@@ -18,7 +18,7 @@
         calculate = function(self, card, context)
             if context.joker_main then
                 local nonblue = false
-                for k, v in ipairs(context.scoring_hand) do
+                for k, v in ipairs(G.hand.cards) do
                     if not v:is_color('Blue', nil, true) then
                         nonblue = true
                         break
@@ -28,8 +28,7 @@
                     return {
                         extra = {focus = card, message = localize('k_hey_ex'), func = function()
                             G.E_MANAGER:add_event(Event({
-                                trigger = 'before',
-                                delay = 0.0,
+                                trigger = 'immediate',
                                 func = (function()
                                     ease_discard(1)
                                     return true
