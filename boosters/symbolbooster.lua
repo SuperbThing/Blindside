@@ -6,7 +6,7 @@ SMODS.Booster{
         get_weight = function(self)
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 2
+                return 1
             else
                 return 0
             end
@@ -53,7 +53,7 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 2
+                return 1
             else
                 return 0
             end
@@ -73,7 +73,7 @@ SMODS.Booster{
             local enhancement = nil
             local args = {}
             args.guaranteed = true
-            args.options = G.P_CENTER_POOLS.bld_obj_blindcard_generate
+            args.options = G.P_CENTER_POOLS.bld_obj_blindcard_cool
             local cardtype = BLINDSIDE.poll_enhancement(args)
             local enhancement_poll = pseudorandom(pseudoseed('booster'..G.GAME.round_resets.ante))
             if enhancement_poll > 0.8 then
@@ -92,7 +92,7 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 2
+                return 0.5
             else
                 return 0
             end
@@ -131,7 +131,7 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 2
+                return 0.5
             else
                 return 0
             end
@@ -151,7 +151,7 @@ SMODS.Booster{
             local enhancement = nil
             local args = {}
             args.guaranteed = true
-            args.options = G.P_CENTER_POOLS.bld_obj_blindcard_generate
+            args.options = G.P_CENTER_POOLS.bld_obj_blindcard_warm
             local cardtype = BLINDSIDE.poll_enhancement(args)
             local enhancement_poll = pseudorandom(pseudoseed('booster'..G.GAME.round_resets.ante))
             if enhancement_poll > 0.8 then
@@ -171,7 +171,7 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 1.5
+                return 0.5
             else
                 return 0
             end
@@ -191,7 +191,7 @@ SMODS.Booster{
             local enhancement = nil
             local args = {}
             args.guaranteed = true
-            args.options = G.P_CENTER_POOLS.bld_obj_blindcard_generate
+            args.options = G.P_CENTER_POOLS.bld_obj_blindcard_cool
             local cardtype = BLINDSIDE.poll_enhancement(args)
             local enhancement_poll = pseudorandom(pseudoseed('booster'..G.GAME.round_resets.ante))
             if enhancement_poll > 0.8 then
@@ -211,7 +211,7 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 1.5
+                return 0.5
             else
                 return 0
             end
@@ -231,7 +231,7 @@ SMODS.Booster{
             local enhancement = nil
             local args = {}
             args.guaranteed = true
-            args.options = G.P_CENTER_POOLS.bld_obj_blindcard_generate
+            args.options = G.P_CENTER_POOLS.bld_obj_blindcard_warm
             local cardtype = BLINDSIDE.poll_enhancement(args)
             local enhancement_poll = pseudorandom(pseudoseed('booster'..G.GAME.round_resets.ante))
             if enhancement_poll > 0.8 then
@@ -250,7 +250,7 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 2
+                return 1
             else
                 return 0
             end
@@ -289,7 +289,7 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 2
+                return 1
             else
                 return 0
             end
