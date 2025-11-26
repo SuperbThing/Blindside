@@ -829,10 +829,10 @@ function BLINDSIDE.poll_enhancement(args)
             local enhance_option = {}
             if type(k) == 'string' then
                 assert(G.P_CENTERS[v], ("Could not find enhancement \"%s\"."):format(v))
-                enhance_option = { key = v, weight = G.P_CENTERS[v].weight or 5 } -- default weight set to 5 to replicate base game weighting
+                enhance_option = { key = v, weight = G.P_CENTERS[v].weight or 10 } -- default weight set to 5 to replicate base game weighting
             elseif type(v) == 'table' then
                 assert(G.P_CENTERS[v.key], ("Could not find enhancement \"%s\"."):format(v.key))
-                enhance_option = { key = v.key, weight = v.weight or 5 }
+                enhance_option = { key = v.key, weight = v.weight or 10 }
             end
             table.insert(available_enhancements, enhance_option)
             total_weight = total_weight + enhance_option.weight
