@@ -1558,6 +1558,18 @@ return {
 					"{C:green}#2#{} in {C:green}#3#{} chance"},
 				},
 			},
+			["m_bld_moon"] = {
+				["name"] = "The Moon",
+				["text"] = {
+					{"{X:money,C:white}Yellow{}",
+					"{C:mult}+#1#{} Mult for",
+					"each {C:attention}Tag{} held",
+					"{C:inactive}(Currently: {C:mult}+#2#{C:inactive} Mult)"},
+					{"Creates a random {C:attention}Tag{}",
+					"when discarded"}
+
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

@@ -159,6 +159,7 @@ local card_list = {
         "Alert",
         "Bronze",
         "Butterfly",
+        "Moon",
         "Lock",
         "Key",
         "Door",
