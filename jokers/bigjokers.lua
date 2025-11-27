@@ -74,7 +74,7 @@ SMODS.Blind({
                     hasWildCanvas = true
                 end
             end
-            BLINDSIDE.chipsmodify(0, 0, 0, 2.5- (hasWildCanvas and 0.5 or 0))
+            BLINDSIDE.chipsmodify(0, 0, 0, 3- (hasWildCanvas and 0.5 or 0))
             blind.active = false
         end
     end,
@@ -117,7 +117,7 @@ SMODS.Blind({
                     hasWildCanvas = true
                 end
             end
-            BLINDSIDE.chipsmodify(0, 0, 0, 2- (hasWildCanvas and 0.5 or 0))
+            BLINDSIDE.chipsmodify(0, 0, 0, 3- (hasWildCanvas and 0.5 or 0))
             blind.active = false
         end
     end,
@@ -160,7 +160,7 @@ SMODS.Blind({
                     hasWildCanvas = true
                 end
             end
-            BLINDSIDE.chipsmodify(0, 0, 0, 3- (hasWildCanvas and 1 or 0))
+            BLINDSIDE.chipsmodify(0, 0, 0, 4- (hasWildCanvas and 1 or 0))
             blind.active = false
         end
     end,
@@ -204,7 +204,7 @@ SMODS.Blind({
                     hasWildCanvas = true
                 end
             end
-            BLINDSIDE.chipsmodify(0, 0, 0, 3- (hasWildCanvas and 1 or 0))
+            BLINDSIDE.chipsmodify(0, 0, 0, 4- (hasWildCanvas and 1 or 0))
             blind.active = false
         end
     end,

@@ -797,7 +797,7 @@ return {
 				["name"] = "Wily Joker",
 				["text"] = {
 					"Once per Round,",
-					"gains X2.5 Chips if",
+					"gains X3 Chips if",
 					"played hand contains",
 					"a Three of a Blind",
 				},
@@ -806,7 +806,7 @@ return {
 				["name"] = "Clever Joker",
 				["text"] = {
 					"Once per Round,",
-					"gains X2 Chips if",
+					"gains X3 Chips if",
 					"played hand contains",
 					"a Two Pair",
 				},
@@ -815,7 +815,7 @@ return {
 				["name"] = "Devious Joker",
 				["text"] = {
 					"Once per Round,",
-					"gains X3 Chips if",
+					"gains X4 Chips if",
 					"played hand contains",
 					"a Raise",
 				},
@@ -824,7 +824,7 @@ return {
 				["name"] = "Crafty Joker",
 				["text"] = {
 					"Once per Round,",
-					"gains X3 Chips if",
+					"gains X4 Chips if",
 					"played hand contains",
 					"a Flush",
 				},
