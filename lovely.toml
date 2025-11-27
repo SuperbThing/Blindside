@@ -1084,7 +1084,7 @@ local cards_burned = {}
     for i=1, #cards_burned do
         G.E_MANAGER:add_event(Event({
             func = function()
-                cards_burned[i]:start_burn()
+                cards_burned[i]:start_burn(v)
                 return true
             end
             }))
@@ -1194,4 +1194,31 @@ for _, key in ipairs(G.GAME.current_round.voucher or {}) do
     end
 end
 end
+'''
+
+
+# reshufles this round
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''
+G.GAME.current_round.discards_used = 0
+'''
+match_indent = true
+position = 'after'
+payload = '''
+G.GAME.current_round.reshuffles_round = 0
+'''
+
+# reshufles this round
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''
+        hands_played = 0,
+'''
+match_indent = true
+position = 'after'
+payload = '''
+reshuffles_round = 0,
 '''

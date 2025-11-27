@@ -797,7 +797,7 @@ return {
 				["name"] = "Wily Joker",
 				["text"] = {
 					"Once per Round,",
-					"gains X2.5 Chips if",
+					"gains X3 Chips if",
 					"played hand contains",
 					"a Three of a Blind",
 				},
@@ -806,7 +806,7 @@ return {
 				["name"] = "Clever Joker",
 				["text"] = {
 					"Once per Round,",
-					"gains X2 Chips if",
+					"gains X3 Chips if",
 					"played hand contains",
 					"a Two Pair",
 				},
@@ -815,7 +815,7 @@ return {
 				["name"] = "Devious Joker",
 				["text"] = {
 					"Once per Round,",
-					"gains X3 Chips if",
+					"gains X4 Chips if",
 					"played hand contains",
 					"a Raise",
 				},
@@ -824,7 +824,7 @@ return {
 				["name"] = "Crafty Joker",
 				["text"] = {
 					"Once per Round,",
-					"gains X3 Chips if",
+					"gains X4 Chips if",
 					"played hand contains",
 					"a Flush",
 				},
@@ -1539,6 +1539,15 @@ return {
 					{"Unplayable",
 					"IMPLEMENT CURSE LATER!"}
 				}
+			},
+			["m_bld_bell"] = {
+				["name"] = "The Bell",	
+				["text"] = {
+					"{X:green,C:white}Green{}",
+					"Gains {C:chips}+#1#{} Chips each time deck",
+					"is {C:attention}reshuffled{} this round",
+					"{C:inactive}(Currently: {C:chips}+#2#{C:inactive} Chips)"
+				},
 			},
 		},
 		['Joker'] = {
