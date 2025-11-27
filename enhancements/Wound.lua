@@ -1,7 +1,7 @@
     SMODS.Enhancement({
         key = 'wound',
         atlas = 'bld_blindrank',
-        pos = {x = 9, y = 5},
+        pos = {x = 5, y = 9},
         config = {
             extra = {
                 value = 30,
