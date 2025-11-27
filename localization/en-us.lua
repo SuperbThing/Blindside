@@ -1549,6 +1549,15 @@ return {
 					"{C:inactive}(Currently: {C:chips}+#2#{C:inactive} Chips)"
 				},
 			},
+			["m_bld_butterfly"] = {
+				["name"] = "The Butterfly",	
+				["text"] = {
+					{"{X:green,C:white}Green{} {X:chips,C:white}Blue{}",
+					"{X:chips,C:white}X#1#{} Chips"},
+					{"{C:attention,E:1}Self-Scoring{} with a",
+					"{C:green}#2#{} in {C:green}#3#{} chance"},
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
