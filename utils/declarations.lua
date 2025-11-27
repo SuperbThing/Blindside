@@ -264,6 +264,7 @@
         "tag_bld_memory",
         "tag_bld_collector",
         "tag_bld_tech",
+        "tag_bld_toss",
         "bl_bld_joker",
         "bl_bld_lustyjoker",
         "bl_bld_wrathfuljoker",

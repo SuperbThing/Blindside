@@ -402,6 +402,13 @@ return {
 					"{C:inactive}(Max of {C:money}$40{C:inactive})"
 				},
 			},
+			["tag_bld_toss"] = {
+				["name"] = "Toss Tag",
+				["text"] = {
+					"{C:attention}+1{} Hand Size for the",
+					"next round"
+				},
+			},
 		},
 		["bld_obj_mineral"] = {
 			["c_bld_stibnite"] = {
