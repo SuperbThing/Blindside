@@ -3,10 +3,10 @@
         atlas = 'bld_blindrank',
         pos = {x = 8, y = 3},
         config = {
+            mult = 10,
             extra = {
-                value = 10,
-                mult = 0,
-                mult_mod = 3,
+                value = 141,
+                cost = 2,
                 hues = {"Yellow"}
             }},
         replace_base_card = true,
@@ -29,41 +29,19 @@
         },
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.main_scoring then
-                local step = 0
-                for i, held_card in pairs(G.hand.cards) do
-                        G.E_MANAGER:add_event(Event({
-                            trigger = 'after',
-                            delay = 0.4,
-                            func = function()
-                                held_card:juice_up()
-                                held_card:flip()
-                                play_sound('chips1', 0.8 + (step * 0.05))
-                                card:juice_up()
-                                G.ROOM.jiggle = G.ROOM.jiggle + 0.7    
-                                return true
-                            end
-                        }))
-                    step = step + 5
-                end
-                SMODS.scale_card(card, {
-                    ref_table = card.ability.extra,
-                    ref_value = "mult",
-                    scalar_value = "mult_mod",
-                    operation = '+',
-                    message_colour = G.C.RED
-                })
                 return {
-                    mult = card.ability.extra.mult,
+                    dollars = -card.ability.extra.cost
                 }
             end
         end,
         loc_vars = function(self, info_queue, card)
             return {
                 vars = {
-                    card.ability.extra.mult, card.ability.extra.mult_mod, card.ability.extra.cost
+                    card.ability.mult,
+                    card.ability.extra.cost
                 }
             }
-        end
+        end,
     })
 ----------------------------------------------
 ------------MOD CODE END----------------------

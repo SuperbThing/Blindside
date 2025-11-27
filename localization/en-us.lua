@@ -1250,12 +1250,9 @@ return {
 			["m_bld_price"] = {
 				["name"] = "The Price",
 				["text"] = {
-					{"{X:money,C:white}Yellow{}",
-					"Currently {C:mult}+#1#{} Mult"},
-					{"Gains {C:red}+#2#{} Mult",
-					"when scored"},
-					{"Flips all Blinds",
-					"{C:attention}held in hand"},
+					"{X:money,C:white}Yellow{}",
+					"{C:mult}+#1#{} Mult",
+					"{C:money}-#2#${}",
 				},
 			},
 			["m_bld_eye"] = {
@@ -1311,12 +1308,15 @@ return {
 					"random effect",
 				},
 			},
-			["m_bld_earth"] = { -- base will loc later, do not remove note
+			["m_bld_earth"] = {
 				["name"] = "The Earth",
 				["text"] = {
-					"{X:green,C:white}Green{}",
-					"{C:green}#1# in #2#{} chance to",
-					"Retrigger all played blinds",
+					{"{X:green,C:white}Green{}",
+					"Retrigger all",
+					"scoring Blinds"},
+					{"{C:attention,E:1}Self-Scoring{} with a",
+					"{C:green}#1#{} in {C:green}#2#{} chance"},
+
 				},
 			},
 			["m_bld_mouth"] = {
@@ -1478,9 +1478,12 @@ return {
 			["m_bld_alert"] = {
 				["name"] = "The Alert",
 				["text"] = {
-					"{X:money,C:white}Yellow{}",
-					"{C:mult}+#1#{} Mult",
-					"{C:money}-#2#${}",
+					{"{X:money,C:white}Yellow{}",
+					"Currently {C:mult}+#1#{} Mult"},
+					{"Gains {C:red}+#2#{} Mult",
+					"when scored"},
+					{"Flips all Blinds",
+					"{C:attention}held in hand"},
 				},
 			},
 			["m_bld_bronze"] = {
@@ -1547,6 +1550,27 @@ return {
 					"Gains {C:chips}+#1#{} Chips each time deck",
 					"is {C:attention}reshuffled{} this round",
 					"{C:inactive}(Currently: {C:chips}+#2#{C:inactive} Chips)"
+				},
+			},
+			["m_bld_butterfly"] = {
+				["name"] = "The Butterfly",	
+				["text"] = {
+					{"{X:green,C:white}Green{} {X:chips,C:white}Blue{}",
+					"{X:chips,C:white}X#1#{} Chips"},
+					{"{C:attention,E:1}Self-Scoring{} with a",
+					"{C:green}#2#{} in {C:green}#3#{} chance"},
+				},
+			},
+			["m_bld_moon"] = {
+				["name"] = "The Moon",
+				["text"] = {
+					{"{X:money,C:white}Yellow{}",
+					"{C:mult}+#1#{} Mult for",
+					"each {C:attention}Tag{} held",
+					"{C:inactive}(Currently: {C:mult}+#2#{C:inactive} Mult)"},
+					{"Creates a random {C:attention}Tag{}",
+					"when discarded"}
+
 				},
 			},
 		},
