@@ -42,7 +42,7 @@
             return {
                 vars = {
                     card.ability.extra.xmult,
-                    1 + card.ability.extra.xmult*#G.exhaust.cards
+                    1 + card.ability.extra.xmult*((G.exhaust and G.exhaust.cards) and #G.exhaust.cards or 0)
                 }
             }
         end
