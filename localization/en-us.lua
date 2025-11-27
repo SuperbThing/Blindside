@@ -1308,12 +1308,15 @@ return {
 					"random effect",
 				},
 			},
-			["m_bld_earth"] = { -- base will loc later, do not remove note
+			["m_bld_earth"] = {
 				["name"] = "The Earth",
 				["text"] = {
-					"{X:green,C:white}Green{}",
-					"{C:green}#1# in #2#{} chance to",
-					"Retrigger all played blinds",
+					{"{X:green,C:white}Green{}",
+					"Retrigger all",
+					"scoring Blinds"},
+					{"{C:attention,E:1}Self-Scoring{} with a",
+					"{C:green}#1#{} in {C:green}#2#{} chance"},
+
 				},
 			},
 			["m_bld_mouth"] = {
