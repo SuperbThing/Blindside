@@ -352,7 +352,7 @@ function BLINDSIDE.create_blindcard_for_shop(area)
       local card = SMODS.create_card({ set = 'Base', seal = enhancement, enhancement = cardtype, area = area })
       create_shop_card_ui(card, 'Enhanced', area)
       if card.ability.set == 'Base' or card.ability.set == 'Enhanced' then
-        card.cost = card.cost + 2
+        card.cost = card.cost + 2 + ((card.config and card.config.center and card.config.center.weight) and 1 or 0)
       end
       G.E_MANAGER:add_event(Event({
           func = (function()
