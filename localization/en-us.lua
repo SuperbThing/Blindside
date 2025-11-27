@@ -1250,12 +1250,9 @@ return {
 			["m_bld_price"] = {
 				["name"] = "The Price",
 				["text"] = {
-					{"{X:money,C:white}Yellow{}",
-					"Currently {C:mult}+#1#{} Mult"},
-					{"Gains {C:red}+#2#{} Mult",
-					"when scored"},
-					{"Flips all Blinds",
-					"{C:attention}held in hand"},
+					"{X:money,C:white}Yellow{}",
+					"{C:mult}+#1#{} Mult",
+					"{C:money}-#2#${}",
 				},
 			},
 			["m_bld_eye"] = {
@@ -1478,9 +1475,12 @@ return {
 			["m_bld_alert"] = {
 				["name"] = "The Alert",
 				["text"] = {
-					"{X:money,C:white}Yellow{}",
-					"{C:mult}+#1#{} Mult",
-					"{C:money}-#2#${}",
+					{"{X:money,C:white}Yellow{}",
+					"Currently {C:mult}+#1#{} Mult"},
+					{"Gains {C:red}+#2#{} Mult",
+					"when scored"},
+					{"Flips all Blinds",
+					"{C:attention}held in hand"},
 				},
 			},
 			["m_bld_bronze"] = {
