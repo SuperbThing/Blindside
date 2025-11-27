@@ -4,7 +4,7 @@
         pos = {x = 4, y = 3},
         config = {
             extra = {
-                chips = 100,
+                chips = 80,
                 value = 16,
                 hues = {"Red"}
             }},
