@@ -28,7 +28,6 @@
         },
         calculate = function(self, card, context)
             if context.discard and context.other_card == card and context.main_eval then
-                print(context)
                 return {
                     focus = card,
                     message = localize('k_tagged_ex'),
