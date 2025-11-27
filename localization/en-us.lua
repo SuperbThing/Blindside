@@ -1642,6 +1642,14 @@ return {
 					"after scoring",}
 				},
 			},
+			["m_bld_cloth"] = {
+				["name"] = "The Cloth",
+				["text"] = {
+					"{X:mult,C:white}Red{}",
+					"When {C:attention}discarded{}, upgrades",
+					"discarded hand and {C:attention}Burns",
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

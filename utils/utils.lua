@@ -568,6 +568,11 @@ function Card:start_burn(cardarea, dissolve_colours, silent, dissolve_time_fac, 
     self.dissolve_colours = dissolve_colours
         or {G.C.BLACK, G.C.ORANGE, G.C.RED, G.C.GOLD, G.C.JOKER_GREY}
     if not no_juice then self:juice_up() end
+    
+    G.E_MANAGER:add_event(Event({
+        trigger = 'before',
+        delay = 0.1,
+        func = function()
     local childParts = Particles(0, 0, 0,0, {
         timer_type = 'TOTAL',
         timer = 0.01*dissolve_time,
@@ -640,6 +645,10 @@ function Card:start_burn(cardarea, dissolve_colours, silent, dissolve_time_fac, 
         blockable = false,
         delay =  1.5*dissolve_time,
         func = (function() self:start_rematerialize() return true end)
+    }))
+    
+return true
+end
     }))
 end
 
