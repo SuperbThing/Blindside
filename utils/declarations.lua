@@ -72,6 +72,7 @@
         "m_bld_staff",
         "m_bld_bite",
         "m_bld_snow",
+        "m_bld_clay",
         "m_bld_atomic",
         "m_bld_deep",
         "e_bld_finish",

@@ -1614,6 +1614,16 @@ return {
 					"all accumulated {C:chips}Chips{}"},
 				},
 			},
+			["m_bld_clay"] = {
+				["name"] = "The Clay",
+				["text"] = {
+					"{X:mult,C:white}Red{}",
+					"{X:mult,C:white}X1{} Mult, and {X:mult,C:white}+X#1#{}",
+					"for each Blind {C:attention}burned{}",
+					"this round",
+					"{C:inactive}(Currently: {X:mult,C:white}X#2#{C:inactive} Mult)",
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
