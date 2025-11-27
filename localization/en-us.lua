@@ -1650,6 +1650,15 @@ return {
 					"discarded hand and {C:attention}Burns",
 				},
 			},
+			["m_bld_ghost"] = {
+				["name"] = "The Ghost",
+				["text"] = {
+					{"{X:purple,C:white}Purple{} {X:green,C:white}Green{}",
+					"{V:1}Balances{} Chips and Mult",},
+					{"{C:attention,E:1}Self-Scoring{} with a",
+					"{C:green}#1#{} in {C:green}#2#{} chance"}
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

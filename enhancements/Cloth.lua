@@ -4,7 +4,7 @@
         pos = {x = 9, y = 5},
         config = {
             extra = {
-                value = 18,
+                value = 17,
                 ikeeptrackofdiscards = 0,
                 text = nil,
                 hues = {"Red"}
@@ -51,6 +51,7 @@
                 }
             end
         end,
+        weight = 3,
         loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
         end,
