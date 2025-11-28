@@ -1914,8 +1914,9 @@ return {
 				["name"] = "Salt Lamp",
 				["text"] = {
 					"Once per round,",
-					"if played hand contains a {C:attention}Flush{},",
-					"Creates a {C:bld_obj_mineral}Mineral{} card of most played hand",
+					"if poker hand contains a {C:attention}Flush{},",
+					"creates the {C:bld_obj_mineral}Mineral{} card for your",
+					"most played hand",
 					"{C:inactive,S:0.8}(Must have room)"
 				}
 			},
@@ -2006,8 +2007,9 @@ return {
 			['j_bld_bracelet'] = {
 				["name"] = "Bracelets",
 				["text"] = {
-					"{C:attention}Floral{} Blinds increase",
-					"{E:1,C:green}probabilities{} by 1",
+					"{C:attention}Floral{} Blinds have",
+					"{X:green,C:white}+1{} increased {E:1,C:green}probabilities{} on",
+					"each Floral effect"
 				}
 			},
 			['j_bld_stuffedtoy'] = {
