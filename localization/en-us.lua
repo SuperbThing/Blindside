@@ -1523,7 +1523,7 @@ return {
 				["text"] = {
 					{"{X:red,C:white}Red{} {X:dark_edition,C:white}Faded{} {X:blue,C:white}Blue{}",
 					"{X:green,C:white}Green{} {X:money,C:white}Yellow{} {X:purple,C:white}Purple{}"},
-					{"Always Scoring",
+					{"Always scores",
 					"{X:red,C:white}X#1#{} Mult",
 					"{C:blue}+#2#{} Chips"}
 				},
