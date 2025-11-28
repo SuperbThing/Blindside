@@ -1719,6 +1719,15 @@ return {
 					"{X:mult,C:white}X#2#{} Mult for each"},
 				},
 			},
+			["m_bld_tears"] = {
+				["name"] = "The Tears",
+				["text"] = {
+					{"{X:chips,C:white}Blue{}",
+					"{C:chips}+#1#{} Chips"},
+					{"Retriggers",
+					"{C:attention}#2#{} times"},
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

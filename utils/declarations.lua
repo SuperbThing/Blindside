@@ -82,6 +82,7 @@
         "m_bld_ball",
         "m_bld_spear",
         "m_bld_line",
+        "m_bld_tears",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",
