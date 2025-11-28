@@ -42,10 +42,15 @@
                 end
 
                 if G.GAME.current_round.discards_left > 0 then
-                    card.ability.extra.xmult = card.ability.extra.xmult + G.GAME.current_round.discards_left * card.ability.extra.xmult_gain
                     return {
                         message = localize('k_upgrade_ex'),
                         func = function ()
+                            G.E_MANAGER:add_event(Event({
+                                func = function ()
+                                    card.ability.extra.xmult = card.ability.extra.xmult + G.GAME.current_round.discards_left * card.ability.extra.xmult_gain
+                                    return true
+                                end
+                            }))
                             ease_discard(-G.GAME.current_round.discards_left)
                         end
                     }
