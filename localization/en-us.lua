@@ -988,7 +988,7 @@ return {
 					{"{X:green,C:white}Green{}",
 					"{C:mult}+#1#{} Mult or {C:chips}+#4#{} Chips",},
 					{"{C:attention,E:1}Self-Scoring{} with a",
-					"{C:green}#2#{} in {C:green}#3#{} chance"}
+					"{C:green}#2# in #3#{} chance"}
 				},
 			},
 			["m_bld_hook"] = {
@@ -1064,7 +1064,7 @@ return {
 					{"{X:purple,C:white}Purple{}",
 					"{C:bld_obj_mineral}Upgrades{} played hand"},
 					{"{C:attention,E:1}Self-Scoring{} with a",
-					"{C:green}#1#{} in {C:green}#2#{} chance"}
+					"{C:green}#1# in #2#{} chance"}
 				},
 			},
 			["m_bld_club"] = {
@@ -1105,7 +1105,7 @@ return {
 					{"{X:green,C:white}Green{}",
 					"{C:chips}+#1#{} Chips"},
 					{"{C:attention,E:1}Self-Scoring{} with a",
-					"{C:green}#2#{} in {C:green}#3#{} chance"},
+					"{C:green}#2# in #3#{} chance"},
 					{"Drawn {C:attention}face down{}"},
 				},
 			},
@@ -1115,7 +1115,7 @@ return {
 					{"{X:green,C:white}Green{} {X:red,C:white}Red",
 					"{C:mult}-#1#{} Mult to {C:attention}Joker"},
 					{"{C:attention,E:1}Self-Scoring{} with a",
-					"{C:green}#2#{} in {C:green}#3#{} chance"},
+					"{C:green}#2# in #3#{} chance"},
 				},
 			},
 			["m_bld_clover"] = {
@@ -1124,7 +1124,7 @@ return {
 					{"{X:money,C:white}Yellow{} {X:green,C:white}Green{}",
 					"{X:mult,C:white}X#1#{} Mult"},
 					{"{C:attention,E:1}Self-Scoring{} with a",
-					"{C:green}#2#{} in {C:green}#3#{} chance"},
+					"{C:green}#2# in #3#{} chance"},
 					{"{C:green}Chance{} increases",
 					"for each {C:attention}Tag{} held"}
 				},
@@ -1340,7 +1340,7 @@ return {
 					"Retrigger all",
 					"scoring Blinds"},
 					{"{C:attention,E:1}Self-Scoring{} with a",
-					"{C:green}#1#{} in {C:green}#2#{} chance"},
+					"{C:green}#1# in #2#{} chance"},
 				},
 			},
 			["m_bld_mouth"] = {
@@ -1357,7 +1357,7 @@ return {
 				["text"] = {
 					{"{X:green,C:white}Green{}",
 					"{X:mult,C:white}X#1#{} Mult"},
-					{"{C:green}#2#{} in {C:green}#3#{} chance to {C:red}debuff",
+					{"{C:green}#2# in #3#{} chance to {C:red}debuff",
 					"all other played Blinds"},
 				},
 			},
@@ -1532,17 +1532,17 @@ return {
 			["m_bld_lock"] = {
 				["name"] = "The Lock",	
 				["text"] = {
-					"{X:dark_edition,C:white}Faded{}",
-					"Always scores",
-					"{C:blue}+#1#{} Chips",
+					{"{X:dark_edition,C:white}Faded{}",
+					"{C:blue}+#1#{} Chips"},
+					{"Always scores"},
 				},
 			},
 			["m_bld_key"] = {
 				["name"] = "The Key",	
 				["text"] = {
-					"{X:dark_edition,C:white}Faded{}",
-					"Always scores",
-					"{X:red,C:white}X#1#{} Mult",
+					{"{X:dark_edition,C:white}Faded{}",
+					"{X:red,C:white}X#1#{} Mult"},
+					{"Always scores"},
 				},
 			},
 			["m_bld_atomic"] = {
@@ -1570,10 +1570,11 @@ return {
 			["m_bld_bell"] = {
 				["name"] = "The Bell",	
 				["text"] = {
-					"{X:green,C:white}Green{}",
-					"Gains {C:chips}+#1#{} Chips each time deck",
-					"is {C:attention}reshuffled{} this round",
-					"{C:inactive}(Currently: {C:chips}+#2#{C:inactive} Chips)"
+					{"{X:green,C:white}Green{}",
+					"Currently {C:chips}+#2#{} Chips"},
+					{"Gains {C:chips}+#1#{} Chips when",
+					"deck is {C:attention}reshuffled{}"},
+					{"{C:attention}Resets{} each round"}
 				},
 			},
 			["m_bld_butterfly"] = {
@@ -1582,7 +1583,7 @@ return {
 					{"{X:green,C:white}Green{} {X:chips,C:white}Blue{}",
 					"{X:chips,C:white}X#1#{} Chips"},
 					{"{C:attention,E:1}Self-Scoring{} with a",
-					"{C:green}#2#{} in {C:green}#3#{} chance"},
+					"{C:green}#2# in #3#{} chance"},
 				},
 			},
 			["m_bld_moon"] = {
@@ -1603,8 +1604,8 @@ return {
 					{"{X:green,C:white}Green{}",
 					"{C:chips}+#1#{} Chips"},
 					{"{C:attention,E:1}Self-Scoring{} with a",
-					"{C:green}#2#{} in {C:green}#3#{} chance"},
-					{"{C:green}#2#{} in {C:green}#3#{} chance to",
+					"{C:green}#2# in #3#{} chance"},
+					{"{C:green}#2# in #3#{} chance to",
 					"score held in hand"}
 				},
 			},
@@ -1650,8 +1651,8 @@ return {
 			["m_bld_wound"] = {
 				["name"] = "The Wound",
 				["text"] = {
-					"{X:mult,C:white}Red{}",
-					"{C:attention}Burns{}"
+					{"{X:mult,C:white}Red{}"},
+					{"{C:attention}Burns{}"}
 				},
 			},
 			["m_bld_claw"] = {
@@ -1659,10 +1660,12 @@ return {
 				["text"] = {
 					{"{X:mult,C:white}Red{} {X:purple,C:white}Purple",
 					"{C:mult}+#1#{} Mult for each",
-					"{C:attention}Wound{} in full deck",
+					"copy of {C:attention}The Wound{}",
+					"in full deck",
 					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"},
-					{"Creates a {C:attention}Wound{} in hand",
-					"after scoring",}
+					{"After scoring, creates",
+					"a copy of {C:attention}The Wound{}",
+					"in hand"}
 				},
 			},
 			["m_bld_cloth"] = {
@@ -1705,8 +1708,8 @@ return {
 				["text"] = {
 					{"{X:purple,C:white}Purple{}",
 					"Currently {X:mult,C:white}X#1#{} Mult"},
-					{"Remove all {C:red}discards{}",
-					"before scoring, and gain",
+					{"Removes all {C:red}discards{}",
+					"before scoring, and gains",
 					"{X:mult,C:white}X#2#{} Mult for each"},
 				},
 			},
