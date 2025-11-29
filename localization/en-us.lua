@@ -937,9 +937,9 @@ return {
 			["bl_bld_baron"] = {
 				["name"] = "Baron's Court",
 				["text"] = {
-					"Gains +0.5",
-					"Mult for each",
-					"unplayed blind"
+					"Gains +0.5 Mult",
+					"for each blind",
+					"held in hand"
 				},
 			},
 			["bl_bld_mime"] = {
