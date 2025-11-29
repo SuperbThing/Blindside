@@ -626,7 +626,7 @@ SMODS.PokerHand{ -- stack
     visible = false,
     chips = 100,
     mult = 8,
-    l_chips = 20,
+    l_chips = 25,
     l_mult = 1,
     example = {
         { 'C_3',    true, enhancement = "m_bld_pot" },
@@ -646,7 +646,7 @@ SMODS.PokerHand{ -- five of a kind
     visible = false,
     chips = 120,
     mult = 12,
-    l_chips = 10,
+    l_chips = 25,
     l_mult = 1,
     example = {
         { 'C_3',    true, enhancement = "m_bld_psychic" },
