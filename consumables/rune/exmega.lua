@@ -3,7 +3,7 @@ SMODS.Consumable {
     set = 'bld_obj_rune',
     atlas = 'bld_consumable',
     pos = {x=3, y=5},
-    config = {extra = {active = false, rounds = 2, roundsActive = 0, xmult = 2}},
+    config = {extra = {active = false, rounds = 1, roundsActive = 0, xmult = 2}},
     keep_on_use = function(self, card)
         return true
     end,
