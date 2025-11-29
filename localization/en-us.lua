@@ -1457,7 +1457,8 @@ return {
 				["name"] = "The Vast",
 				["text"] = {
 					"{X:chips,C:white}Blue{}",
-					"If scoring hand contains",
+					"While held in hand,",
+					"if scoring hand contains",
 					"{C:attention}#1#{} {X:chips,C:white}Blue{} Blinds, creates a",
 					"random {C:attention}Mineral{} card",
 					"{C:inactive,S:0.8}(Must have room)"
