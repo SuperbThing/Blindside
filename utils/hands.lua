@@ -470,7 +470,7 @@ SMODS.PokerHand{ -- high
     visible = false,
     chips = 5,
     mult = 1,
-    l_chips = 20,
+    l_chips = 25,
     l_mult = 3,
     example = {
         { 'C_3',    true, enhancement = "m_bld_ox" },
@@ -490,7 +490,7 @@ SMODS.PokerHand{ -- 2oak
     visible = false,
     chips = 20,
     mult = 2,
-    l_chips = 15,
+    l_chips = 20,
     l_mult = 3,
     example = {
         { 'C_3',    false, enhancement = "m_bld_fish" },
@@ -528,9 +528,9 @@ SMODS.PokerHand{ -- 2pair
 SMODS.PokerHand{ -- 3oak
     key = 'blind_3oak',
     visible = false,
-    chips = 30,
-    mult = 3,
-    l_chips = 10,
+    chips = 25,
+    mult = 2,
+    l_chips = 15,
     l_mult = 3,
     example = {
         { 'C_3',    false, enhancement = "m_bld_adder" },
@@ -568,7 +568,7 @@ SMODS.PokerHand{ -- full house
     visible = false,
     chips = 40,
     mult = 4,
-    l_chips = 25,
+    l_chips = 20,
     l_mult = 1,
     example = {
         { 'C_3',    true, enhancement = "m_bld_arm" },
@@ -588,7 +588,7 @@ SMODS.PokerHand{ -- Spectrum (Referenced from SixSuits) (ty Bunco)
     visible = false,
     chips = 70,
     mult = 6,
-    l_chips = 30,
+    l_chips = 25,
     l_mult = 1,
     example = {
         { 'S_2',    true, enhancement = "m_bld_adder" },
@@ -607,7 +607,7 @@ SMODS.PokerHand{ -- four of a kind
     visible = false,
     chips = 50,
     mult = 5,
-    l_chips = 10,
+    l_chips = 15,
     l_mult = 2,
     example = {
         { 'C_3',    true, enhancement = "m_bld_plant" },
@@ -646,7 +646,7 @@ SMODS.PokerHand{ -- five of a kind
     visible = false,
     chips = 120,
     mult = 12,
-    l_chips = 25,
+    l_chips = 30,
     l_mult = 1,
     example = {
         { 'C_3',    true, enhancement = "m_bld_psychic" },
