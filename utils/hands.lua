@@ -129,112 +129,193 @@
         return ret
     end
 
-    function get_X_blind_same(num, hand, or_more)
-        local colors = {"Red", "Green", "Blue", "Purple", "Yellow", "Faded", "Bleh"}
-        local vals = {}
-        local highest = {}
-        local wilds = {}
-        local fadedblind = false
-        local multicolor = {}
-        local fadedsOnly = true
-        local allcolors = {}
-        if next(SMODS.find_card("j_bld_insignia")) then
-            fadedblind = true
-            colors[6] = nil
-        end
-        if fadedblind then
-            allcolors["Faded"] = {}
-        end
-        for i=#hand, 1, -1 do
-            if (#hand[i].config.center.config.extra.hues > 1 or ((hand[i]:is_color("Red") or hand[i]:is_color("Blue")) and next(SMODS.find_card("j_bld_sunset")))) or ((hand[i]:is_color("Faded") and fadedblind) or hand[i].seal == "bld_wild") then
-                hand[i].used = false
-                table.insert(multicolor, hand[i])
-            end
-        end
-        for i=#hand, 1, -1 do
-            if (hand[i]:is_color("Faded") and fadedblind) or hand[i].seal == "bld_wild" then
-                table.insert(wilds, hand[i])
-            end
-        end
-        for i = #colors, 1, -1 do
-            allcolors[colors[i]] = allcolors[colors[i]] or {}
-            for j=1, #hand do
-                if hand[j]:is_color(colors[i]) and not (hand[j].seal == "bld_wild" or (hand[j]:is_color("Faded") and fadedblind) or #hand[j].config.center.config.extra.hues > 1 or ((hand[j]:is_color("Red") or hand[j]:is_color("Blue")) and next(SMODS.find_card("j_bld_sunset")))) then
-                    fadedsOnly = false
-                    table.insert(allcolors[colors[i]], hand[j])
+    function get_X_blind_same(num, hand, color_data, get_all_pairs)
+        local colors = {"Red", "Green", "Blue", "Purple", "Yellow", "Faded"}
+
+        local all_pairs = {}
+        local toks = {}
+        local foks = {}
+        local flush = {}
+
+        local function considered_colors(blind)
+            local considered = {}
+            for i = 1, #colors do
+                local c = colors[i]
+                if blind:is_color(c) then
+                    considered[#considered+1] = c
                 end
             end
+            return considered
         end
-        local multicolors = {}
-        for v = #multicolor, 1, -1 do
-            allcolors["Bleh"] = {}
-            local bestColor = "Bleh"
-            local secondBestColor = "Bleh"
-            local thirdBestColor = "Bleh"
-            local fourthBestColor = "Bleh"
-            local fifthBestColor = "Bleh"
-            local sixthBestColor = "Bleh"
-            for i = #colors, 1, -1 do
-                if multicolor[v]:is_color(colors[i]) then
-                    table.insert(multicolors, colors[i])
+
+        local hand_colors = {}
+        for i = 1, #hand do
+            hand_colors[i] = considered_colors(hand[i])
+        end
+
+        local seen_pairs = {}
+        local seen_toks = {}
+        local seen_foks = {}
+        local seen_flush = {}
+
+        local function ensure_color_map(map, color)
+            local cm = map[color]
+            if not cm then
+                cm = {}
+                map[color] = cm
+            end
+            return cm
+        end
+
+        local function add_combination(size, indices, color)
+            local target_list
+            local seen_map
+
+            if size == 2 then
+                target_list = all_pairs
+                seen_map = seen_pairs
+            elseif size == 3 then
+                target_list = toks
+                seen_map = seen_toks
+            elseif size == 4 then
+                target_list = foks
+                seen_map = seen_foks
+            else
+                target_list = flush
+                seen_map = seen_flush
+            end
+
+            local color_map = ensure_color_map(seen_map, color)
+            local key = table.concat(indices, ",")
+
+            if color_map[key] then
+                return
+            end
+            color_map[key] = true
+
+            local blints = {}
+            for i = 1, #indices do
+                blints[i] = hand[indices[i]]
+            end
+
+            target_list[#target_list+1] = {blints, color}
+        end
+
+        local function generate_combinations_for_color(index_table, desired_size, color)
+            local current = {}
+
+            local function rec(start_idx, depth)
+                if depth > desired_size then
+                    add_combination(desired_size, current, color)
+                    return
+                end
+
+                local remaining_needed = desired_size - depth + 1
+                for i = start_idx, #index_table - remaining_needed + 1 do
+                    current[depth] = index_table[i]
+                    rec(i + 1, depth + 1)
                 end
             end
-            for k = #multicolors, 1, -1 do
-                if (1 + #allcolors[multicolors[k]] >= 1 + #allcolors[bestColor]) then
-                    if sixthBestColor ~= fifthBestColor then 
-                        sixthBestColor = fifthBestColor
+
+            rec(1, 1)
+        end
+
+        local choices = {}
+
+        local function walk(pos)
+            if pos > #hand then
+                local inverse_table = {}
+                for idx = 1, #choices do
+                    local color = choices[idx]
+                    local bucket = inverse_table[color]
+                    if not bucket then
+                        bucket = {}
+                        inverse_table[color] = bucket
                     end
-                    if fifthBestColor ~= fourthBestColor then 
-                        fifthBestColor = fourthBestColor
-                    end
-                    if fourthBestColor ~= thirdBestColor then 
-                        fourthBestColor = thirdBestColor
-                    end
-                    if thirdBestColor ~= secondBestColor then 
-                        thirdBestColor = secondBestColor
-                    end
-                    if secondBestColor ~= bestColor then 
-                        secondBestColor = bestColor
-                    end
-                    bestColor = multicolors[k]
-                else
-                    
+                    bucket[#bucket+1] = idx
                 end
+
+                for color, index_table in pairs(inverse_table) do
+                    local count = #index_table
+                    if count > 1 then
+                        for desired_size = 2, count do
+                            generate_combinations_for_color(index_table, desired_size, color)
+                        end
+                    end
+                end
+
+                return
             end
-            if multicolor[v]:is_color(bestColor) and not multicolor[v].used then
-                table.insert(allcolors[bestColor], multicolor[v])
-                multicolor[v].used = true
-            elseif multicolor[v]:is_color(secondBestColor) and not multicolor[v].used then
-                table.insert(allcolors[secondBestColor], multicolor[v])
-                multicolor[v].used = true
-            elseif multicolor[v]:is_color(thirdBestColor) and not multicolor[v].used then
-                table.insert(allcolors[thirdBestColor], multicolor[v])
-                multicolor[v].used = true
-            elseif multicolor[v]:is_color(fourthBestColor) and not multicolor[v].used then
-                table.insert(allcolors[fourthBestColor], multicolor[v])
-                multicolor[v].used = true
-            elseif multicolor[v]:is_color(fifthBestColor) and not multicolor[v].used then
-                table.insert(allcolors[fifthBestColor], multicolor[v])
-                multicolor[v].used = true
-            elseif multicolor[v]:is_color(sixthBestColor) and not multicolor[v].used then
-                table.insert(allcolors[sixthBestColor], multicolor[v])
-                multicolor[v].used = true
+
+            local blind_colors = hand_colors[pos]
+            for i = 1, #blind_colors do
+                choices[pos] = blind_colors[i]
+                walk(pos + 1)
             end
         end
-        for i = #colors, 1, -1 do
-            if (or_more and (#allcolors[colors[i]] >= num) or (#allcolors[colors[i]] == num)) and not fadedsOnly then
-                vals[colors[i]] = allcolors[colors[i]]
-            end
-        end
-        if (or_more and (#wilds >= num) or (#wilds == num)) and fadedsOnly then
-            vals["Faded"] = wilds
-        end
+
+        walk(1)
+
         local ret = {}
-        for k, v in pairs(vals) do
-            table.insert(ret, vals[k])
+        local source_list
+
+        if num == 2 then
+            source_list = all_pairs
+        elseif num == 3 then
+            source_list = toks
+        elseif num == 4 then
+            source_list = foks
+        else
+            source_list = flush
         end
+
+        local max_size_by_color = {}
+        local function register_max(list, size)
+            for i = 1, #list do
+                local entry = list[i]
+                local color = entry[2]
+                local cur = max_size_by_color[color]
+                if not cur or size > cur then
+                    max_size_by_color[color] = size
+                end
+            end
+        end
+
+        register_max(all_pairs, 2)
+        register_max(toks, 3)
+        register_max(foks, 4)
+        register_max(flush, 5)
+
+        local colors_so_far = {}
+
+        local function color_seen(color)
+            for i = 1, #colors_so_far do
+                if colors_so_far[i] == color then return true end
+            end
+            return false
+        end
+
+        for i = 1, #source_list do
+            local entry = source_list[i]
+            local blints = entry[1]
+            local color  = entry[2]
+            local group_size = #blints
+
+            if group_size == max_size_by_color[color] or (get_all_pairs and group_size == 2) then
+                if color_data then
+                    if not color_seen(color) then
+                        colors_so_far[#colors_so_far+1] = color
+                        ret[#ret+1] = blints
+                    end
+                else
+                    ret[#ret+1] = blints
+                end
+            end
+        end
+
         return ret
     end
+
     
     local get_cool_highest = get_highest
     function get_highest(hand)
@@ -288,7 +369,7 @@
         func = function(hand)
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return {} end
-                local _2 = get_X_blind_same(2, hand, true)
+                local _2 = get_X_blind_same(2, hand, false, true)
                 if not next(_2) then return {} end
                 return {SMODS.merge_lists(_2)}
             else
@@ -303,7 +384,7 @@
             func = function(hand)
                 if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return {} end
-                return get_X_blind_same(i, hand, true) 
+                return get_X_blind_same(i, hand, false)
                 else
                     return {}
                 end
@@ -324,6 +405,7 @@
             end
         }
     end
+
     function Card:is_color(suit, bypass_debuff, flush_calc)
         local allFaded = false
         if G.consumeables then
@@ -501,27 +583,13 @@ SMODS.PokerHand{ -- 2oak
 
     },
     evaluate = function(parts)
-        return parts.bld_blind_2
-    end
-}
-
-SMODS.PokerHand{ -- 2pair
-    key = 'blind_2pair',
-    visible = false,
-    chips = 25,
-    mult = 2,
-    l_chips = 15,
-    l_mult = 2,
-    example = {
-        { 'C_3',    true, enhancement = "m_bld_wall" },
-        { 'C_3',    true, enhancement = "m_bld_mouth" },
-        { 'C_3',    false, enhancement = "m_bld_house" },
-        { 'C_3',    true, enhancement = "m_bld_hook" },
-        { 'C_3',    true, enhancement = "m_bld_tooth" },
-    },
-    evaluate = function(parts)
-        if #parts.bld_blind_2 < 2 then return {} end
-        return parts.bld_blind_all_pairs
+        return #parts.bld_blind_2 >= 1 and parts.bld_blind_all_pairs or nil
+    end,
+    modify_display_text = function (self, cards, scoring_hand)
+        if #scoring_hand > 2 then
+            print("that's a down.")
+            return "Down (Pair)" -- localize("bld_blind_down")
+        end
     end
 }
 
@@ -541,6 +609,67 @@ SMODS.PokerHand{ -- 3oak
     },
     evaluate = function(parts)
         return parts.bld_blind_3
+    end
+}
+
+SMODS.PokerHand{ -- 2pair
+    key = 'blind_2pair',
+    visible = false,
+    chips = 30,
+    mult = 2,
+    l_chips = 15,
+    l_mult = 2,
+    example = {
+        { 'C_3',    true, enhancement = "m_bld_wall" },
+        { 'C_3',    true, enhancement = "m_bld_mouth" },
+        { 'C_3',    false, enhancement = "m_bld_house" },
+        { 'C_3',    true, enhancement = "m_bld_hook" },
+        { 'C_3',    true, enhancement = "m_bld_tooth" },
+    },
+    evaluate = function(parts)
+        local diagnostic = true
+        for key, value in pairs(parts.bld_blind_all_pairs) do
+            if #value < 4 then
+                diagnostic = false
+            end
+        end
+        if (#parts.bld_blind_2 < 2 and #parts.bld_blind_3 == 0) or not diagnostic then return {} end
+        print("that's a two pair.")
+        return parts.bld_blind_all_pairs
+    end,
+    modify_display_text = function (self, cards, scoring_hand)
+        local part_threeob = get_X_blind_same(3, cards)
+        local part_pair = get_X_blind_same(2, cards)
+
+        local overlaps = false
+        for _, pair1 in pairs(part_pair) do
+            for _, pair2 in pairs(part_pair) do
+                if pair1 ~= pair2 then
+                    for _, card1 in pairs(pair1) do
+                        for _, card2 in pairs(pair2) do
+                            if card1 == card2 then
+                                overlaps = true
+                                break
+                            end
+                        end
+                        if overlaps then
+                            break
+                        end
+                    end
+                end
+                if overlaps then
+                    break
+                end
+            end
+            if overlaps then
+                break
+            end
+        end
+
+        if #scoring_hand > 4 or #part_threeob > 0 or overlaps then
+            print("that's a double down.")
+            return "Double Down (2Pr)" --localize("bld_blind_double_down")
+        end
     end
 }
 
@@ -578,8 +707,81 @@ SMODS.PokerHand{ -- full house
         { 'C_3',    true, enhancement = "m_bld_flip" },
     },
     evaluate = function(parts)
-            if #parts.bld_blind_3 < 1 or #parts.bld_blind_2 < 2 then return {} end
-            return parts.bld_blind_all_pairs
+        print("-----------")
+        local diagnostic = true
+        for key, value in pairs(parts.bld_blind_all_pairs) do
+            print("all_pairs: " .. #value)
+            if #value < 5 then
+                diagnostic = false
+            end
+        end
+        print("pairs: ".. #parts.bld_blind_2)
+        print("3obs: ".. #parts.bld_blind_3)
+        if (#parts.bld_blind_3 == 0) or (#parts.bld_blind_3 < 2 and #parts.bld_blind_2 == 0) or not diagnostic then return {} end
+        print("that's a full house.")
+        return parts.bld_blind_all_pairs
+    end,
+    modify_display_text = function (self, cards, scoring_hand)
+        local part_threeob = get_X_blind_same(3, cards)
+        local part_pair = get_X_blind_same(2, cards)
+
+        -- this code determines whether the hand has a unique pair
+        -- which is NOT contained in any Three of a Kind.
+        -- in the case where all the 3oks overlap at least
+        -- one blind in each pair, this is considered a Triple Down.
+        local contains_extraneous_pair = false
+        for _, value in pairs(part_pair) do
+            local total_inside = 0
+            for _, card in pairs(value) do
+                local inside = false
+                for _, value2 in pairs(part_threeob) do
+                    for _, card2 in pairs(value2) do
+                        if card == card2 then
+                            inside = true
+                            break
+                        end
+                    end
+                    if inside then
+                        total_inside = total_inside + 1
+                        break
+                    end
+                end
+            end
+            if total_inside == 0 then
+                contains_extraneous_pair = true
+                break
+            end
+        end
+
+        local overlaps = false
+        for _, pair1 in pairs(part_pair) do
+            for _, pair2 in pairs(part_pair) do
+                if pair1 ~= pair2 then
+                    for _, card1 in pairs(pair1) do
+                        for _, card2 in pairs(pair2) do
+                            if card1 == card2 then
+                                overlaps = true
+                                break
+                            end
+                        end
+                        if overlaps then
+                            break
+                        end
+                    end
+                end
+                if overlaps then
+                    break
+                end
+            end
+            if overlaps then
+                break
+            end
+        end
+
+        if not contains_extraneous_pair or overlaps then
+            print("that's a triple down.")
+            return "Triple Down (FH)" --localize("bld_blind_triple_down")
+        end
     end
 }
 
@@ -617,7 +819,13 @@ SMODS.PokerHand{ -- four of a kind
         { 'C_3',    false, enhancement = "m_bld_club" },
     },
     evaluate = function(parts)
-        return parts.bld_blind_4
+        return #parts.bld_blind_4 > 0 and parts.bld_blind_all_pairs or nil
+    end,
+    modify_display_text = function (self, cards, scoring_hand)
+        if #scoring_hand > 4 then
+            print("that's a quad down.")
+            return "Quadruple Down (4oB)"--localize("bld_blind_quadruple_down")
+        end
     end
 }
 
