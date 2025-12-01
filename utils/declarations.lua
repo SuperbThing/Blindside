@@ -172,6 +172,7 @@
         --"j_bld_crane",
         "j_bld_matryoshka",
         "j_bld_sewingkit",
+        "j_bld_pocketwatch",
         "c_bld_horror",
         "c_bld_action",
         "c_bld_comedy",

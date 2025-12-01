@@ -2208,6 +2208,14 @@ return {
 					"when deck is {C:attention}reshuffled"
 				}
 			},
+			['j_bld_pocketwatch'] = {
+				["name"] = "Pocket Watch",
+				["text"] = {
+					"When deck is",
+					"{C:attention}reshuffled{}, Joker loses",
+					"{C:mult}-#1#{} Mult"
+				}
+			},
 		},
 		["Edition"] = {
 			['e_bld_enameled'] = {

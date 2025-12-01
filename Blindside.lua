@@ -239,6 +239,7 @@ local trinket_list = {
         --"crane",
         "matryoshka",
         "sewingkit",
+        "pocketwatch",
 }
 
 local joker_list = {
