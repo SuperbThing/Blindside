@@ -170,6 +170,7 @@
         "j_bld_candle",
         "j_bld_pogs",
         "j_bld_crane",
+        "j_bld_matryoshka",
         "c_bld_horror",
         "c_bld_action",
         "c_bld_comedy",
