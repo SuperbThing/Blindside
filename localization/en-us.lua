@@ -1864,7 +1864,7 @@ return {
 				["text"] = {
 					"If previous hand",
 					"contained a {C:attention}burned",
-					"card, {X:mult,C:white}X#1#{} Mult"
+					"Blind, {X:mult,C:white}X#1#{} Mult"
 				}
 			},
 			['j_bld_fineart'] = {
