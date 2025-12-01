@@ -483,7 +483,6 @@ if G.hand.wedge_highlighted and #G.hand.wedge_highlighted >= 1 then
         end
     end
     local highlighted_count = math.min(#G.hand.highlighted, G.discard.config.card_limit - #G.play.cards)
-    print("wedge discard?")
     SMODS.calculate_context({pre_discard = true, full_hand = G.hand.highlighted, hook = hook})
     for i=1, highlighted_count do
         G.hand.highlighted[i]:calculate_seal({discard = true})
@@ -522,7 +521,6 @@ if G.hand.wedge_highlighted and #G.hand.wedge_highlighted >= 1 then
     end
     
     local highlighted_count = math.min(#G.hand.highlighted, G.discard.config.card_limit - #G.play.cards)
-    print("wedge discard!")
     SMODS.calculate_context({pre_discard = true, full_hand = G.hand.highlighted, hook = hook})
     for i=1, highlighted_count do
         G.hand.highlighted[i]:calculate_seal({discard = true})
@@ -1243,7 +1241,6 @@ payload = '''
 if burned then
     burned_cards[#burned_cards + 1] = G.hand.highlighted[i]
     G.hand.highlighted[i]:start_burn(G.hand)
-    print("test")
     else
 '''
 

@@ -30,7 +30,6 @@
         end,
         calculate = function(self, card, context)
             if context.cards_burned then 
-                print("test")
                 card.ability.extra.burned = true
                 local eval = function() return card.ability.extra.burned end
                 juice_card_until(card, eval, true)

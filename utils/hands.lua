@@ -587,7 +587,6 @@ SMODS.PokerHand{ -- 2oak
     end,
     modify_display_text = function (self, cards, scoring_hand)
         if #scoring_hand > 2 then
-            print("that's a down.")
             return "Down (Pair)" -- localize("bld_blind_down")
         end
     end
@@ -634,7 +633,6 @@ SMODS.PokerHand{ -- 2pair
             end
         end
         if (#parts.bld_blind_2 < 2 and #parts.bld_blind_3 == 0) or not diagnostic then return {} end
-        print("that's a two pair.")
         return parts.bld_blind_all_pairs
     end,
     modify_display_text = function (self, cards, scoring_hand)
@@ -667,7 +665,6 @@ SMODS.PokerHand{ -- 2pair
         end
 
         if #scoring_hand > 4 or #part_threeob > 0 or overlaps then
-            print("that's a double down.")
             return "Double Down (2Pr)" --localize("bld_blind_double_down")
         end
     end
@@ -707,18 +704,13 @@ SMODS.PokerHand{ -- full house
         { 'C_3',    true, enhancement = "m_bld_flip" },
     },
     evaluate = function(parts)
-        print("-----------")
         local diagnostic = true
         for key, value in pairs(parts.bld_blind_all_pairs) do
-            print("all_pairs: " .. #value)
             if #value < 5 then
                 diagnostic = false
             end
         end
-        print("pairs: ".. #parts.bld_blind_2)
-        print("3obs: ".. #parts.bld_blind_3)
         if (#parts.bld_blind_3 == 0) or (#parts.bld_blind_3 < 2 and #parts.bld_blind_2 == 0) or not diagnostic then return {} end
-        print("that's a full house.")
         return parts.bld_blind_all_pairs
     end,
     modify_display_text = function (self, cards, scoring_hand)
@@ -779,7 +771,6 @@ SMODS.PokerHand{ -- full house
         end
 
         if not contains_extraneous_pair or overlaps then
-            print("that's a triple down.")
             return "Triple Down (FH)" --localize("bld_blind_triple_down")
         end
     end
@@ -823,7 +814,6 @@ SMODS.PokerHand{ -- four of a kind
     end,
     modify_display_text = function (self, cards, scoring_hand)
         if #scoring_hand > 4 then
-            print("that's a quad down.")
             return "Quadruple Down (4oB)"--localize("bld_blind_quadruple_down")
         end
     end
