@@ -169,7 +169,7 @@
         "j_bld_barrel",
         "j_bld_candle",
         "j_bld_pogs",
-        --"j_bld_crane",
+        "j_bld_crane",
         "j_bld_matryoshka",
         "j_bld_sewingkit",
         "j_bld_pocketwatch",
