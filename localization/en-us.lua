@@ -2237,6 +2237,12 @@ return {
 					"{C:attention}+1{} Discard"
 				}
 			},
+			['j_bld_hackysack'] = {
+				["name"] = "Hacky Sack",
+				["text"] = {
+					"{C:attention}+1{} hand size"
+				}
+			},
 		},
 		["Edition"] = {
 			['e_bld_enameled'] = {

@@ -240,7 +240,8 @@ local trinket_list = {
         "matryoshka",
         "sewingkit",
         "pocketwatch",
-        "bottle"
+        "bottle",
+        "hackysack"
 }
 
 local joker_list = {

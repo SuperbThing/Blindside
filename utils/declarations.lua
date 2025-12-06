@@ -174,6 +174,7 @@
         "j_bld_sewingkit",
         "j_bld_pocketwatch",
         "j_bld_bottle",
+        "j_bld_hackysack",
         "c_bld_horror",
         "c_bld_action",
         "c_bld_comedy",

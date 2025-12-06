@@ -1,21 +1,21 @@
 
     SMODS.Joker({
-        key = 'bottle',
+        key = 'hackysack',
         atlas = 'bld_trinkets',
-        pos = {x = 3, y = 4},
+        pos = {x = 2, y = 1},
         rarity = 'bld_hobby',
         config = {
             extra = {
-                d_size = 1
+                handsize = 1,
             }
         },
-        cost = 7,
-        blueprint_compat = true,
+        cost = 10,
+        blueprint_compat = false,
         eternal_compat = true,
         loc_vars = function (self, info_queue, card)
             return {
                 vars = {
-                card.ability.extra.xmult
+                card.ability.extra.money
             }
         }
         end,
@@ -27,12 +27,10 @@
             return false
             end
         end,
-        add_to_deck = function(self, card, from_debuff)
-            G.GAME.round_resets.discards = G.GAME.round_resets.discards + card.ability.extra.d_size
-            ease_discard(card.ability.extra.d_size)
-        end,
         remove_from_deck = function(self, card, from_debuff)
-            G.GAME.round_resets.discards = G.GAME.round_resets.discards - card.ability.extra.d_size
-            ease_discard(-card.ability.extra.d_size)
+            G.hand:change_size(-card.ability.extra.handsize)
+        end,
+        add_to_deck = function(self, card, from_debuff)
+            G.hand:change_size(card.ability.extra.handsize)
         end,
     })
