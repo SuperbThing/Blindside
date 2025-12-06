@@ -47,6 +47,7 @@ return {
 			['ui_bld_deck_view'] = 'Deck View',
 			["ph_mask_saved"] = "Saved by Ancient Mask",
 			['matryoshka_none'] = "None!",
+			['bld_fineart_dead'] = "Devalued!",
 			},
 		["v_dictionary"] = {
 			["a_rmult"] = "-#1#",
@@ -1871,8 +1872,9 @@ return {
 			['j_bld_fineart'] = {
 				["name"] = "Fine Art",
 				["text"] = {
-					"Gains {C:money}+#1#${} of sell value",
-					"when a {X:money,C:white}Yellow{} Blind is scored",
+					{"{C:white,X:mult}X#1#{} Mult"},
+					{"{C:green}#2# in #3#{} chance to",
+					"{C:red}self-destruct{} each round"}
 				}
 			},
 			['j_bld_bedazzler'] = {
