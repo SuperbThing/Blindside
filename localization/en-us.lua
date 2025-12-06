@@ -2074,9 +2074,13 @@ return {
 			['j_bld_clock'] = {
 				["name"] = "Cuckoo Clock",
 				["text"] = {
-					"Every third played hand,",
-					"gives {C:chips}+#1#{} Chips",
-					"{C:inactive}(#2# Remaining){}"
+					{"Counts down by 1 for",
+					"each {C:blue}hand{} and {C:red}discard",
+					"{C:inactive}(Currently: #2#)"},
+					{"Resets to {C:attention}4{} when",
+					"clock strikes 0"},
+					{"{C:white,X:mult}X#1#{} Mult exactly",
+					"when clock strikes 0"}
 				}
 			},
 			['j_bld_mask'] = {
