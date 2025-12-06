@@ -68,7 +68,11 @@ SMODS.Back({
             local rounded = int_part + (frac_part >= 0.5 and 1 or 0) 
             G.GAME.win_ante = rounded
         return true end }))
-        SMODS.change_discard_limit(2)
+        G.E_MANAGER:add_event(Event({func = function()
+            G.E_MANAGER:add_event(Event({func = function()
+                SMODS.change_discard_limit(2)
+            return true end }))
+        return true end }))
     end,
     calculate = function(self, back, context) 
         if context.after then
