@@ -2242,6 +2242,14 @@ return {
 					"{C:attention}+1{} hand size"
 				}
 			},
+			['j_bld_checker'] = {
+				["name"] = "Checkers",
+				["text"] = {
+					"{C:attention}Raise{} can be made with",
+					"{C:attention}3{} blinds if poker hand",
+					"contains no {C:attention}Pairs"
+				}
+			},
 		},
 		["Edition"] = {
 			['e_bld_enameled'] = {
