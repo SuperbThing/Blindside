@@ -2231,6 +2231,12 @@ return {
 					"{C:mult}-#1#{} Mult"
 				}
 			},
+			['j_bld_bottle'] = {
+				["name"] = "Bottle",
+				["text"] = {
+					"{C:attention}+1{} Discard"
+				}
+			},
 		},
 		["Edition"] = {
 			['e_bld_enameled'] = {

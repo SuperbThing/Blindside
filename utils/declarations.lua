@@ -173,6 +173,7 @@
         "j_bld_matryoshka",
         "j_bld_sewingkit",
         "j_bld_pocketwatch",
+        "j_bld_bottle",
         "c_bld_horror",
         "c_bld_action",
         "c_bld_comedy",
