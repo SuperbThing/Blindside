@@ -244,6 +244,7 @@ local trinket_list = {
         "hackysack",
         "checker",
         "necronomicon",
+        "lighter",
 }
 
 local joker_list = {

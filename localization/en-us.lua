@@ -2259,6 +2259,13 @@ return {
 					"each joker"
 				}
 			},
+			['j_bld_lighter'] = {
+				["name"] = "Lighter",
+				["text"] = {
+					"Discarded blinds",
+					"are {C:attention}burned"
+				}
+			},
 		},
 		["Edition"] = {
 			['e_bld_enameled'] = {
