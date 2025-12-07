@@ -179,6 +179,7 @@
         "j_bld_necronomicon",
         "j_bld_lighter",
         "j_bld_dentures",
+        "j_bld_giftbox",
         "c_bld_horror",
         "c_bld_action",
         "c_bld_comedy",

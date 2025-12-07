@@ -2382,6 +2382,13 @@ return {
 					"create a {C:attention}Dental Tag{}",
 				}
 			},
+			['j_bld_giftbox'] = {
+				["name"] = "Gift Box",
+				["text"] = {
+					"{C:white,X:mult}X1{} Mult, and {X:mult,C:white}+X#1#{}",
+					"for each held {C:attention}Tag"
+				}
+			},
 		},
 		["Edition"] = {
 			['e_bld_enameled'] = {
