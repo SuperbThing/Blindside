@@ -159,12 +159,20 @@ return {
 					"and {C:attention,T:v_bld_television}Television{}",
 				},
 			},
+			["b_bld_blackdispenser"] = {
+				["name"] = "Black Deck?",
+				["text"] = {
+					"???",
+					"{C:attention}+1{} Trinket slot",
+					"{C:blue}-2{} hands",
+				},
+			},
 			["b_bld_bluedispenser"] = {
 				["name"] = "Blue Deck?",
 				["text"] = {
 					"???",
 					"Leftover hands",
-					"give {C:money}$2{}",
+					"give {C:money}$2{} each",
 					"{C:red}-1{} discard",
 				},
 			},
@@ -172,7 +180,6 @@ return {
 				["name"] = "Yellow Deck?",
 				["text"] = {
 					"???",
-					"Start with {C:money}+#1#$",
 					"Start with {C:attention,T:v_bld_swearjar}Swear Jar",
 					"{s:0.2} {}",
 					"Extra hands earn",

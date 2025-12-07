@@ -1,23 +1,18 @@
 SMODS.Back({
-    key = 'yellowdispenser',
+    key = 'blackdispenser',
     atlas = 'bld_blindback',
     config = {
         no_interest = true,
         hand_size = -1,
         discards = -1,
-        hands = 2,
         extra = {
+            cash = 8,
             blindside = true,
         },
         ante_scaling = 1,
-        joker_slot = -1,
-        vouchers = {
-            'v_bld_swearjar'
-        },
-        extra_hand_bonus = 0,
     },
     unlocked = true,
-    pos = { x = 2, y = 1 },
+    pos = { x = 3, y = 0 },
     loc_vars = function (self, info_queue, card)
         return {
             vars = {
@@ -56,22 +51,22 @@ SMODS.Back({
                 keys_to_remove[i]:remove()
             end
             for i = 1, #keys_to_alpha do
-                keys_to_alpha[i]:set_ability("m_bld_adder")
+                keys_to_alpha[i]:set_ability("m_bld_flip")
             end
             for i = 1, #keys_to_beta do
-                keys_to_beta[i]:set_ability("m_bld_sharp")
+                keys_to_beta[i]:set_ability("m_bld_adder")
             end
             for i = 1, #keys_to_flip do
                 keys_to_flip[i]:set_ability("m_bld_bite")
             end
             for i = 1, #keys_to_hook do
-                keys_to_hook[i]:set_ability("m_bld_ox")
+                keys_to_hook[i]:set_ability("m_bld_flint")
             end
             for i = 1, #keys_to_pot do
                 keys_to_pot[i]:set_ability("m_bld_pot")
             end
             for i = 1, #keys_to_snow do
-                keys_to_snow[i]:set_ability("m_bld_serpent")
+                keys_to_snow[i]:set_ability("m_bld_fire")
             end
             G.GAME.starting_deck_size = #G.playing_cards
             local ante = G.GAME.win_ante * 0.75 
@@ -79,6 +74,11 @@ SMODS.Back({
             local rounded = int_part + (frac_part >= 0.5 and 1 or 0) 
             G.GAME.win_ante = rounded
         return true end }))
+        --[[G.E_MANAGER:add_event(Event({func = function()
+            G.E_MANAGER:add_event(Event({func = function()
+                ease_dollars(self.config.extra.cash)
+            return true end }))
+        return true end }))]]
     end,
     calculate = function(self, back, context) 
         if context.after then
