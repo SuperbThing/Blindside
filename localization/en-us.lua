@@ -248,14 +248,14 @@ return {
 					"{C:attention}Boss Shops{}"
 				},
 			},
-			["v_bld_coolrock_relic"] = {
+			["v_bld_coolrock"] = {
 				["name"] = "Cool Rock",
 				["text"] = {
 					"{C:bld_obj_mineral}Mineral{} cards may appear",
 					"in Blind Shops"
 				},
 			},
-			["v_bld_television_relic"] = {
+			["v_bld_television"] = {
 				["name"] = "Television",
 				["text"] = {
 					"{C:bld_obj_filmcard}Channel{} cards may appear",
