@@ -5,8 +5,8 @@
         config = {
             extra = {
                 value = 17,
-                xchips = 1,
-                xchip_mod = 0.15,
+                xchips = 1.75,
+                --xchip_mod = 0.15,
                 hues = {"Blue"}
             }},
         replace_base_card = true,
@@ -29,18 +29,25 @@
         },
         calculate = function(self, card, context) 
             if context.before and context.cardarea == G.play and not context.blueprint and not next(context.poker_hands['bld_blind_3oak']) and card.facing ~= 'back' then
-                    SMODS.scale_card(card, {
-                        ref_table = card.ability.extra,
-                        ref_value = "xchips",
-                        scalar_value = "xchip_mod",
-                        operation = '+',
-                        message_colour = G.C.BLUE
-                    })
+                --[[SMODS.scale_card(card, {
+                    ref_table = card.ability.extra,
+                    ref_value = "xchips",
+                    scalar_value = "xchip_mod",
+                    operation = '+',
+                    message_colour = G.C.BLUE
+                })]]
             end
-            if context.cardarea == G.play and context.main_scoring and card.ability.extra.xchips > 1 then
-                return {
-                    xchips = card.ability.extra.xchips
-                }
+            if context.cardarea == G.play and context.main_scoring then
+                if not next(context.poker_hands['bld_blind_3oak']) then
+                    return {
+                        xchips = card.ability.extra.xchips
+                    }
+                else
+                    return {
+                        message = localize('k_nope_ex'),
+                        colour = G.C.BLUE
+                    }
+                end
             end
         end,
         loc_vars = function(self, info_queue, card)

@@ -1399,11 +1399,15 @@ return {
 			["m_bld_lantern"] = {
 				["name"] = "The Lantern",
 				["text"] = {
-					{"{X:blue,C:white}Blue{}",
+					"{X:blue,C:white}Blue{}",
+					"{X:blue,C:white}X#1#{} Chips if poker",
+					"hand does not contain",
+					"{C:attention}Three of a Blind{}"
+					--[[{"{X:blue,C:white}Blue{}",
 					"Currently {X:blue,C:white}X#1#{} Chips"},
 					{"If poker hand does not",
 					"contain {C:attention}Three of a Blind{},",
-					"gains {X:blue,C:white}X#2#{} Chips"},
+					"gains {X:blue,C:white}X#2#{} Chips"},]]
 				},
 			},
 			["m_bld_meteor"] = {
