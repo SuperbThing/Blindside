@@ -220,8 +220,8 @@ return {
 					"each {C:attention}Joker{} is defeated"
 				},
 			},
-			["v_bld_coolrock"] = {
-				["name"] = "Cool Rock",
+			["v_bld_meteor"] = {
+				["name"] = "Meteor",
 				["text"] = {
 					"{C:green}1 in 2{} chance to",
 					"retrigger {C:bld_obj_mineral}Mineral{} cards"
@@ -293,8 +293,8 @@ return {
 					"each {C:attention}Joker{} is defeated"
 				},
 			},
-			["tag_bld_coolrock_relic"] = {
-				["name"] = "Cool Rock",
+			["tag_bld_meteor_relic"] = {
+				["name"] = "Meteor",
 				["text"] = {
 					"{C:green}1 in 2{} chance to",
 					"retrigger {C:bld_obj_mineral}Mineral{} cards"
