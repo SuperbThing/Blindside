@@ -514,6 +514,14 @@ return {
 					"in Blind Shops"
 				},
 			},
+			["tag_bld_dental"] = {
+				["name"] = "Dental Tag",
+				["text"] = {
+					"{C:money}$1{} per",
+					"played Blind",
+					--"next hand"
+				},
+			},
 		},
 		["bld_obj_mineral"] = {
 			["c_bld_stibnite"] = {
@@ -2364,6 +2372,14 @@ return {
 				["text"] = {
 					"Discarded blinds",
 					"are {C:attention}burned"
+				}
+			},
+			['j_bld_dentures'] = {
+				["name"] = "Dentures",
+				["text"] = {
+					"If exactly {C:attention}3{} hands",
+					"are left after play,",
+					"create a {C:attention}Dental Tag{}",
 				}
 			},
 		},
