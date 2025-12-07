@@ -7,7 +7,8 @@ SMODS.Back({
         discards = -1,
         hands = 2,
         extra = {
-            blindside = true
+            blindside = true,
+            cash = 5
         },
         ante_scaling = 1,
         joker_slot = -1,
@@ -18,6 +19,13 @@ SMODS.Back({
     },
     unlocked = true,
     pos = { x = 2, y = 1 },
+    loc_vars = function (self, info_queue, card)
+        return {
+            vars = {
+                self.config.extra.cash
+            }
+        }
+    end,
     apply = function(self)
         BLINDSIDE.set_up_blindside()
         G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.8, func = function()
@@ -71,6 +79,11 @@ SMODS.Back({
             local int_part, frac_part = math.modf(ante)
             local rounded = int_part + (frac_part >= 0.5 and 1 or 0) 
             G.GAME.win_ante = rounded
+        return true end }))
+        G.E_MANAGER:add_event(Event({func = function()
+            G.E_MANAGER:add_event(Event({func = function()
+                ease_dollars(self.config.extra.cash)
+            return true end }))
         return true end }))
     end,
     calculate = function(self, back, context) 

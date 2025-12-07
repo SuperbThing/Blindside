@@ -153,7 +153,9 @@ return {
 				["name"] = "Yellow Deck?",
 				["text"] = {
 					"???",
+					"Start with {C:money}+#1#$",
 					"Start with {C:attention,T:v_bld_swearjar}Swear Jar",
+					"{s:0.2} {}",
 					"Extra hands earn",
 					"{C:attention}no money"
 				},
