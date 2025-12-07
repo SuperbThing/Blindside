@@ -7,7 +7,8 @@
         config = {
             extra = {
                 xmult = 3,
-                odds = 6
+                odds = 5,
+                secret = 0,
             }
         },
         cost = 15,
@@ -39,7 +40,7 @@
             end
 
             if context.end_of_round and not context.blueprint and not context.repetition and not context.individual then
-                if SMODS.pseudorandom_probability(card, pseudoseed('fineart'), 1, card.ability.extra.odds) then
+                if card.ability.extra.secret and card.ability.extra.secret >= 1 and SMODS.pseudorandom_probability(card, pseudoseed('fineart'), 1, card.ability.extra.odds) then
                     G.E_MANAGER:add_event(Event({
                         func = function()
                             play_sound('tarot1')
@@ -61,6 +62,10 @@
                         message = localize('bld_fineart_dead')
                     }
                 else
+                    if not card.ability.extra.secret then
+                        card.ability.extra.secret = 0
+                    end
+                    card.ability.extra.secret = card.ability.extra.secret + 1
                     return {
                         message = localize('k_safe_ex')
                     }
