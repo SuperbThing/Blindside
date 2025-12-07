@@ -1456,12 +1456,33 @@ return {
 					"and {C:attention}Burns"},
 				},
 			},
+			["m_bld_pillar_inactive"] = {
+				["name"] = "The Pillar",
+				["text"] = {
+					{"{X:dark_edition,C:white}Faded{}",
+					"{C:inactive}Once per Ante,",
+					"{X:inactive,C:white}X#1#{C:inactive} Mult",
+					"{C:inactive}(Currently: #2#)"},
+					{"Otherwise, {C:mult}+#3#{} Mult",
+					"and {C:attention}Burns"},
+				},
+			},
 			["m_bld_needle"] = {
 				["name"] = "The Needle",
 				["text"] = {
 					{"{X:green,C:white}Green{}",
 					"If in {C:attention}first played hand{}",
 					"of round, {X:mult,C:white}X#1#{} Mult"},
+					{"Otherwise, {C:mult}+#2#{} Mult",
+					"and {C:attention}Burns"},
+				},
+			},
+			["m_bld_needle_inactive"] = {
+				["name"] = "The Needle",
+				["text"] = {
+					{"{X:green,C:white}Green{}",
+					"{C:inactive}If in first played hand",
+					"{C:inactive}of round, {X:inactive,C:white}X#1#{} {C:inactive}Mult"},
 					{"Otherwise, {C:mult}+#2#{} Mult",
 					"and {C:attention}Burns"},
 				},
