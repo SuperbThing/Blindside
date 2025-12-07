@@ -180,6 +180,7 @@ local card_list = {
         "Line",
         "Tears",
         "Way",
+        "Fossil",
 }
 
 local trinket_list = {

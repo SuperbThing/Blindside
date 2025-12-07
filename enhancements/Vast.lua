@@ -35,7 +35,7 @@
                     end
                 end
                 if blues >= card.ability.extra.blue and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-                    G.GAME.consumeable_buffer = G.GAME.consumeable_buffer +1
+                    G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                     return {
                         extra = {focus = card, message = localize('k_mineral_ex'), func = function()
                             G.E_MANAGER:add_event(Event({

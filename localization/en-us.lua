@@ -49,6 +49,7 @@ return {
 			['matryoshka_none'] = "None!",
 			['bld_fineart_dead'] = "Devalued!",
 			['k_base_blinds'] = "Base Blinds",
+			['k_fossil_excavate'] = "Excavated!",
 			},
 		["v_dictionary"] = {
 			["a_rmult"] = "-#1#",
@@ -1853,6 +1854,19 @@ return {
 					"{X:purple,C:white}Purple{}",
 					"{C:chips}#1#{} Chips, then",
 					"{X:chips,C:white}X#2#{} Chips",
+				},
+			},
+			["m_bld_fossil"] = {
+				["name"] = "The Fossil",
+				["text"] = {
+					{"{X:green,C:white}Green{}",
+					"When held in hand,",
+					"{C:green}#1# in #2#{} chance to create",
+					"a {C:bld_obj_mineral}Mineral{} for the played",
+					"poker hand",
+					"{C:inactive}(Must have room)"},
+					{"{C:attention}Burns{} after giving",
+					"a mineral"}
 				},
 			},
 		},
