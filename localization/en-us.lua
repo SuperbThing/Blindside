@@ -2288,7 +2288,7 @@ return {
 			['j_bld_bottle'] = {
 				["name"] = "Soda Bottle",
 				["text"] = {
-					"{C:attention}+1{} Discard"
+					"{C:red}+1{} Discard"
 				}
 			},
 			['j_bld_hackysack'] = {
