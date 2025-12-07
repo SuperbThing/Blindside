@@ -1878,7 +1878,7 @@ return {
 			['j_bld_stoplight_green'] = {
 				["name"] = "Stoplight",
 				["text"] = {
-					"Retriggers all blinds",
+					"{C:green}Retriggers{} all blinds",
 					"{C:inactive}(Changes next hand){}",
 				}
 			},

@@ -2,14 +2,11 @@
     SMODS.Joker({
         key = 'stoplight',
         atlas = 'bld_trinkets',
-        pos = {x = 2, y = 2},
+        pos = {x = 4, y = 2},
         rarity = 'bld_doodad',
         config = {
             extra = {
-                mult = 20,
-                chips = 50,
-                x_value = {x = 2, y = 2},
-                queen = false
+                x_value = {x = 4, y = 2},
             }
         },
         cost = 10,
