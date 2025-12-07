@@ -4,7 +4,7 @@ SMODS.Seal {
     pos = { x = 2, y = 1 },
     config = { 
         extra = { 
-            xmult = 2,
+            xmult = 1.75,
             burn = true,
         } 
     },
