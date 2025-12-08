@@ -8,6 +8,7 @@
                 chance = 1,
                 trigger = 5,
                 xmult = 2,
+                xmultup = 1,
                 hues = {"Yellow", "Green"}
             }
         },
@@ -67,6 +68,12 @@
                 }
             }
         end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultup
+            card.ability.extra.upgraded = true
+            end
+        end
     })
     
 ----------------------------------------------
