@@ -2234,8 +2234,8 @@ return {
 			['j_bld_discount'] = {
 				["name"] = "Discount",
 				["text"] = {
-					"Shop contains {C:attention}1{}",
-					"additional free {C:bld_obj_filmcard}Channel{} Pack"
+					"initial booster packs",
+					"in {C:attention}Boss Shop{} are free"
 				}
 			},
 			['j_bld_piggybank'] = {
