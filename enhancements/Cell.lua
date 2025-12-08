@@ -6,6 +6,7 @@
             extra = {
                 value = 15,
                 chips = 5,
+                chipsup = 2,
                 cell_tally = 0,
                 chance = 1,
                 trigger = 2,
@@ -90,6 +91,12 @@
                 for k, v in pairs(G.playing_cards) do
                     if v:is_color("Green") and v.area ~= G.exhaust then card.ability.cell_tally = card.ability.cell_tally+1 end
                 end
+            end
+        end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipsup
+            card.ability.extra.upgraded = true
             end
         end
     })
