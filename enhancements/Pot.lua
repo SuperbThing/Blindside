@@ -6,7 +6,13 @@
             extra = {
                 money = 1,
                 value = 1,
-                hues = {"Yellow"}
+                hues = {"Yellow"},
+            upgrade = {
+                money = 2,
+                value = 1,
+                hues = {"Yellow"},
+                upgraded = true
+            }
             }},
         replace_base_card = true,
         no_rank = true,

@@ -9,7 +9,16 @@
                 chips = 12,
                 chance = 1,
                 trigger = 2,
-                hues = {"Green"}
+                hues = {"Green"},
+                upgrade = {
+                    value = 1,
+                    mult = 12,
+                    chips = 30,
+                    chance = 1,
+                    trigger = 2,
+                    hues = {"Green"},
+                    upgraded = true
+                }
             }
         },
         replace_base_card = true,

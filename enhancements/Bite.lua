@@ -3,10 +3,16 @@
         atlas = 'bld_blindrank',
         pos = {x = 6, y = 5},
         config = {
-            xmult = 1.5,
             extra = {
+                xmult = 1.5,
                 value = 11,
-                hues = {"Purple"}
+                hues = {"Purple"},
+                upgrade = {
+                    xmult = 2,
+                    value = 11,
+                    hues = {"Purple"},
+                    upgraded = true
+                }
             }},
         replace_base_card = true,
         no_rank = true,
@@ -43,7 +49,7 @@
             end
             if context.cardarea == G.play and context.main_scoring then
                 return {
-                    xmult = card.ability.xmult
+                    xmult = card.ability.extra.xmult
                 }
             end
 
@@ -62,7 +68,7 @@
         loc_vars = function(self, info_queue, card)
             return {
                 vars = {
-                    card.ability.xmult
+                    card.ability.extra.xmult
                 }
             }
         end

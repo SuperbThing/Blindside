@@ -7,7 +7,13 @@
             extra = {
                 value = 1,
                 rescore = 1,
-                hues = {"Faded"}
+                hues = {"Faded"},
+                upgrade = {
+                    value = 1,
+                    rescore = 1,
+                    hues = {"Faded"},
+                    upgraded = true
+                },
             }},
         replace_base_card = true,
         no_rank = true,
@@ -51,6 +57,9 @@
                                         local passed_context = context
                                         card_eval_status_text(play_card, 'extra', nil, nil, nil, {message = localize('k_again_ex'),colour = G.C.DARK_EDITION})
                                         SMODS.score_card(play_card, passed_context)
+                                        if card.ability.extra.upgraded then
+                                            SMODS.score_card(play_card, passed_context)
+                                        end
                                     end
                                 end
                             end

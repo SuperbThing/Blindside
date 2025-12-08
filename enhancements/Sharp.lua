@@ -3,10 +3,16 @@
         atlas = 'bld_blindrank',
         pos = {x = 5, y = 0},
         config = 
-            {mult = 2,
-            extra = {
+            {extra = {
                 value = 1,
-                hues = {"Red"}
+                mult = 2,
+                hues = {"Red"},
+                upgrade = {
+                    value = 1,
+                    mult = 6,
+                    hues = {"Red"},
+                    upgraded = true
+                }
             }},
         replace_base_card = true,
         no_rank = true,
@@ -24,8 +30,19 @@
             ["bld_obj_blindcard_single"] = true,
             ["bld_obj_blindcard_red"] = true,
         },
+        calculate = function(self, card, context) 
+            if context.cardarea == G.play and context.main_scoring then
+                return {
+                    mult = card.ability.extra.mult
+                }
+            end
+            if context.burn_card and context.cardarea == G.play and context.burn_card == card and card.ability.extra.upgraded then
+                return { remove = true }
+            end
+        end,
         loc_vars = function(self, info_queue, card)
             return {
+                key = card.ability.extra.upgraded and 'm_bld_sharp_burn' or 'm_bld_sharp',
                 vars = {
                     card.ability.mult
                 }

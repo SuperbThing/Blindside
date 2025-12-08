@@ -1080,6 +1080,14 @@ return {
 					"{C:mult}+#1#{} Mult"
 				},
 			},
+			["m_bld_sharp_burn"] = {
+				["name"] = "The Sharp",
+				["text"] = {
+					{"{X:mult,C:white}Red{}",
+					"{C:mult}+#1#{} Mult"},
+					{"{C:attention}Burns{}"}
+				},
+			},
 			["m_bld_flip"] = {
 				["name"] = "The Flip",
 				["text"] = {
