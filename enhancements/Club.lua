@@ -4,9 +4,10 @@
         pos = {x = 6, y = 0},
         config = {
             mult = 10,
-            x_mult = 2,
+            x_mult = 1.75,
             extra = {
-                multup = 10,
+                multup = 5,
+                xmultup = 0.25,
                 value = 100,
                 hues = {"Yellow", "Faded"}
             }},
@@ -59,6 +60,7 @@
         upgrade = function(card) 
             if not card.ability.extra.upgraded then
             card.ability.mult = card.ability.mult + card.ability.extra.multup
+            card.ability.xmult = card.ability.xmult + card.ability.extra.xmultup
             card.ability.extra.upgraded = true
             end
         end
