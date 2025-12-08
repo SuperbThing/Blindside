@@ -7,6 +7,7 @@
                 value = 14,
                 mult = 0,
                 mult_mod = 10,
+                mult_modup = 5,
                 hues = {"Red"}
             }},
         replace_base_card = true,
@@ -62,6 +63,12 @@
                     card.ability.extra.mult, card.ability.extra.mult_mod
                 }
             }
+        end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.mult_mod = card.ability.extra.mult_mod + card.ability.extra.mult_modup
+            card.ability.extra.upgraded = true
+            end
         end
     })
 ----------------------------------------------
