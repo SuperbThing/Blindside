@@ -1739,10 +1739,11 @@ return {
 			["m_bld_staff"] = {
 				["name"] = "The Staff",
 				["text"] = {
-					"{X:purple,C:white}Purple{}",
+					{"{X:purple,C:white}Purple{}",
 					"Randomly {C:attention}enhance{} a",
 					"random scoring Blind,",
-					"then {C:attention}burn{} it",
+					"then {C:attention}burn{} it"},
+					{"Always scores"}
 				},
 			},
 			["m_bld_bite"] = {
