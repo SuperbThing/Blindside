@@ -579,6 +579,7 @@ function Card:start_burn(cardarea, dissolve_colours, silent, dissolve_time_fac, 
             end
             G.discard:emplace(self, nil, stay_flipped)
         else
+            print("an error has occured")
             play_sound('card1', 0.85 + percent*0.2/100, 0.6*(vol or 1))
             self = G.discard:draw_card_from(cardarea, stay_flipped, discarded_only)
             if self then drawn = true end
@@ -652,6 +653,7 @@ function Card:start_burn(cardarea, dissolve_colours, silent, dissolve_time_fac, 
             end
             G.exhaust:emplace(self, nil, stay_flipped)
         else
+            print("an error has occured")
             self = G.exhaust:draw_card_from(cardarea, stay_flipped, discarded_only)
             if self then drawn = true end
         end
