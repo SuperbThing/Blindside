@@ -1898,8 +1898,6 @@ return {
 					"a {C:bld_obj_mineral}Mineral{} for the played",
 					"poker hand",
 					"{C:inactive}(Must have room)"},
-					{"{C:attention}Burns{} after giving",
-					"a mineral"}
 				},
 			},
 		},
