@@ -1346,13 +1346,17 @@ G.E_MANAGER:add_event(Event({ func = function()
     local any_selected = nil
     local _cards = {}
     for k, v in ipairs(G.hand.cards) do
+        if not ((v.config.center.config.extra and v.config.center.config.extra.retain) or v.retain) then
         _cards[#_cards+1] = v
+        end
+        v.retain = false
     end
     G.E_MANAGER:add_event(Event({ func = function()
     G.E_MANAGER:add_event(Event({ func = function()
-    for i = 1, #G.hand.cards do
-        G.hand.cards[i].ability.discarded = true
-        draw_card(G.hand, G.discard, i*100/#G.hand.cards, 'down', false, G.hand.cards[i])
+    delay(0.5)
+    for i = 1, #_cards do
+        _cards[i].ability.discarded = true
+        draw_card(G.hand, G.discard, i*100/#_cards, 'down', false, _cards[i])
     end
     return true end }))
     return true end }))
