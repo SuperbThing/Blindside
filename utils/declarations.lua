@@ -35,7 +35,7 @@
         "m_bld_deck",
         "m_bld_pile",
         "m_bld_cell",
-        --"m_bld_wedge",
+        "m_bld_wedge",
         "m_bld_bolt",
         "m_bld_price",
         "m_bld_ore",
