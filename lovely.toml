@@ -1334,15 +1334,14 @@ end
 # experimental change, replace some of this code later
 [[patches]]
 [patches.pattern]
-target = 'blind.lua'
-pattern = '''
-elseif self.name == 'The Hook' then
-'''
+target = 'functions/state_events.lua'
 match_indent = true
-position = 'before'
+position = 'after'
+pattern = '''
+SMODS.calculate_context({full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, after = true})
+'''
 payload = '''
-elseif G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
-G.E_MANAGER:add_event(Event({ func = function()
+if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
     local any_selected = nil
     local _cards = {}
     for k, v in ipairs(G.hand.cards) do
@@ -1351,14 +1350,13 @@ G.E_MANAGER:add_event(Event({ func = function()
         end
         v.retain = false
     end
-    G.E_MANAGER:add_event(Event({ func = function()
-    G.E_MANAGER:add_event(Event({ func = function()
-    delay(0.5)
+    G.E_MANAGER:add_event(Event({
+            trigger = 'immediate',
+            func = function()
     for i = 1, #_cards do
         _cards[i].ability.discarded = true
         draw_card(G.hand, G.discard, i*100/#_cards, 'down', false, _cards[i])
     end
     return true end }))
-    return true end }))
-return true end }))
+end
 '''
