@@ -1350,14 +1350,51 @@ if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effe
         end
         v.retain = false
     end
+        local cards = {}
+        local burned_cards = {}
+        local destroyed_cards = {}
     G.E_MANAGER:add_event(Event({
             trigger = 'immediate',
             func = function()
     for i = 1, #_cards do
-        _cards[i].ability.discarded = true
-        draw_card(G.hand, G.discard, i*100/#_cards, 'down', false, _cards[i])
+    local removed = false
+            local burned = false
+            local effects = {}
+            SMODS.calculate_context({hand_discard = true, other_card =  _cards[i], full_hand = _cards, ignore_other_debuff = true}, effects)
+            SMODS.trigger_effects(effects)
+            for _, eval in pairs(effects) do
+                if type(eval) == 'table' then
+                    for key, eval2 in pairs(eval) do
+                        if key == 'remove' or (type(eval2) == 'table' and eval2.remove) then removed = true end
+                        if key == 'burn' or (type(eval2) == 'table' and eval2.burn) then burned = true end
+                    end
+                end
+            end
+            table.insert(cards, _cards[i])
+            if removed then
+                destroyed_cards[#destroyed_cards + 1] = _cards[i]
+                if SMODS.shatters(_cards[i]) then
+                    _cards[i]:shatter()
+                else
+                    _cards[i]:start_dissolve()
+                end
+            else 
+                if burned then
+                    burned_cards[#burned_cards + 1] = _cards[i]
+                    _cards[i]:start_burn(G.hand)
+                    else
+                    _cards[i].ability.discarded = true
+                    draw_card(G.hand, G.discard, i*100/#_cards, 'down', false, _cards[i])
+                end
+            end
     end
     return true end }))
+    if burned_cards[1] then
+        SMODS.calculate_context({remove_playing_cards = true, cards_burned = burned_cards})
+    end
+    if destroyed_cards[1] then
+        SMODS.calculate_context({remove_playing_cards = true, removed = destroyed_cards})
+    end
 end
 '''
 

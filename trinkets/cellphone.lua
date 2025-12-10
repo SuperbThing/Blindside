@@ -28,8 +28,8 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.burn_card and context.cardarea == G.hand then
-                return {remove = true}
+            if context.hand_discard then
+                return {burn = true}
             end
             if context.joker_main then
                 return {
