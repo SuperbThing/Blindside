@@ -582,7 +582,7 @@
     SMODS.Rarity {
         key = 'doodad',
         loc_txt = {
-        name = "Doodad",
+        name = "Doodad Trinket",
         },
 	    badge_colour = HEX("3e8fd1"),
         pools = {
@@ -604,7 +604,7 @@
     SMODS.Rarity {
         key = 'curio',
         loc_txt = {
-        name = "Curio",
+        name = "Curio Trinket",
         },
 	    badge_colour = HEX("934ace"),
         pools = {
@@ -615,7 +615,7 @@
     SMODS.Rarity {
         key = 'hobby',
         loc_txt = {
-        name = "Hobby",
+        name = "Hobby Trinket",
         },
 	    badge_colour = HEX("d19c2b"),
         pools = {
