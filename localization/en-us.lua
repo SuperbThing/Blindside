@@ -1493,9 +1493,9 @@ return {
 				["name"] = "The Serpent",
 				["text"] = {
 					{"{X:green,C:white}Green{}",
-					"Draw {C:attention}#1#{} additional",
-					"Blinds next time you",
-					"draw from the deck"},
+					"The next time you",
+					"draw from the deck, draw",
+					"{C:attention}#1#{} additional Blinds",},
 					{"Always Scores"},
 				},
 			},
