@@ -1494,7 +1494,8 @@ return {
 				["text"] = {
 					{"{X:green,C:white}Green{}",
 					"Draw {C:attention}#1#{} additional",
-					"blinds after scoring"},
+					"Blinds next time you",
+					"draw from the deck"},
 					{"Always Scores"},
 				},
 			},
