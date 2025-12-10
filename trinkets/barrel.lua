@@ -30,10 +30,10 @@
         calculate = function(self, card, context)
             if context.joker_main then
                 local unique_blinds = {}
-                for key, value1 in pairs(context.scoring_hand) do
+                for key1, value1 in pairs(context.scoring_hand) do
                     local inside = false
-                    for key, value2 in pairs(unique_blinds) do
-                        if value1 == value2 then
+                    for key2, value2 in pairs(unique_blinds) do
+                        if value1.config.center.key == value2.config.center.key then
                             inside = true
                             break
                         end
