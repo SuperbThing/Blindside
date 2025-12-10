@@ -119,7 +119,7 @@
         "p_bld_noble_mega1",
         "j_bld_taglock",
         "j_bld_paycheck",
-        --"j_bld_bookmark",
+        "j_bld_bookmark",
         "j_bld_canvas",
         "j_bld_flag",
         "j_bld_crest",

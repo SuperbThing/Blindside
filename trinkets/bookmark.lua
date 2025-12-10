@@ -28,7 +28,7 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.joker_main and #G.deck.cards == 0 then
+            if context.joker_main and #G.deck.cards <= 2 then
                 return {
                     xmult = card.ability.extra.xmult
                 }

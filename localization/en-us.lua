@@ -2074,7 +2074,8 @@ return {
 				["name"] = "Bookmark",
 				["text"] = {
 					"{X:mult,C:white}X#1#{} Mult if deck",
-					"has {C:attention}0{} blinds left",
+					"has at most {C:attention}2{}",
+					"blinds left",
 				}
 			},
 			['j_bld_scratchticket'] = {
