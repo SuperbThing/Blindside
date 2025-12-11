@@ -1083,6 +1083,8 @@ end
 function upgrade_blind(card)
     if card and card.config and card.config.center and card.config.center.upgrade then
         card.config.center.upgrade(card)
+        SMODS.Stickers['bld_upgrade']:apply(card, true)
+        play_sound('seal')
     else
         print("no upgrade function")
     end
