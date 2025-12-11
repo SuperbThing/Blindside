@@ -60,11 +60,11 @@
                 }
             }
         end,
-    upgrade = function(card) 
-        if not card.ability.extra.upgraded then
-        card.ability.extra.upgraded = true
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.upgraded = true
+            end
         end
-    end
     })
 ----------------------------------------------
 ------------MOD CODE END----------------------

@@ -1088,6 +1088,14 @@ function tableContains(value, tbl)
   end
   return false
 end
+
+function upgrade_blind(card)
+    if card and card.config and card.config.center and card.config.center.upgrade then
+        card.config.center.upgrade(card)
+    else
+        print("no upgrade function")
+    end
+end
 ----------------------------------------------
 ------------MOD CODE END----------------------
 

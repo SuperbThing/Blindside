@@ -714,6 +714,22 @@ return {
 				},
 			},
 		},
+		["bld_obj_ritual"] = {
+			["c_bld_prayer"] = {
+				["name"] = "Prayer",
+				["text"] = {
+					"{C:dark_edition,E:1}Upgrade{} #1#",
+					"selected Blind",
+				},
+			},
+			["c_bld_sacrifice"] = {
+				["name"] = "Sacrifice",
+				["text"] = {
+					"{C:dark_edition,E:1}Upgrade{} #1#",
+					"selected Blind",
+				},
+			},
+		},
 		["bld_obj_filmcard"] = {
 			["c_bld_horror"] = {
 				["name"] = "Horror",

@@ -117,6 +117,10 @@
         "p_bld_noble_basic2",
         "p_bld_noble_jumbo1",
         "p_bld_noble_mega1",
+        "p_bld_ritual_basic1",
+        "p_bld_ritual_basic2",
+        "p_bld_ritual_jumbo1",
+        "p_bld_ritual_mega1",
         "j_bld_taglock",
         "j_bld_paycheck",
         "j_bld_bookmark",
@@ -216,6 +220,8 @@
         "c_bld_halcyon",
         "c_bld_montain",
         "c_bld_joker404",
+        "c_bld_sacrifice",
+        "c_bld_prayer",
         "bld_wild",
         "bld_astral",
         "bld_floral",
@@ -563,6 +569,26 @@
         },
     }
 
+    SMODS.ConsumableType {
+        key = 'bld_obj_ritual',
+        primary_colour = HEX('424e54'),
+        secondary_colour = HEX('6D5466'),
+        shop_rate = 0,
+        collection_rows = { 4, 4 },
+        no_collection = true,
+        loc_txt = {
+            name = "Ritual",
+            collection = "Rituals",
+            undiscovered = {
+                name = 'Unknown Ritual',
+                text = {
+                    'Find this card in an unseeded',
+                    'run to find out what it does'
+                }
+            }
+        },
+    }
+
     SMODS.UndiscoveredSprite {
         key = 'bld_obj_mineral',
         atlas = 'bld_consumable',
@@ -575,6 +601,11 @@
     }
     SMODS.UndiscoveredSprite {
         key = 'bld_obj_rune',
+        atlas = 'bld_consumable',
+        pos = {x = 6,y = 6},
+    }
+    SMODS.UndiscoveredSprite {
+        key = 'bld_obj_ritual',
         atlas = 'bld_consumable',
         pos = {x = 6,y = 6},
     }

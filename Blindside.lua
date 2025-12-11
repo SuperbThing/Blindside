@@ -262,6 +262,7 @@ local booster_list = {
         "channelbooster",
         "mineralbooster",
         "noblebooster",
+        "ritualbooster",
 }
 
 local channel_list = {
@@ -307,6 +308,10 @@ local rune_list = {
         "joker404",
 }
 
+local ritual_list = {
+    "sacrifice"
+}
+
 
 local path = SMODS.current_mod.path .. 'seals/'
 for _, v in pairs(NFS.getDirectoryItems(path)) do
@@ -339,6 +344,9 @@ for _, key in ipairs(mineral_list) do
 end
 for _, key in ipairs(rune_list) do
     assert(SMODS.load_file('consumables/rune/' .. key .. '.lua'))()
+end
+for _, key in ipairs(ritual_list) do
+    assert(SMODS.load_file('consumables/ritual/' .. key .. '.lua'))()
 end
 for _, key in ipairs(card_list) do
     assert(SMODS.load_file('enhancements/'..key..'.lua'))()
