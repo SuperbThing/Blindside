@@ -732,9 +732,8 @@ return {
 			["c_bld_pentagram"] = {
 				["name"] = "Pentagram",
 				["text"] = {
-					{"Chooses #2# random Blinds"},
-					{"Destroys {C:attention}#1#{} of them,",
-					"{C:dark_edition,E:1}upgrades{} the rest"},
+					"Destroys {C:attention}#1#{} random Blinds,",
+					"{C:dark_edition,E:1}upgrades{} {C:attention}#2#{} random Blinds",
 				},
 			},
 		},
