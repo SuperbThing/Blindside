@@ -1,12 +1,12 @@
 SMODS.Booster{
         key = 'ritual_basic1',
-        config = {extra = 2, choose = 1},
+        config = {extra = 3, choose = 1},
         discovered = false,
         get_weight = function(self)
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 1.8 --prior tested value is 0.8
+                return 2 --prior tested value is 0.8
             else
                 return 0
             end
@@ -39,13 +39,13 @@ SMODS.Booster{
 }
 SMODS.Booster{
         key = 'ritual_basic2',
-        config = {extra = 2, choose = 1},
+        config = {extra = 3, choose = 1},
         discovered = false,
         get_weight = function(self)
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 1.8 --prior tested value is 0.8
+                return 2 --prior tested value is 0.8
             else
                 return 0
             end
