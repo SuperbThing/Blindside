@@ -391,7 +391,7 @@ SMODS.Blind({
     boss = {min = 1},
     active = true,
     loc_vars = function(self)
-        local numerator, denominator = SMODS.get_probability_vars(self, 1, 2, 'pareidolia')
+        local numerator, denominator = SMODS.get_probability_vars(self, 1, 3, 'pareidolia')
         return { vars = { numerator, denominator } }
     end,
     collection_loc_vars = function(self)
@@ -412,7 +412,7 @@ SMODS.Blind({
     calculate = function(self, blind, context)
         if not blind.disabled then
             if context.stay_flipped and context.to_area == G.hand and
-                SMODS.pseudorandom_probability(blind, 'pareidolia', 1, 2) then
+                SMODS.pseudorandom_probability(blind, 'pareidolia', 1, 3) then
                 return {
                     stay_flipped = true
                 }
