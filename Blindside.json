@@ -1,7 +1,7 @@
 {
 	"id": "Blindside",
 	"name": "Balatro: Blindside",
-	"author": ["LunaAstraCassiopeia", "AnneBean"],
+	"author": ["LunaAstraCassiopeia", "AnneBean", "base4"],
 	"description": "A dumb test",
 	"prefix": "bld",
 	"main_file": "Blindside.lua",
