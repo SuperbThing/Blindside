@@ -375,8 +375,14 @@ function set_consumeable_usage(card)
     end
 end
 
+-- local deletethis = G.FUNCS.draw_from_deck_to_hand
+-- function G.FUNCS.draw_from_deck_to_hand(...)
+--     print("base-drawing")
+--     return deletethis(...)
+-- end
 
 G.FUNCS.blind_draw_from_deck_to_hand = function(e)
+    -- print("blind-drawing")
     local hand_space = e
     local cards_to_draw = {}
     if not hand_space then
@@ -1085,6 +1091,22 @@ function tableContains(value, tbl)
     end
   end
   return false
+end
+
+function BLINDSIDE.find_and_juice_duplicates(area)
+    local cards = area.cards
+
+    for i,c1 in ipairs(cards) do
+
+        for j,c2 in ipairs(cards) do
+           
+            if i ~= j and c1 == c2 then
+                juice_card(c1)
+            end
+
+        end
+
+    end
 end
 ----------------------------------------------
 ------------MOD CODE END----------------------
