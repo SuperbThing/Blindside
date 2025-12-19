@@ -74,6 +74,7 @@ return {
 			["bld_Faded"] = 'Faded',
         },
         ["labels"] = {
+			["bld_upgrade"] = 'Upgraded',
 			["bld_enameled"] = 'Enamel',
 			["bld_mint"] = 'Mint',
 			["bld_finish"] = 'Finish',
