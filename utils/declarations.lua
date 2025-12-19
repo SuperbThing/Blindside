@@ -1,6 +1,13 @@
  SMODS.ObjectType {
         key = "bld_obj_blindside",
         cards = {
+        "b_bld_whitedispenser",
+        "b_bld_reddispenser",
+        "b_bld_greendispenser",
+        "b_bld_yellowdispenser",
+        "b_bld_blackdispenser",
+        "b_bld_bluedispenser",
+        "b_bld_painteddispenser",
         "m_bld_adder",
         "m_bld_flip",
         "m_bld_sharp",
@@ -564,7 +571,7 @@
     SMODS.ConsumableType {
         key = 'bld_obj_rune',
         primary_colour = HEX('424e54'),
-        secondary_colour = HEX('6D5466'),
+        secondary_colour = HEX('83646D'),
         shop_rate = 0,
         collection_rows = { 4, 4 },
         no_collection = true,
@@ -584,7 +591,7 @@
     SMODS.ConsumableType {
         key = 'bld_obj_ritual',
         primary_colour = HEX('424e54'),
-        secondary_colour = HEX('6D5466'),
+        secondary_colour = HEX('9E7AED'),
         shop_rate = 0,
         collection_rows = { 4, 4 },
         no_collection = true,
@@ -619,7 +626,7 @@
     SMODS.UndiscoveredSprite {
         key = 'bld_obj_ritual',
         atlas = 'bld_consumable',
-        pos = {x = 6,y = 6},
+        pos = {x = 7,y = 6},
     }
 
     SMODS.Rarity {
