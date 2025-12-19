@@ -5,8 +5,8 @@
         config = {
             extra = {
                 value = 10,
-                chips = 75,
-                chips_up = 75,
+                chips = 100,
+                chips_up = 100,
                 chance = 1,
                 trigger = 2,
                 flipped = true,
