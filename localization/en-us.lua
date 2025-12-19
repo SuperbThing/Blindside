@@ -1247,20 +1247,20 @@ return {
 				["name"] = "The Ox",
 				["text"] = {
 					{"{X:money,C:white}Yellow{}",
-					"{C:money}+#1#${} if played",
+					"{C:mult}+#2#{} Mult if played",
 					"{C:attention}poker hand{} is most",
 					"played this run"},
-					{"Otherwise, {C:mult}+#2#{} Mult"}
+					{"Otherwise, {C:money}+#1#${}"}
 				},
 			},
 			["m_bld_ox_upgraded"] = {
 				["name"] = "The Ox",
 				["text"] = {
 					{"{X:money,C:white}Yellow{}",
-					"{C:money}+#1#${} if played",
+					"{C:mult}+#2#{} Mult if played",
 					"{C:attention}poker hand{} is most",
 					"played this run"},
-					{"Otherwise, {C:mult}+#2#{} Mult"},
+					{"Otherwise, {C:money}+#1#${}"},
 					{"Also scores when",
 					"{C:attention}held in hand"}
 				},

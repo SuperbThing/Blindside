@@ -4,7 +4,7 @@
         pos = {x = 1, y = 0},
         config = {
             extra = {
-                money = 5,
+                money = 4,
                 mult = 5,
                 value = 11,
             }},
@@ -21,15 +21,15 @@
                 end
                 if _hand then
                     if _hand == context.scoring_name then
+                        return {
+                            mult = card.ability.extra.mult,
+                            card = card
+                        }
+                    else
                         G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + card.ability.extra.money
                         G.E_MANAGER:add_event(Event({func = (function() G.GAME.dollar_buffer = 0; return true end)}))
                         return {
                             dollars = card.ability.extra.money,
-                            card = card
-                        }
-                    else
-                        return {
-                            mult = card.ability.extra.mult,
                             card = card
                         }
                     end
