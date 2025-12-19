@@ -1462,3 +1462,18 @@ for i = 1, #G.playing_cards do
     end
 end
 '''
+
+# cardarea sorting
+[[patches]]
+[patches.pattern]
+target = 'cardarea.lua'
+pattern = '''
+self.config.sort = config.sort or 'desc'
+'''
+match_indent = true
+position = 'after'
+payload = '''
+if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
+self.config.sort = config.sort or 'color desc'
+end
+'''
