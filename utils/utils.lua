@@ -887,12 +887,14 @@ function BLINDSIDE.poll_enhancement(args)
     local options = args.options or get_current_pool("Enhanced")
     if args.colors then
         for i, k in ipairs(options) do
-            if k.config.extra.hues then
+            if k.config and k.config.extra and k.config.extra.hues then
                 for key, value in pairs(args.colors) do
                     if not tableContains(value, k.config.extra.hues) then
                         options[i] = 'UNAVAILABLE'
                     end
                 end
+            else
+                options[i] = 'UNAVAILABLE'
             end
         end
     end
@@ -1117,7 +1119,18 @@ else
     end
 end
 
-function upgrade_blinds(cards, flipped)
+function upgrade_blinds(cards, flipped, silent)
+    if silent then
+        for key, card in pairs(cards) do
+            if card.config and card.config.center and card.config.center.upgrade then
+                SMODS.Stickers['bld_upgrade']:apply(card, true)
+            else
+                print("no upgrade function")
+            end
+        end
+        return
+    end
+
     if not flipped then
         G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.4,func = function() 
             for k, card in ipairs(cards) do
@@ -1127,7 +1140,6 @@ function upgrade_blinds(cards, flipped)
             end 
         return true end }))
     end
-    print("test")
         G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.4,func = function() 
             for k, card in ipairs(cards) do
                 play_sound('bld_clang', 1.1, 1)
@@ -1270,7 +1282,29 @@ function BLINDSIDE.alert_debuff(joker, add, text)
     end
 end
 
-
+function BLINDSIDE.get_first_enhancement_with_exact_colors(colors)
+    for key, value in pairs(G.P_CENTER_POOLS.bld_obj_blindcard_generate) do
+        -- basically checks table equality
+        local good = true
+        for key, color in pairs(colors) do
+            if not tableContains(color, value.config.extra.hues) then
+                good = false
+                break
+            end
+        end
+        if good then
+            for key, color in pairs(value.config.extra.hues) do
+                if not tableContains(color, colors) then
+                    good = false
+                    break
+                end
+            end
+            if good then
+                return value
+            end
+        end
+    end
+end
 
 ----------------------------------------------
 ------------MOD CODE END----------------------

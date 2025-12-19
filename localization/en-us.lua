@@ -775,6 +775,17 @@ return {
 					{"{C:blue}-#1#{} #2#"}
 				},
 			},
+			["c_bld_assimilate"] = {
+				["name"] = "Assimilate",
+				["text"] = {
+					{"Select {C:attention}#1#{} blinds",
+					"of {C:attention}exactly{} 2",
+					"different hues"},
+					{"They are merged",
+					"into a single",
+					"multicolor blind"},
+				},
+			},
 			--[[					"{C:dark_edition,E:1}Upgrade{} {C:attention}#1#",
 					"selected Blinds",
 					"{C:attention}Destroy{} a random",

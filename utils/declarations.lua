@@ -228,6 +228,7 @@
         "c_bld_intervene",
         "c_bld_evoke",
         "c_bld_invert",
+        "c_bld_assimilate",
         "bld_wild",
         "bld_astral",
         "bld_floral",
