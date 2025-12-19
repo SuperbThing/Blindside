@@ -52,6 +52,7 @@ return {
 			['bld_fineart_dead'] = "Devalued!",
 			['k_base_blinds'] = "Base Blinds",
 			['k_fossil_excavate'] = "Excavated!",
+			['k_exorcised_ex'] = "Exorcised!",
 			},
 		["v_dictionary"] = {
 			["a_rmult"] = "-#1#",
@@ -781,9 +782,18 @@ return {
 					{"Select {C:attention}#1#{} blinds",
 					"of {C:attention}exactly{} 2",
 					"different hues"},
-					{"They are merged",
+					{"They are {C:attention}merged",
 					"into a single",
-					"multicolor blind"},
+					"{E:1}multicolor{} blind"},
+				},
+			},
+			["c_bld_exorcise"] = {
+				["name"] = "Exorcise",
+				["text"] = {
+					{"{C:dark_edition,E:1}Upgrade{} {C:attention}#1#{}",
+					"selected Blinds"},
+					{"{C:red}Destroy{} a random",
+					"owned trinket"}
 				},
 			},
 			--[[					"{C:dark_edition,E:1}Upgrade{} {C:attention}#1#",
