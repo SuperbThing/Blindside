@@ -55,6 +55,8 @@
         G.DISCOVER_TALLIES.allblindcards = {tally = 0, of = 0}
         G.DISCOVER_TALLIES.allfilmcards = {tally = 0, of = 0}
         G.DISCOVER_TALLIES.allminerals = {tally = 0, of = 0}
+        G.DISCOVER_TALLIES.allrituals = {tally = 0, of = 0}
+        G.DISCOVER_TALLIES.allrunes = {tally = 0, of = 0}
         G.DISCOVER_TALLIES.blindeditions = {tally = 0, of = 0}
         G.DISCOVER_TALLIES.blindboosters = {tally = 0, of = 0}
         G.DISCOVER_TALLIES.blindtrinkets = {tally = 0, of = 0}
@@ -79,6 +81,18 @@
                 G.DISCOVER_TALLIES.allminerals.of = G.DISCOVER_TALLIES.allminerals.of+1
                 if v.discovered then 
                     G.DISCOVER_TALLIES.allminerals.tally = G.DISCOVER_TALLIES.allminerals.tally+1
+                end
+            end
+            if v.set and v.set == 'bld_obj_ritual' and BLINDSIDE.is_blindside(v.key) and not v.omit  then
+                G.DISCOVER_TALLIES.allrituals.of = G.DISCOVER_TALLIES.allrituals.of+1
+                if v.discovered then 
+                    G.DISCOVER_TALLIES.allrituals.tally = G.DISCOVER_TALLIES.allrituals.tally+1
+                end
+            end
+            if v.set and v.set == 'bld_obj_rune' and BLINDSIDE.is_blindside(v.key) and not v.omit  then
+                G.DISCOVER_TALLIES.allrunes.of = G.DISCOVER_TALLIES.allrunes.of+1
+                if v.discovered then 
+                    G.DISCOVER_TALLIES.allrunes.tally = G.DISCOVER_TALLIES.allrunes.tally+1
                 end
             end
             if v.set and v.set == 'Edition' and BLINDSIDE.is_blindside(v.key) and not v.omit then

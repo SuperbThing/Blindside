@@ -36,6 +36,7 @@ return {
 			["bld_ui_trinkets"] = "Trinkets",
 			["bld_ui_filmcards"] = "Channels",
 			["bld_ui_minerals"] = "Minerals",
+			["bld_ui_rituals"] = "Rituals",
 			["bld_ui_runes"] = "Runes",
 			["bld_ui_jokers"] = "Jokers",
 			["bld_ui_tags"] = "Tags",

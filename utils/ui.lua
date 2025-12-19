@@ -95,6 +95,17 @@
         back_func = 'blindside_collection',
         })
     end
+
+    local function rituals_ui()
+        local rituals = {}
+        for k, v in pairs(G.P_CENTER_POOLS.bld_obj_ritual) do
+                table.insert(rituals, v)
+        end
+
+        return SMODS.card_collection_UIBox(rituals, { 5,5 }, {
+        back_func = 'blindside_collection',
+        })
+    end
     
     local function runes_ui()
         local runes = {}
@@ -474,6 +485,14 @@ end
         definition = filmcards_ui()
         }
     end
+
+    G.FUNCS.your_collection_blindside_rituals = function()
+        G.SETTINGS.paused = true
+        G.FUNCS.overlay_menu {
+        definition = rituals_ui()
+        }
+    end
+
     G.FUNCS.your_collection_blindside_runes = function()
         G.SETTINGS.paused = true
         G.FUNCS.overlay_menu {
@@ -1050,8 +1069,8 @@ function create_UIBox_blindside_collection()
         {n=G.UIT.C, config={align = "cm", padding = 0.15}, nodes={
           UIBox_button({button = 'your_collection_blindside_filmcards', count = G.DISCOVER_TALLIES.allfilmcards, label = {localize('bld_ui_filmcards')}, minw = 4, id = 'your_collection_blindside_filmcards', colour = G.C.SECONDARY_SET.bld_obj_filmcard}),
           UIBox_button({button = 'your_collection_blindside_minerals', count = G.DISCOVER_TALLIES.allminerals, label = {localize('bld_ui_minerals')}, minw = 4, id = 'your_collection_blindside_minerals', colour = G.C.SECONDARY_SET.bld_obj_mineral}),
-          UIBox_button({button = 'your_collection_spectrals', label = {localize('bld_ui_unknown')}, minw = 4, id = 'your_collection_spectrals', colour = G.C.SECONDARY_SET.Spectral}),
-          UIBox_button({button = 'your_collection_blindside_runes', label = {localize('bld_ui_runes')}, minw = 4, id = 'your_collection_runes', colour = G.C.SECONDARY_SET.bld_obj_rune}),
+          UIBox_button({button = 'your_collection_blindside_rituals', count = G.DISCOVER_TALLIES.allrituals, label = {localize('bld_ui_rituals')}, minw = 4, id = 'your_collection_blindside_rituals', colour = G.C.SECONDARY_SET.bld_obj_ritual}),
+          UIBox_button({button = 'your_collection_blindside_runes', count = G.DISCOVER_TALLIES.allrunes, label = {localize('bld_ui_runes')}, minw = 4, id = 'your_collection_runes', colour = G.C.SECONDARY_SET.bld_obj_rune}),
         }}
       }},
     }},
