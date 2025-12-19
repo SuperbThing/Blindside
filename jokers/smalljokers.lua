@@ -62,10 +62,7 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
-        if context.scoring_name then
-            print(context.scoring_name)
-        end
-        if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
+        if context.scoring_hand and context.poker_hands and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
             local red = false
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i]:is_color("Red") and context.scoring_hand[i].facing ~= "back" then
@@ -131,7 +128,7 @@ SMODS.Blind({
         end
     end,
     calculate = function(self, blind, context)
-        if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
+        if context.scoring_hand and context.poker_hands and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
             local red = false
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i]:is_color("Yellow") and context.scoring_hand[i].facing ~= "back" then
@@ -197,7 +194,7 @@ SMODS.Blind({
         end
     end,
     calculate = function(self, blind, context)
-        if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
+        if context.scoring_hand and context.poker_hands and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
             local red = false
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i]:is_color("Purple") and context.scoring_hand[i].facing ~= "back" then
@@ -261,7 +258,7 @@ SMODS.Blind({
         end
     end,
     calculate = function(self, blind, context)
-        if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
+        if context.scoring_hand and context.poker_hands and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
             local red = false
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i]:is_color("Green") and context.scoring_hand[i].facing ~= "back" then
@@ -325,7 +322,7 @@ SMODS.Blind({
         end
     end,
     calculate = function(self, blind, context)
-        if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
+        if context.scoring_hand and context.poker_hands and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
             local red = false
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i]:is_color("Blue") and context.scoring_hand[i].facing ~= "back" then
