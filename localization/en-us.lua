@@ -833,6 +833,16 @@ return {
 					"{C:attention}Awe Tag"}
 				},
 			},
+			["c_bld_funeral"] = {
+				["name"] = "Funeral",
+				["text"] = {
+					{"{C:dark_edition,E:1}Upgrade{} up to {C:attention}#1#{}",
+					"selected Blinds"},
+					{"Create {C:attention}Debuff Tags",
+					"for your 1st and 2nd",
+					"{C:attention}most played hands"}
+				},
+			},
 			--[[					"{C:dark_edition,E:1}Upgrade{} {C:attention}#1#",
 					"selected Blinds",
 					"{C:attention}Destroy{} a random",

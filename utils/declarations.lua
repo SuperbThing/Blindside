@@ -240,6 +240,7 @@
         "c_bld_exorcise",
         "c_bld_eruption",
         "c_bld_worship",
+        "c_bld_funeral",
         "bld_wild",
         "bld_astral",
         "bld_floral",
