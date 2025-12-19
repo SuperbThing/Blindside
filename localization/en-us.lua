@@ -2390,9 +2390,13 @@ return {
 			['j_bld_scratchticket'] = {
 				["name"] = "Scratch Ticket",
 				["text"] = {
-					{"{C:green}#2# in #3#{} chance for {C:money}+#1#${}"},
-					{"Chance increases for each",
-					"{X:green,C:white}Green{} Blind scored"}
+					{"Each hand, {C:green}#2# in #3#{}",
+					"chance for {C:money}+#1#${}"},
+					{"Payout chance increases",
+					"by {C:green}+1{} for each scoring",
+					"{X:green,C:white}Green{} Blind"},
+					{"Chance resets",
+					"after payout"}
 				}
 			},
 			['j_bld_ensign'] = {
