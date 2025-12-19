@@ -19,6 +19,7 @@ return {
 			["k_filmcard_ex"] = "Channel!",
 			["k_reroll_ex"] = "Reroll!",
 			["k_tryone_ex"] = "Get One Free!",
+			["k_tryfree_ex"] = "What A Bargain!",
 			["k_dug_ex"] = "Excavated!",
 			["k_mineral_ex"] = "Mineral!",
 			["k_filmpack_ex"] = "Cinema!",
@@ -2221,7 +2222,7 @@ return {
 				["name"] = "Taglock",
 				["text"] = {
 					"Freeze all {C:attention}Round Tags",
-					"Until start of {C:attention}Boss Joker"
+					"until start of {C:attention}Boss Joker"
 				}
 			},
 			['j_bld_miniature'] = {
@@ -2574,7 +2575,7 @@ return {
 			['j_bld_discount'] = {
 				["name"] = "Discount",
 				["text"] = {
-					"Initial booster packs",
+					"Initial packs and cards",
 					"in {C:attention}Boss Shop{} are free"
 				}
 			},
@@ -2766,6 +2767,14 @@ return {
 			},
 		},
 		["Other"] = {
+			["bld_boss_shop"]	= {
+				["name"] = "Boss Shop",
+				["text"] = {
+					"The shop with",
+					"{C:attention}Booster Packs",
+					"after each {C:attention}Boss",
+				}
+			},
 			["bld_self_scoring"] = {
 				["name"] = "Self-Scoring",
 				["text"] = {
