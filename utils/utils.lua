@@ -885,18 +885,11 @@ function BLINDSIDE.poll_enhancement(args)
     local mod = args.mod or 1
     local guaranteed = args.guaranteed or false
     local options = args.options or get_current_pool("Enhanced")
-    if args.no_replace then
-        for i, k in pairs(options) do
-            if G.P_CENTERS[k] and G.P_CENTERS[k].replace_base_card then
-                options[i] = 'UNAVAILABLE'
-            end
-        end
-    end
     if args.colors then
         for i, k in ipairs(options) do
-            if G.P_CENTERS[k] and G.P_CENTERS[k].config.extra.hues then
+            if k.config.extra.hues then
                 for key, value in pairs(args.colors) do
-                    if not tableContains(value, G.P_CENTERS[k].config.extra.hues) then
+                    if not tableContains(value, k.config.extra.hues) then
                         options[i] = 'UNAVAILABLE'
                     end
                 end
@@ -927,7 +920,6 @@ function BLINDSIDE.poll_enhancement(args)
             if type(k) == 'string' then
                 assert(G.P_CENTERS[v], ("Could not find enhancement \"%s\"."):format(v))
                 local wght = G.P_CENTERS[v].weight or 5
-                print("we are in here")
                 if (wght == 5 and rarity == 0) or (wght == 3 and rarity == 1) or (wght == 1 and rarity == 2) then
                     enhance_option = { key = v, weight = 5 }
                 else
@@ -936,7 +928,6 @@ function BLINDSIDE.poll_enhancement(args)
             elseif type(v) == 'table' then
                 assert(G.P_CENTERS[v.key], ("Could not find enhancement \"%s\"."):format(v.key))
                 local wght = v.weight or 5
-                print("we are in there")
                 if (wght == 5 and rarity == 0) or (wght == 3 and rarity == 1) or (wght == 1 and rarity == 2) then
                     enhance_option = { key = v.key, weight = 5 }
                 else

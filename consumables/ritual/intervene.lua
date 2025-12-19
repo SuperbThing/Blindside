@@ -12,10 +12,10 @@ SMODS.Consumable {
 
         local args = {}
         args.guaranteed = true
-        args.options = G.P_CENTER_POOLS.bld_obj_blindcard_generate
         for i, card in ipairs(G.hand.highlighted) do
             SMODS.ObjectTypes.bld_obj_blindcard_generate:delete_card(G.hand.highlighted[1].config.center)
-            args.colors = {card.ability.extra.hues}
+            args.options = G.P_CENTER_POOLS.bld_obj_blindcard_generate
+            args.colors = card.ability.extra.hues
             local enhancement = BLINDSIDE.poll_enhancement(args)
             SMODS.ObjectTypes.bld_obj_blindcard_generate:inject_card(G.hand.highlighted[1].config.center)
 
