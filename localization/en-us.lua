@@ -1509,7 +1509,15 @@ return {
 				["name"] = "The Paint",
 				["text"] = {
 					"{X:money,C:white}Yellow{}",
-					"{C:money}+#1#${} for each",
+					"{C:money}+#1#${} for every",
+					"{C:attention}2 Tags{} held",
+				},
+			},
+			["m_bld_paint_upgraded"] = {
+				["name"] = "The Paint",
+				["text"] = {
+					"{X:money,C:white}Yellow{}",
+					"{C:money}+#1#${} for every",
 					"{C:attention}Tag{} held",
 				},
 			},
