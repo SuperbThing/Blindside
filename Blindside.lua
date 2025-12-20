@@ -515,6 +515,7 @@ local ritual_list = {
     "monsoon",
     "journey",
     "purify",
+    "banish",
 }
 
 

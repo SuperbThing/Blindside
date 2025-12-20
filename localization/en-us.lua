@@ -593,6 +593,13 @@ return {
 					"{C:money}money{} rounded down",
 				},
 			},
+			["tag_bld_imprisonment"] = {
+				["name"] = "Imprisonment Tag",
+				["text"] = {
+					"Disables next",
+					"Boss Joker"
+				},
+			}
 		},
 		["bld_obj_mineral"] = {
 			["c_bld_stibnite"] = {
@@ -910,6 +917,13 @@ return {
 					"up to {C:attention}#1#{} selected Blinds"},
 					{"If a {C:attention}Modifier{} was removed,",
 					"{C:dark_edition,E:1}Upgrade{} the Blind"}
+				},
+			},
+			["c_bld_banish"] = {
+				["name"] = "Banish",
+				["text"] = {
+					"Create an",
+					"{C:attention}Imprisonment Tag"
 				},
 			},
 		},
