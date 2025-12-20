@@ -475,6 +475,7 @@ local channel_list = {
         "sports",
         "variety",
         "telenovela",
+        "cartoon",
 }
 
 local mineral_list = {

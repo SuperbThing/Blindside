@@ -91,7 +91,7 @@
                 table.insert(filmcards, v)
         end
 
-        return SMODS.card_collection_UIBox(filmcards, { 5,5 }, {
+        return SMODS.card_collection_UIBox(filmcards, { 6,5 }, {
         back_func = 'blindside_collection',
         })
     end
@@ -102,7 +102,7 @@
                 table.insert(rituals, v)
         end
 
-        return SMODS.card_collection_UIBox(rituals, { 5,5 }, {
+        return SMODS.card_collection_UIBox(rituals, { 5,4 }, {
         back_func = 'blindside_collection',
         })
     end
