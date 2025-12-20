@@ -55,7 +55,7 @@
             end
         end
 
-        return SMODS.card_collection_UIBox(blindenhance, { 4, 4 }, {
+        return SMODS.card_collection_UIBox(blindenhance, { 5, 4 }, {
         snap_back = true,
         h_mod = 1.03,
         infotip = localize('ml_edition_seal_enhancement_explanation'),

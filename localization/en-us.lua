@@ -1047,6 +1047,14 @@ return {
 					"{C:attention}#1#{} selected Blinds",
 				},
 			},
+			["c_bld_telenovela"] = {
+				["name"] = "Telenovela",
+				["text"] = {
+					"{C:attention}Enhance{} up to #1#",
+					"selected blinds into",
+					"{C:attention}Sticky Blinds{}"
+				},
+			},
 		},
 		["Blind"] = {
 			["bl_bld_joker"] = {

@@ -213,6 +213,7 @@
         "c_bld_speculative",
         "c_bld_drama",
         "c_bld_sports",
+        "c_bld_telenovela",
         --"c_bld_variety",
         "c_bld_stibnite",
         "c_bld_cinnabar",
