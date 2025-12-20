@@ -184,6 +184,29 @@ return {
 					"{C:red}-1{} discard",
 				},
 			},
+			["b_bld_purpledispenser"] = {
+				["name"] = "Purple Deck?",
+				["text"] = {
+					"???",
+					"Create a random",
+					"{C:bld_obj_ritual}Ritual{} Card before",
+					"each Big Joker",
+					"{C:inactive}(Must have room)",
+					"{s:0.2} {}",
+					"{C:attention}-1{} hand size"
+				},
+			},
+			["b_bld_orangedispenser"] = {
+				["name"] = "Orange Deck?",
+				["text"] = {
+					"???",
+					"Every {C:attention}10{} Blinds",
+					"added to deck, gain",
+					"{C:red}+1{} permanent discard",
+					"{s:0.2} {}",
+					"All Blinds {C:attention,T:bld_burn}burn"
+				},
+			},
 			["b_bld_yellowdispenser"] = {
 				["name"] = "Yellow Deck?",
 				["text"] = {
@@ -2376,7 +2399,7 @@ return {
 				["text"] = {
 					"{X:red,C:white}Red{}",
 					"{C:mult}+#1#{} Mult for every",
-					"{C:attention}2{} Blinds above {C:attention}20",
+					"{C:attention}2{} Blinds above {C:attention}16",
 					"in your full deck",
 					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
 				},
