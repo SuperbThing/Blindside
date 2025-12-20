@@ -39,8 +39,8 @@ SMODS.Consumable {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.GAME.bld_inversions + 1,
-                G.GAME.bld_inversions > 0 and "hands" or "hand"
+                (G.GAME.bld_inversions or 0) + 1,
+                (G.GAME.bld_inversions or 0) > 0 and "hands" or "hand"
             }
         }
     end
