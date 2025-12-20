@@ -3,10 +3,9 @@ SMODS.Seal {
     atlas = 'bld_enhance', 
     pos = { x = 2, y = 1 },
     config = { 
-        extra = { 
-            xmult = 1.75,
-            burn = true,
-        } 
+        extra = {
+            odds = 4
+        }
     },
     badge_colour = HEX('757CDC'),
     in_pool = function(self, args)
@@ -21,20 +20,25 @@ SMODS.Seal {
         ["bld_obj_enhancements"] = true,
     },
     calculate = function(self, card, context)
-        if context.main_scoring and context.cardarea == G.play and card.facing ~= 'back' then
-            return {
-                xmult = card.ability.seal.extra.xmult
-                }
-        end
-        if context.burn_card and context.cardarea == G.play and context.burn_card == card then
-            return { remove = true }
+        if context.cardarea == G.play and context.before and context.scoring_hand and tableContains(card, context.scoring_hand) and card.facing ~= 'back' then
+            if SMODS.pseudorandom_probability(card, pseudoseed("bld_ruin"), 1, card.ability.seal.extra.odds, 'bld_ruin') and card.facing ~= "back" then
+                card:set_debuff(true)
+                card.ability.extra.i_debuffed_myself_btw = true
+                if card.facing ~= 'back' then 
+                    card:flip()
+                end
+            else
+                card:flip()
+                card:flip()
+            end
         end
     end,
     loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
+        local n,d = SMODS.get_probability_vars(card, 1, card.ability.seal.extra.odds)
         return {
             vars = {
-                card.ability.seal.extra.xmult
+                n,
+                d
             }
         }
     end

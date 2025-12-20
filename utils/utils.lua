@@ -1347,7 +1347,28 @@ function BLINDSIDE.rescore_card(card, context)
         card.lucky_trigger = nil
 end
 
-
+-- borrowed from lucky rabbit
+local shuffle_ref = CardArea.shuffle
+function CardArea:shuffle(_seed)
+    local g = shuffle_ref(self, _seed)
+    if self == G.deck then
+        local priorities = {}
+        local others = {}
+        for k, v in pairs(self.cards) do
+            if v.seal == 'bld_ruin' then
+                table.insert(priorities, v)
+            else
+                table.insert(others, v)
+            end
+        end
+        for _, card in ipairs(priorities) do
+            table.insert(others, card)
+        end
+        self.cards = others
+        self:set_ranks()
+    end
+    return g
+end
 
 ----------------------------------------------
 ------------MOD CODE END----------------------
