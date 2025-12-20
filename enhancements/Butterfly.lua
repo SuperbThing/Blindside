@@ -11,7 +11,7 @@
             }
         },
         hues = {"Green", "Blue"},
-        --rare = true,
+        rare = true,
         replace_base_card = true,
         no_rank = true,
         no_suit = true,
