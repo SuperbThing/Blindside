@@ -14,7 +14,6 @@
         no_rank = true,
         no_suit = true,
         hues = {"Green"},
-        rare = true,
         overrides_base_rank = true,
         in_pool = function(self, args)
             if G.GAME.selected_back.effect.center.config.extra then
