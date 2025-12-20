@@ -6,7 +6,7 @@
             extra = {
                 value = 10,
                 chips = 100,
-                chipsup = 80,
+                chipsup = 100,
                 odds = 2,
             }
         },
@@ -37,16 +37,9 @@
                 end
             end
             if context.cardarea == G.hand and context.main_scoring then
-                if SMODS.pseudorandom_probability(card, pseudoseed("dove"), 1, card.ability.extra.odds, 'dove') then
-                    return {
-                        chips = card.ability.extra.chips
-                    }
-                else
-                    return {
-                        message = localize('k_nope_ex'),
-                        colour = G.C.GREEN
-                    }
-                end
+                return {
+                    chips = card.ability.extra.chips
+                }
             end
         end,
         loc_vars = function(self, info_queue, card)
