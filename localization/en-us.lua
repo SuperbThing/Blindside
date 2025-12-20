@@ -2429,6 +2429,31 @@ return {
 					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
 				},
 			},
+			["m_bld_vault"] = {
+				["name"] = "The Vault",
+				["text"] = {
+					{"{X:money,C:white}Yellow{}",
+					"When {C:attention}held in{}",
+					"{C:attention}hand{}, gains {C:money}$#1#{}",
+					"{C:inactive}(Currently {C:money}$#2#{C:inactive})"},
+					{"When scored, gives",
+					"all {C:money}money{} and resets"},
+					{"{C:green}Retained"}
+				},
+			},
+			["m_bld_vault_upgraded"] = {
+				["name"] = "The Vault",
+				["text"] = {
+					{"{X:money,C:white}Yellow{}",
+					"When {C:attention}held in{}",
+					"{C:attention}hand{}, gains {C:money}$#1#{}",
+					"{C:inactive}(Currently {C:money}$#2#{C:inactive})"},
+					{"When scored, gives",
+					"all {C:money}money{} and resets",
+					"by {C:attention}half"},
+					{"{C:green}Retained"}
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

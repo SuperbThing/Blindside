@@ -93,6 +93,7 @@
         "m_bld_way",
         "m_bld_fossil",
         "m_bld_grate",
+        "m_bld_vault",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",
