@@ -86,6 +86,7 @@ return {
 			["bld_astral_seal"] = 'Astral Blind',
 			["bld_floral_seal"] = 'Floral Blind',
 			["bld_spooky_seal"] = 'Spooky Blind',
+			["bld_sticky_seal"] = 'Sticky Blind',
 			["bld_ruin_seal"] = 'Ruin Blind',
 			["bld_tech_seal"] = 'Tech Blind',
 			["bld_hunter_seal"] = 'Hunter Blind',
@@ -3025,6 +3026,15 @@ return {
 				["name"] = "Spooky Blind",
 				["text"] = {
 					"{X:dark_edition,C:white}-#1#%{} Chips to Joker",
+				}
+			},
+			["bld_sticky_seal"]	= {
+				["name"] = "Sticky Blind",
+				["text"] = {
+					"Blind is not",
+					"discarded after",
+					"play when {C:attention}held",
+					"{C:attention}in hand"
 				}
 			},
 			["bld_burn"]	= {
