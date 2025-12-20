@@ -83,7 +83,7 @@ SMODS.Blind({
             if context.scoring_hand and not G.GAME.blind.disabled and G.GAME.modifiers.enable_bld_deadly_small_big then
                 for key, value in pairs(context.scoring_hand) do
                     if value:is_color("Red") then
-                        value.config.center:blind_debuff(value, true)
+                        value.config.center.blind_debuff(value, true)
                     end
                 end
             end
@@ -159,7 +159,7 @@ SMODS.Blind({
             if context.scoring_hand and not G.GAME.blind.disabled and G.GAME.modifiers.enable_bld_deadly_small_big then
                 for key, value in pairs(context.scoring_hand) do
                     if value:is_color("Yellow") then
-                        value.config.center:blind_debuff(value, true)
+                        value.config.center.blind_debuff(value, true)
                     end
                 end
             end
@@ -235,7 +235,7 @@ SMODS.Blind({
             if context.scoring_hand and not G.GAME.blind.disabled and G.GAME.modifiers.enable_bld_deadly_small_big then
                 for key, value in pairs(context.scoring_hand) do
                     if value:is_color("Purple") then
-                        value.config.center:blind_debuff(value, true)
+                        value.config.center.blind_debuff(value, true)
                     end
                 end
             end
@@ -309,7 +309,7 @@ SMODS.Blind({
             if context.scoring_hand and not G.GAME.blind.disabled and G.GAME.modifiers.enable_bld_deadly_small_big then
                 for key, value in pairs(context.scoring_hand) do
                     if value:is_color("Green") then
-                        value.config.center:blind_debuff(value, true)
+                        value.config.center.blind_debuff(value, true)
                     end
                 end
             end
@@ -383,7 +383,7 @@ SMODS.Blind({
             if context.scoring_hand and not G.GAME.blind.disabled and G.GAME.modifiers.enable_bld_deadly_small_big then
                 for key, value in pairs(context.scoring_hand) do
                     if value:is_color("Blue") then
-                        value.config.center:blind_debuff(value, true)
+                        value.config.center.blind_debuff(value, true)
                     end
                 end
             end
