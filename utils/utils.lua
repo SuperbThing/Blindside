@@ -905,14 +905,26 @@ function BLINDSIDE.poll_enhancement(args)
     local key = args.key or 'std_enhance'
     local mod = args.mod or 1
     local guaranteed = args.guaranteed or false
-    local options = args.options or get_current_pool("Enhanced")
+    local options1 = args.options or get_current_pool("Enhanced")
+
+    local options = {}
+
+    for key, value in pairs(options1) do
+        options[key] = value
+    end
+
     if args.colors then
         for i, k in ipairs(options) do
             if k.config and k.config.extra and k.config.extra.hues then
+                local good = false
                 for key, value in pairs(args.colors) do
-                    if not tableContains(value, k.config.extra.hues) then
-                        options[i] = 'UNAVAILABLE'
+                    if tableContains(value, k.config.extra.hues) then
+                        good = true
+                        break
                     end
+                end
+                if not good then
+                    options[i] = 'UNAVAILABLE'
                 end
             else
                 options[i] = 'UNAVAILABLE'
