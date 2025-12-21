@@ -22,6 +22,7 @@ SMODS.Back({
             local keys_to_flip = {}
             local keys_to_pot = {}
             local keys_to_bite = {}
+            local keys_to_blank = {}
             for k, v in pairs(G.playing_cards) do
                 if (v.base.suit ~= 'Spades' and v.base.suit ~= 'Hearts' and v.base.suit ~= 'Clubs') or v:is_face() then
                     table.insert(keys_to_remove, v)
@@ -35,6 +36,8 @@ SMODS.Back({
                     table.insert(keys_to_flip, v)
                 elseif v:get_id() <= 5 and v.base.suit == 'Clubs' then
                     table.insert(keys_to_bite, v)
+                elseif (v:get_id() == 6 or v:get_id() == 7) and v.base.suit == 'Clubs' then
+                    table.insert(keys_to_blank, v)
                 else
                     table.insert(keys_to_remove, v)
                 end
@@ -56,6 +59,9 @@ SMODS.Back({
             end
             for i = 1, #keys_to_bite do
                 keys_to_bite[i]:set_ability("m_bld_bite")
+            end
+            for key, value in pairs(keys_to_blank) do
+                value:set_ability("m_bld_blank")
             end
             G.GAME.starting_deck_size = #G.playing_cards
             local ante = G.GAME.win_ante * 0.75 
