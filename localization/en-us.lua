@@ -1053,9 +1053,9 @@ return {
 				["name"] = "Crime",
 				["text"] = {
 					{"Strip {C:attention}Trim{} and {C:dark_edition}Edition",
-					"from {C:attention}#1#{} selected blind"},
+					"from {C:attention}#1#{} selected Blind"},
 					{"Apply them to {C:attention}2{} random",
-					"cards held in hand",}
+					"Blinds held in hand",}
 				},
 			},
 			["c_bld_thriller"] = {
