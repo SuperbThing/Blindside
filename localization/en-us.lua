@@ -321,6 +321,13 @@ return {
 					"in Blind Shops"
 				},
 			},
+			["v_bld_magnet"] = {
+				["name"] = "Magnet",
+				["text"] = {
+					"{C:dark_edition,E:1}Upgraded{} Blinds",
+					"always {C:green}retain"
+				},
+			},
 		},
 		["Tag"] = {
 			["tag_bld_reroll"] = {
@@ -399,6 +406,13 @@ return {
 				["text"] = {	
 					"+1 {C:red}Discard{} at",
 					"start of round",
+				},
+			},
+			["tag_bld_magnet_relic"] = {
+				["name"] = "Magnet",
+				["text"] = {	
+					"{C:dark_edition,E:1}Upgraded{} Blinds",
+					"always {C:green}retain"
 				},
 			},
 			["tag_bld_debuff"] = {
@@ -3643,8 +3657,8 @@ return {
 			["bld_upgrade"] = {
 				["name"] = "Upgraded",
 				["text"] = {
-					"A more powerful blind",
-					"with stronger effects"
+					"More powerful Blinds",
+					"with {C:attention}stronger effects"
 				}
 			},
 		},

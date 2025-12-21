@@ -1392,8 +1392,14 @@ payload = '''
 if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
     local any_selected = nil
     local _cards = {}
+    local magnet = false
+    for i = 1, #G.GAME.tags do
+        if G.GAME.tags[i].key == "tag_bld_magnet_relic" then
+            magnet = true
+        end
+    end
     for k, v in ipairs(G.hand.cards) do
-        if not ((v.config.center.config.extra and v.config.center.config.extra.retain) or v.seal == 'bld_sticky' or v.retain or (v.ability.extra and v.ability.extra.retain)) then
+        if not ((magnet and v.ability.extra and v.ability.extra.upgraded) or (v.config.center.config.extra and v.config.center.config.extra.retain) or v.seal == 'bld_sticky' or v.retain or (v.ability.extra and v.ability.extra.retain)) then
         _cards[#_cards+1] = v
         end
         v.retain = false
