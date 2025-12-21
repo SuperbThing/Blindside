@@ -2965,12 +2965,12 @@ return {
 					"contains no {C:attention}Pairs"
 				}
 			},
-			['j_bld_necronomicon'] = {
+			['j_bld_necronomicon'] = { -- ritual later, but lets first get another trinket that gives channels
 				["name"] = "Necronomicon",
 				["text"] = {
-					"PLACEHOLDER EFFECT:",
-					"Create a channel card",
-					"each joker"
+					"placeholder effect (still works):",
+					"Create a {C:bld_obj_filmcard}Channel{} Card",
+					"when {C:attention}Joker{} is selected"
 				}
 			},
 			['j_bld_lighter'] = {
