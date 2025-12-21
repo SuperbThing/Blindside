@@ -6,7 +6,7 @@ BLINDSIDE.Joker({
     mult = 6,
     dollars = 6,
     order = 12,
-    boss = {min = 1},
+    boss = {min = 2},
     get_assist = function (self)
         return G.P_BLINDS["bl_bld_chad"]
     end,
@@ -51,7 +51,7 @@ BLINDSIDE.Joker({
     boss_colour = HEX('5D8EA4'),
     mult = 6,
     dollars = 6,
-    boss = {min = 1},
+    boss = {min = 2},
     order = 13,
     is_assistant = true,
 })
@@ -284,7 +284,7 @@ BLINDSIDE.Joker({
     mult = 8,
     dollars = 8,
     order = 22,
-    boss = {min = 1},
+    boss = {min = 2},
     active = true,
     get_assist = function(self)
         return G.P_BLINDS["bl_bld_mime"]
@@ -306,7 +306,7 @@ BLINDSIDE.Joker({
     mult = 8,
     dollars = 8,
     order = 23,
-    boss = {min = 1},
+    boss = {min = 2},
     active = true,
     is_assistant = true
 })
