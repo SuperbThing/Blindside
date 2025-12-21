@@ -3056,14 +3056,6 @@ return {
 			}
 		},
 		["Other"] = {
-			["bld_key_how_tf"] = {
-				["name"] = "How'd I get this?",
-				["text"] = {
-					"What two Blinds did",
-					"you play together to",
-					"get this?"
-				}
-			},
 			["bld_modifiers"] = {
 				["name"] = "Modifier",
 				["text"] = {
