@@ -17,7 +17,7 @@ SMODS.Tag {
             }
         }
     end,
-    pos = {x = 4, y = 1},
+    pos = {x = 3, y = 4},
         in_pool = function(self, args)
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
