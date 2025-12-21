@@ -1264,7 +1264,7 @@ return {
 				["name"] = "Devious Joker",
 				["text"] = {
 					"Once per Round,",
-					"gains X4 Chips if",
+					"gains X4 Chips if", -- sly + sly = Deceitful
 					"played hand contains", -- wily + clever = Mad
 					"a Raise", -- wily + devious = Impractical
 				}, -- clever + crafty = Schemeing
