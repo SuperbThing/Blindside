@@ -3226,6 +3226,13 @@ return {
 					"always draw at least",
 					"{C:attention}3{} Blinds"}
 				}
+			},
+			['j_bld_bingoball'] = {
+				["name"] = "Bingo Ball",
+				["text"] = {
+					"Retrigger {C:attention}2{} scoring",
+					"Blinds at random"
+				}
 			}
 		},
 		["Edition"] = {
