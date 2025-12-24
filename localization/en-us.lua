@@ -50,6 +50,7 @@ return {
 			['k_bld_noble_pack'] = 'Noble Pack',
 			['ui_bld_deck_view'] = 'Deck View',
 			["ph_mask_saved"] = "Saved by Ancient Mask",
+			["ph_defeat_this_joker_1"] = "Defeat this Joker",
 			['matryoshka_none'] = "None!",
 			['bld_fineart_dead'] = "Devalued!",
 			['k_base_blinds'] = "Base Blinds",

@@ -1565,3 +1565,14 @@ if (area.config.type == 'joker' or area.config.type == 'hand') and not area.conf
 '''
 match_indent = true
 
+
+# joker text
+[[patches]]
+[patches.pattern]
+target = 'functions/UI_definitions.lua'
+pattern = "{n=G.UIT.T, config={text = localize('ph_defeat_this_blind_1'), scale = 0.4, colour = G.C.UI.TEXT_DARK}},"
+position = 'at'
+match_indent = true
+payload = '''
+BLINDSIDE.is_blindside(blind.key) and{n=G.UIT.T, config={text = localize('ph_defeat_this_joker_1'), scale = 0.4, colour = G.C.UI.TEXT_DARK}} or {n=G.UIT.T, config={text = localize('ph_defeat_this_blind_1'), scale = 0.4, colour = G.C.UI.TEXT_DARK}},
+'''

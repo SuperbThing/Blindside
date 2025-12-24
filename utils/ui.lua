@@ -144,6 +144,8 @@
         })
     end
     
+
+G.blindside_joker_undiscovered = {name = 'Undiscovered', debuff_text = 'Defeat this joker to discover', pos = {x=0,y=26}}
 function blind_jokers_ui(exit)
 	local min_ante = 1
 	local max_ante = 16
@@ -236,8 +238,8 @@ function blind_jokers_ui(exit)
 	local blinds_to_be_alerted = {}
 	local row, col = 1, 1
 	for k, v in ipairs(blind_tab) do
-		local temp_blind = AnimatedSprite(G.your_collection[row].T.x + G.your_collection[row].T.w/2, G.your_collection[row].T.y, 1.3, 1.3, G.ANIMATION_ATLAS[v.discovered and v.atlas or 'blind_chips'],
-			v.discovered and v.pos or G.b_undiscovered.pos)
+		local temp_blind = AnimatedSprite(G.your_collection[row].T.x + G.your_collection[row].T.w/2, G.your_collection[row].T.y, 1.3, 1.3, G.ANIMATION_ATLAS[v.discovered and v.atlas or 'bld_joker'],
+			v.discovered and v.pos or G.blindside_joker_undiscovered.pos)
 		temp_blind.states.click.can = false
 		temp_blind.states.drag.can = false
 		temp_blind.states.hover.can = true
