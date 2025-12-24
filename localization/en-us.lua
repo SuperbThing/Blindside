@@ -3092,7 +3092,7 @@ return {
 				["name"] = "3D Glasses",
 				["text"] = {
 					"If scoring hand contains",
-					"only both {X:mult,C:white}Red{} and {X:blue,C:white}Blue{} Blinds,",
+					"exactly {X:mult,C:white}Red{} and {X:blue,C:white}Blue{} Blinds,",
 					"create a {C:bld_obj_filmcard}Channel{} Card",
 					"{C:inactive,S:0.8}(Must have room)"
 				}
