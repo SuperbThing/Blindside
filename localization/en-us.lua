@@ -2200,6 +2200,15 @@ return {
 					{"Always scores"},
 				},
 			},
+			["m_bld_blank_upgraded"] = {
+				["name"] = "The Blank",	
+				["text"] = {
+					{"{X:dark_edition,C:white}Faded{}",
+					"Retriggers {C:attention}adjacent",
+					"{C:attention}Blinds twice"},
+					{"Always scores"},
+				},
+			},
 			["m_bld_deck"] = {
 				["name"] = "The Deck",	
 				["text"] = {
