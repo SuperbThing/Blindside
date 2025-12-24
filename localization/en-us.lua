@@ -3189,11 +3189,18 @@ return {
 					"contains no {C:attention}Pairs"
 				}
 			},
-			['j_bld_necronomicon'] = { -- ritual later, but lets first get another trinket that gives channels
+			['j_bld_necronomicon'] = {
 				["name"] = "Necronomicon",
 				["text"] = {
-					"placeholder effect (still works):",
-					"Create a {C:bld_obj_filmcard}Channel{} Card",
+					"Creates a {C:bld_obj_ritual}Ritual{} Card",
+					"when {C:attention}Boss Joker{}",
+					"is selected"
+				}
+			},
+			['j_bld_sockpuppet'] = {
+				["name"] = "Sock Puppet",
+				["text"] = {
+					"Creates a {C:bld_obj_filmcard}Channel{} Card",
 					"when {C:attention}Joker{} is selected"
 				}
 			},

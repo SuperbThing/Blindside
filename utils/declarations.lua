@@ -199,6 +199,7 @@
         "j_bld_hourglass",
         "j_bld_snaketotem",
         "j_bld_bingoball",
+        "j_bld_sockpuppet",
         "c_bld_horror",
         "c_bld_action",
         "c_bld_comedy",
