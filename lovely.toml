@@ -1566,11 +1566,11 @@ payload = '''
 for k, tag in pairs(G.GAME.tags) do
     if tag.key == 'tag_bld_neon' and not tag.triggered then
         if G.GAME.current_round.hands_left > 0 then
-            add_round_eval_row({dollars = G.GAME.current_round.hands_left * 3, bonus='true', number = G.GAME.current_round.hands_left, name='bld_neon_hands', text = localize('bld_neon_discards'), pitch = pitch})
+            add_round_eval_row({dollars = G.GAME.current_round.hands_left * 3, bonus='true', number = G.GAME.current_round.hands_left, name='bld_neon_hands', text = localize('bld_neon_hands'), pitch = pitch})
             dollars = dollars + G.GAME.current_round.hands_left * 3
         end
         if G.GAME.current_round.discards_left > 0 then
-            add_round_eval_row({dollars = G.GAME.current_round.discards_left * 5, bonus='true', number = G.GAME.current_round.discards_left, name='bld_neon_discards', text = localize('bld_neon_hands'), pitch = pitch})
+            add_round_eval_row({dollars = G.GAME.current_round.discards_left * 5, bonus='true', number = G.GAME.current_round.discards_left, name='bld_neon_discards', text = localize('bld_neon_discards'), pitch = pitch})
             dollars = dollars + G.GAME.current_round.discards_left * 5
         end
     end
