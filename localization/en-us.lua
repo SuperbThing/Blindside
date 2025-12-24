@@ -3004,7 +3004,7 @@ return {
 			['j_bld_stuffedtoy'] = {
 				["name"] = "Stuffed Toy",
 				["text"] = {
-					"If played hand contains,",
+					"If played hand contains",
 					"{C:attention}3{} or less Blinds,",
 					"{X:dark_edition,C:white}-#1#%{} Chips to Joker"
 				}
