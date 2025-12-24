@@ -9,7 +9,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return G.GAME.round_resets.ante == 1
+        return true
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -62,7 +62,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return G.GAME.round_resets.ante == 1
+        return true
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -114,7 +114,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return G.GAME.round_resets.ante == 1
+        return true
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -166,7 +166,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return G.GAME.round_resets.ante == 1
+        return true
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -220,7 +220,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return G.GAME.round_resets.ante == 1
+        return true
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
