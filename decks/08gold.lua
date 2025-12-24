@@ -1,5 +1,5 @@
 SMODS.Back({
-    key = 'yellowdispenser',
+    key = 'golddispenser',
     atlas = 'bld_blindback',
     config = {
         no_interest = true,
@@ -14,7 +14,6 @@ SMODS.Back({
         vouchers = {
             'v_bld_swearjar'
         },
-        extra_hand_bonus = 0,
     },
     unlocked = true,
     pos = { x = 2, y = 1 },
@@ -65,13 +64,13 @@ SMODS.Back({
                 keys_to_flip[i]:set_ability("m_bld_bite")
             end
             for i = 1, #keys_to_hook do
-                keys_to_hook[i]:set_ability("m_bld_ox")
+                keys_to_hook[i]:set_ability("m_bld_hammer")
             end
             for i = 1, #keys_to_pot do
-                keys_to_pot[i]:set_ability("m_bld_pot")
+                keys_to_pot[i]:set_ability("m_bld_flip")
             end
             for i = 1, #keys_to_snow do
-                keys_to_snow[i]:set_ability("m_bld_serpent")
+                keys_to_snow[i]:set_ability("m_bld_ore")
             end
             G.GAME.starting_deck_size = #G.playing_cards
             local ante = G.GAME.win_ante * 0.75 
@@ -80,10 +79,34 @@ SMODS.Back({
             G.GAME.win_ante = rounded
         return true end }))
     end,
-    calculate = function(self, back, context) 
+    calculate = function(self, back, context)
+        if context.after then     
+            
+        end
+
         if context.after then
+            back.effect.center.config.extra.last_hand_played = context.scoring_name
             for i = 1, #G.playing_cards do
                 G.playing_cards[i]:set_debuff(false)
+            end
+        end
+
+        if context.blind_defeated then
+            ease_dollars(-3)
+
+            if not context.beat_boss then
+                G.E_MANAGER:add_event(Event({
+                    func = function ()
+                        SMODS.upgrade_poker_hands({
+                            hands = back.effect.center.config.extra.last_hand_played,
+                            func = function(base, hand, parameter)
+                                    return base + G.GAME.hands[back.effect.center.config.extra.last_hand_played]['l_' .. parameter] * 1
+                            end,
+                            level_up = 1
+                        })
+                        return true
+                    end
+                }))
             end
         end
     end

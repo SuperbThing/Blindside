@@ -215,8 +215,19 @@ return {
 					"All Blinds {C:attention,T:bld_burn}burn"
 				},
 			},
+			["b_bld_golddispenser"] = {
+				["name"] = "Gold Deck? (not shiny yet)",
+				["text"] = {
+					"???",
+					"{C:bld_obj_mineral}Level up{} the hand",
+					"that beats each {C:attention}Small{}",
+					"and {C:attention}Big Joker{}",
+					"{s:0.2} {}",
+					"Lose {C:money}$3{} each round"
+				},
+			},
 			["b_bld_yellowdispenser"] = {
-				["name"] = "Yellow Deck?",
+				["name"] = "Penny Deck?",
 				["text"] = {
 					"???",
 					"Start with {C:attention,T:v_bld_swearjar}Swear Jar",
