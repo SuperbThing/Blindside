@@ -11,9 +11,6 @@ SMODS.Back({
         },
         ante_scaling = 0.5,
         joker_slot = -1,
-        vouchers = {
-            'v_bld_swearjar'
-        },
     },
     unlocked = true,
     pos = { x = 2, y = 1 },
@@ -45,7 +42,7 @@ SMODS.Back({
                     table.insert(keys_to_pot, v)
                 elseif v:get_id() <= 5 and v.base.suit == 'Hearts' then
                     table.insert(keys_to_flip, v)
-                elseif v:get_id() == 7 then
+                elseif v:get_id() == 7 and v.base.suit == 'Hearts' then
                     table.insert(keys_to_hook, v)
                 else
                     table.insert(keys_to_snow, v)
