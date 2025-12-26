@@ -359,8 +359,15 @@ return {
 			["v_bld_jugglingballs"] = {
 				["name"] = "Juggling Balls",
 				["text"] = {
-					"Create a {C:attention}Juggle{} Tag after",
+					"Create a {C:attention}Juggle Tag{} after",
 					"each {C:attention}Boss Joker{} is defeated"
+				},
+			},
+			["v_bld_cannonball"] = {
+				["name"] = "Cannonball",
+				["text"] = {
+					"Create a {C:attention}Toss Tag{} at the",
+					"start of every {C:attention}shop"
 				},
 			},
 			["v_bld_antidote"] = {
@@ -466,8 +473,15 @@ return {
 			["tag_bld_jugglingballs_relic"] = {
 				["name"] = "Juggling Balls",
 				["text"] = {
-					"Create a {C:attention}Juggle{} Tag after",
+					"Create a {C:attention}Juggle Tag{} after",
 					"each {C:attention}Boss Joker{} is defeated"
+				},
+			},
+			["tag_bld_cannonball_relic"] = {
+				["name"] = "Cannonball",
+				["text"] = {
+					"Create a {C:attention}Toss Tag{} at the",
+					"start of every {C:attention}shop"
 				},
 			},
 			["tag_bld_bindle_relic"] = {
