@@ -465,15 +465,30 @@ return {
 			},
 			["v_bld_nametag"] = {
 				["name"] = "Name Tag",
-				["text"] = {	
+				["text"] = {
 					"{C:inactive}Does nothing...?",
 				},
 			},
 			["v_bld_birthcertificate"] = {
 				["name"] = "Birth Certificate",
-				["text"] = {	
+				["text"] = {
 					"Play {C:dark_edition,E:1}+1{} Blind",
 					"in each hand"
+				},
+			},
+			["v_bld_polish"] = {
+				["name"] = "Polish",
+				["text"] = {
+					"Blinds in shop are",
+					"{C:attention}X3{} more likely to",
+					"have an {C:dark_edition}Edition"
+				},
+			},
+			["v_bld_irradiate"] = {
+				["name"] = "Irradiate",
+				["text"] = {
+					"Blinds in shop may",
+					"be {C:dark_edition,E:1}Upgraded"
 				},
 			},
 		},
@@ -864,6 +879,21 @@ return {
 				["text"] = {	
 					"Play {C:dark_edition,E:1}+1{} Blind",
 					"in each hand"
+				},
+			},
+			["tag_bld_polish_relic"] = {
+				["name"] = "Polish",
+				["text"] = {	
+					"Blinds in shop are",
+					"{C:attention}X3{} more likely to",
+					"have an {C:dark_edition}Edition"
+				},
+			},
+			["tag_bld_irradiate_relic"] = {
+				["name"] = "Irradiate",
+				["text"] = {	
+					"Blinds in shop may",
+					"be {C:dark_edition,E:1}Upgraded"
 				},
 			},
 		},
