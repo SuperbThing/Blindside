@@ -3534,6 +3534,14 @@ return {
 					"a {C:attention}Neon Tag",
 					"{C:inactive}(Currently #1# left)"
 				}
+			},
+			['j_bld_prayerwheel'] = {
+				["name"] = "Prayer Wheel",
+				["text"] = {
+					"When a Blind is",
+					"{C:attention}added to the deck{},",
+					"add a {C:attention}copy{}",
+				}
 			}
 		},
 		["Edition"] = {
