@@ -63,7 +63,9 @@ return {
 			['bld_playing_with_fire_each_big_joker_1'] = "$1 each XMult",
 			['bld_playing_with_fire_each_big_joker_2'] = "$2 each XMult",
 			['bld_neon_hands'] = 'Hands, Neon Tag ($3 each)',
-			['bld_neon_discards'] = 'Discards, Neon Tag ($5 each)'
+			['bld_neon_discards'] = 'Discards, Neon Tag ($5 each)',
+			['k_bld_inactive'] = "Inactive",
+			['k_bld_ate_mineral'] = "Crunch!",
 			},
 		["v_dictionary"] = {
 			["a_rmult"] = "-#1#",
@@ -3541,6 +3543,16 @@ return {
 					"When a Blind is",
 					"{C:attention}added to the deck{},",
 					"add a {C:attention}copy{}",
+				}
+			},
+			['j_bld_geode'] = {
+				["name"] = "Geode",
+				["text"] = {
+					{"When {C:attention}Joker{} is selected,",
+					"destroy a random {C:bld_obj_mineral}Mineral"},
+					{"If successful, {C:white,X:mult}X#1#{} Mult",
+					"for the round",
+					"{C:inactive}(Currently: #2#)"}
 				}
 			}
 		},
