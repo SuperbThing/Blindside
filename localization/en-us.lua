@@ -442,6 +442,13 @@ return {
 					"{C:attention}top{} of the deck",
 				},
 			},
+			["tag_bld_vaccine"] = {
+				["name"] = "Vaccine",
+				["text"] = {	
+					"All {C:attention}Blinds and Booster Packs{}",
+					"cost {C:money}$1{} less",
+				},
+			},
 		},
 		["Tag"] = {
 			["tag_bld_reroll"] = {
@@ -796,6 +803,13 @@ return {
 					"{C:dark_edition,E:1}Upgraded{} Blinds",
 					"are reshuffled to the",
 					"{C:attention}top{} of the deck",
+				},
+			},
+			["tag_bld_vaccine_relic"] = {
+				["name"] = "Vaccine",
+				["text"] = {	
+					"All {C:attention}Blinds and Booster Packs{}",
+					"cost {C:money}$1{} less",
 				},
 			},
 		},
