@@ -1394,7 +1394,7 @@ function CardArea:shuffle(_seed)
         local priorities = {}
         local others = {}
         for k, v in pairs(self.cards) do
-            if v.seal == 'bld_ruin' then
+            if v.seal == 'bld_ruin' or (v.ability.extra.upgraded and G.GAME.used_vouchers["v_bld_thingamajig"]) then
                 table.insert(priorities, v)
             else
                 table.insert(others, v)
