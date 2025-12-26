@@ -294,6 +294,7 @@
         "v_bld_microscope",
         "v_bld_satellite",
         "v_bld_exactoblade",
+        "v_bld_clapper",
         "tag_bld_grabbyhand_relic",
         "tag_bld_prosthetic_relic",
         "tag_bld_bindle_relic",
@@ -324,6 +325,7 @@
         "tag_bld_microscope_relic",
         "tag_bld_satellite_relic",
         "tag_bld_exactoblade_relic",
+        "tag_bld_clapper_relic",
         "tag_bld_maxim",
         "tag_bld_debuff",
         "tag_bld_reroll",
@@ -428,6 +430,7 @@
         "tag_bld_cannonball_relic",
         "tag_bld_antidote_relic",
         "tag_bld_television_relic",
+        "tag_bld_clapper_relic",
         },
     }
 

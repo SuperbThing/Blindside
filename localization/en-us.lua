@@ -449,6 +449,13 @@ return {
 					"cost {C:money}$1{} less",
 				},
 			},
+			["v_bld_clapper"] = {
+				["name"] = "Clapper",
+				["text"] = {	
+					"Reroll Boss Blind for",
+					"{C:blue}1 Hand{} each ante",
+				},
+			},
 		},
 		["Tag"] = {
 			["tag_bld_reroll"] = {
@@ -810,6 +817,13 @@ return {
 				["text"] = {	
 					"All {C:attention}Blinds and Booster Packs{}",
 					"cost {C:money}$1{} less",
+				},
+			},
+			["tag_bld_clapper_relic"] = {
+				["name"] = "Clapper",
+				["text"] = {	
+					"Reroll Boss Blind for",
+					"{C:blue}1 Hand{} each ante",
 				},
 			},
 		},

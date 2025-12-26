@@ -1204,6 +1204,8 @@ for i = 1, G.GAME.shop.joker_max do
     G.GAME.current_round.trinket = BLINDSIDE.get_next_trinket()
 end
 -- G.GAME.round_resets.tags_bought = 0
+G.GAME.round_resets.hands = G.GAME.round_resets.hands + G.GAME.round_resets.hands_removed
+G.GAME.round_resets.hands_removed = 0
 end
 '''
 
@@ -1631,5 +1633,18 @@ payload = '''
     if G.GAME.used_vouchers.v_bld_satellite and self.config.center.kind == 'channel' then
         self.ability.choose = (self.ability.choose or 1) + 1
     end
+'''
+match_indent = true
+
+# clapper
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''UIBox_button({label = {localize('b_reroll_boss'), localize('$')..'10'}, button = "reroll_boss", func = 'reroll_boss_button'}) or nil'''
+position = "at"
+payload = '''
+UIBox_button({label = {localize('b_reroll_boss'), localize('$')..'10'}, button = "reroll_boss", func = 'reroll_boss_button'}) or nil,
+(G.GAME.used_vouchers["v_bld_clapper"] or G.GAME.used_vouchers["v_bld_film_reel"]) and
+UIBox_button({label = {localize('b_reroll_boss'), '1 Hand'}, button = "blind_reroll_boss", func = 'blind_reroll_boss_button'}) or nil,
 '''
 match_indent = true
