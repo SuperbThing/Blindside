@@ -483,7 +483,7 @@ G.FUNCS.blind_draw_from_deck_to_hand = function(e)
         trigger = 'after',
         delay = 0.7,
         func = function()
-            G.deck:shuffle('beta'..G.GAME.round_resets.ante)
+            G.deck:shuffle('beta'..G.GAME.round_resets.ante, true)
             return true
         end
     }))
@@ -1395,7 +1395,7 @@ function CardArea:shuffle(_seed, reshuffle)
         local priorities = {}
         local others = {}
         for k, v in pairs(self.cards) do
-            if (v.seal == 'bld_ruin' and not reshuffle) or (v.ability.extra.upgraded and G.GAME.used_vouchers["v_bld_thingamajig"] and reshuffle) then
+            if (v.seal == 'bld_ruin' and not reshuffle) or (v.ability.extra and v.ability.extra.upgraded and G.GAME.used_vouchers["v_bld_thingamajig"] and reshuffle) then
                 table.insert(priorities, v)
             else
                 table.insert(others, v)
