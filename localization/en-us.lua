@@ -463,6 +463,19 @@ return {
 					"{C:blue}1 Hand{} each ante",
 				},
 			},
+			["v_bld_nametag"] = {
+				["name"] = "Name Tag",
+				["text"] = {	
+					"{C:inactive}Does nothing...?",
+				},
+			},
+			["v_bld_birthcertificate"] = {
+				["name"] = "Birth Certificate",
+				["text"] = {	
+					"Play {C:dark_edition,E:1}+1{} Blind",
+					"in each hand"
+				},
+			},
 		},
 		["Tag"] = {
 			["tag_bld_reroll"] = {
@@ -838,6 +851,19 @@ return {
 				["text"] = {	
 					"Reroll upcoming Jokers for",
 					"{C:blue}1 Hand{} each ante",
+				},
+			},
+			["tag_bld_nametag_relic"] = {
+				["name"] = "Name Tag",
+				["text"] = {	
+					"{C:inactive}Does nothing...?",
+				},
+			},
+			["tag_bld_birthcertificate_relic"] = {
+				["name"] = "Birth Certificate",
+				["text"] = {	
+					"Play {C:dark_edition,E:1}+1{} Blind",
+					"in each hand"
 				},
 			},
 		},
