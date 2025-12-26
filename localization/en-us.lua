@@ -311,6 +311,20 @@ return {
 					"start of round",
 				}
 			},
+			['v_bld_souvenir'] = {
+				["name"] = "Souvenir",
+				["text"] = {
+					"All Trinkets",
+					"are {C:attention}33%{} off"
+				}
+			},
+			['v_bld_mementomori'] = {
+				["name"] = "Memento Mori",
+				["text"] = {
+					"All Trinkets",
+					"are {C:attention}66%{} off"
+				}
+			},
 			["v_bld_scissors"] = {
 				["name"] = "Scissors",
 				["text"] = {
@@ -428,6 +442,20 @@ return {
 					"{C:attention}1{} free",
 					"reroll in shop",
 				},
+			},
+			['tag_bld_souvenir_relic'] = {
+				["name"] = "Souvenir",
+				["text"] = {
+					"All Trinkets",
+					"are {C:attention}33%{} off"
+				}
+			},
+			['tag_bld_mementomori_relic'] = {
+				["name"] = "Memento Mori",
+				["text"] = {
+					"All Trinkets",
+					"are {C:attention}66%{} off"
+				}
 			},
 			["tag_bld_grabbyhand_relic"] = {
 				["name"] = "Grabby Hand",
