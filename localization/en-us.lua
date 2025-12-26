@@ -452,7 +452,14 @@ return {
 			["v_bld_clapper"] = {
 				["name"] = "Clapper",
 				["text"] = {	
-					"Reroll Boss Blind for",
+					"Reroll Boss Joker for",
+					"{C:blue}1 Hand{} each ante",
+				},
+			},
+			["v_bld_film_reel"] = {
+				["name"] = "Film Reel",
+				["text"] = {	
+					"Reroll upcoming Jokers for",
 					"{C:blue}1 Hand{} each ante",
 				},
 			},
@@ -822,7 +829,14 @@ return {
 			["tag_bld_clapper_relic"] = {
 				["name"] = "Clapper",
 				["text"] = {	
-					"Reroll Boss Blind for",
+					"Reroll Boss Joker for",
+					"{C:blue}1 Hand{} each ante",
+				},
+			},
+			["tag_bld_film_reel_relic"] = {
+				["name"] = "Film Reel",
+				["text"] = {	
+					"Reroll upcoming Jokers for",
 					"{C:blue}1 Hand{} each ante",
 				},
 			},

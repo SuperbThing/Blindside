@@ -1441,6 +1441,80 @@ G.FUNCS.blind_reroll_boss_button = function(e)
       end
       return true
   end
+    if G.GAME.used_vouchers["v_bld_film_reel"] and G.GAME.round_resets.blind_states.Small ~= 'Defeated' then
+        G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.3,
+        func = (function()
+            local par = G.blind_select_opts.small.parent
+            G.GAME.round_resets.blind_choices.Small = get_new_small()
+
+            G.blind_select_opts.small:remove()
+            G.blind_select_opts.small = UIBox{
+            T = {par.T.x, 0, 0, 0, },
+            definition =
+                {n=G.UIT.ROOT, config={align = "cm", colour = G.C.CLEAR}, nodes={
+                UIBox_dyn_container({create_UIBox_blind_choice('Small')},false,get_blind_main_colour('Small'), mix_colours(G.C.BLACK, get_blind_main_colour('Small'), 0.8))
+                }},
+            config = {align="bmi",
+                        offset = {x=0,y=G.ROOM.T.y + 9},
+                        major = par,
+                        xy_bond = 'Weak'
+                    }
+            }
+            par.config.object = G.blind_select_opts.small
+            par.config.object:recalculate()
+            G.blind_select_opts.small.parent = par
+            G.blind_select_opts.small.alignment.offset.y = 0
+            
+            G.E_MANAGER:add_event(Event({blocking = false, trigger = 'after', delay = 0.5,func = function()
+                G.CONTROLLER.locks.boss_reroll = nil
+                return true
+            end
+            }))
+
+            save_run()
+            return true
+        end)
+        }))
+    end
+    if G.GAME.used_vouchers["v_bld_film_reel"] and G.GAME.round_resets.blind_states.Big ~= 'Defeated' then
+        G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.3,
+        func = (function()
+            local par = G.blind_select_opts.big.parent
+            G.GAME.round_resets.blind_choices.Big = get_new_big()
+
+            G.blind_select_opts.big:remove()
+            G.blind_select_opts.big = UIBox{
+            T = {par.T.x, 0, 0, 0, },
+            definition =
+                {n=G.UIT.ROOT, config={align = "cm", colour = G.C.CLEAR}, nodes={
+                UIBox_dyn_container({create_UIBox_blind_choice('Big')},false,get_blind_main_colour('Big'), mix_colours(G.C.BLACK, get_blind_main_colour('Big'), 0.8))
+                }},
+            config = {align="bmi",
+                        offset = {x=0,y=G.ROOM.T.y + 9},
+                        major = par,
+                        xy_bond = 'Weak'
+                    }
+            }
+            par.config.object = G.blind_select_opts.big
+            par.config.object:recalculate()
+            G.blind_select_opts.big.parent = par
+            G.blind_select_opts.big.alignment.offset.y = 0
+            
+            G.E_MANAGER:add_event(Event({blocking = false, trigger = 'after', delay = 0.5,func = function()
+                G.CONTROLLER.locks.boss_reroll = nil
+                return true
+            end
+            }))
+
+            save_run()
+            return true
+        end)
+        }))
+    end
     stop_use()
     G.GAME.round_resets.boss_rerolled = true
       if not G.from_boss_tag then 
