@@ -3004,6 +3004,15 @@ return {
 					{"{C:attention}Stubborn"},
 				},
 			},
+			["m_bld_spent"] = {
+				["name"] = "The Spent",
+				["text"] = {
+					{"{X:money,C:white}Yellow{} {X:black,C:white}Cursed{}",
+					"{C:money}-$#1#{} while",
+					"{C:attention}held in hand"},
+					{"{C:green}Retained"},
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

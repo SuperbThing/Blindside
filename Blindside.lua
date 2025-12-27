@@ -387,6 +387,7 @@ local card_list = {
         "Curse",
         "Daze",
         "Thirst",
+        "Spent",
 }
 
 local trinket_list = {

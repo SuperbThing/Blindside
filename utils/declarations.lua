@@ -99,6 +99,7 @@
         "m_bld_rich",
         "m_bld_curse",
         "m_bld_thirst",
+        "m_bld_spent",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",
