@@ -3588,7 +3588,7 @@ return {
 				["name"] = "Fruity Candy Cane",
 				["text"] = {
 					"If scoring hand contains",
-					"a {C:white,X:mult}Red{} and a {C:white,X:dark_edition}Green{} Blind,",
+					"a {C:white,X:mult}Red{} and a {C:white,X:green}Green{} Blind,",
 					"a random scoring Blind",
 					"becomes {C:attention}Enamel"
 				},
