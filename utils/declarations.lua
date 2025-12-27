@@ -96,6 +96,7 @@
         "m_bld_vault",
         "m_bld_tablet",
         "m_bld_template",
+        "m_bld_rich",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",

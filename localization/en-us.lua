@@ -2968,6 +2968,16 @@ return {
 					{"Always Scores"},
 				},
 			},
+			["m_bld_rich"] = {
+				["name"] = "The Rich",
+				["text"] = {
+					{"{X:money,C:white}Yellow{}",
+					"{C:money}+$#1#{}, {C:mult}+#2#{} Mult"},
+					{"These amounts {C:attention}double",
+					"for every other scoring",
+					"{C:white,X:money}Yellow{} Blind"},
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
