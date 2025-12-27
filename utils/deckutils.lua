@@ -35,8 +35,6 @@ function BLINDSIDE.set_up_deck(removed_hues, blinds, curses)
         end
     end
 
-    print(blinds)
-
     local keys_to_remove = {}
     local blind_index = 1
     for k, v in pairs(G.playing_cards) do
