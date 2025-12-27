@@ -15,6 +15,10 @@
             end
             if context.cardarea == G.play and context.main_scoring then
                 BLINDSIDE.chipsmodify(card.ability.extra.joker_mult, 0, 0)
+                return {
+                    message = "+" .. card.ability.extra.joker_mult .. " JMult",
+                    colour = G.C.BLACK
+                }
             end
         end,
         loc_vars = function(self, info_queue, card)
