@@ -3013,6 +3013,15 @@ return {
 					{"{C:green}Retained"},
 				},
 			},
+			["m_bld_sick"] = {
+				["name"] = "The Sick",
+				["text"] = {
+					{"{X:green,C:white}Green{} {X:black,C:white}Cursed{}",
+					"{C:green}#2# in #3#{} chance for",
+					"{C:white,X:chips}X#1#{} Chips to {C:attention}Joker"},
+					{"{C:attention}Burns"},
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
