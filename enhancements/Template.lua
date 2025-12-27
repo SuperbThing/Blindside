@@ -10,7 +10,7 @@
             }},
         hues = {"Blue"}, -- Faded?
         always_scores = true,
-        --rare = true,
+        rare = true,
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.main_scoring and context.scoring_hand then
                 return {
