@@ -19,4 +19,5 @@ SMODS.Voucher {
     redeem = function(self, card)
         add_tag(Tag('tag_bld_film_reel_relic'))
     end,
+    requires = {'v_bld_clapper'}
 }
