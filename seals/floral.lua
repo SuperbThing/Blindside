@@ -32,7 +32,7 @@ SMODS.Seal {
                 }
             end
         end
-        if context.repetition and card.facing ~= 'back' and context.other_card and context.other_card == card then
+        if context.repetition and card.facing ~= 'back' and context.other_card and context.other_card == card and context.other_card.ability.extra.rescore ~= 1 then
             if SMODS.pseudorandom_probability(card, 'floral', 1 + (#SMODS.find_card("j_bld_bracelet")), card.ability.seal.extra.triggeretrigger) then
             return {
                 repetitions = card.ability.seal.extra.retrigger

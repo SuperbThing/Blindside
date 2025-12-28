@@ -35,7 +35,7 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.repetition and context.cardarea == G.play and context.other_card and context.other_card.seal == "bld_tech" and context.other_card.facing ~= "back" then
+            if context.repetition and context.cardarea == G.play and context.other_card and context.other_card.seal == "bld_tech" and context.other_card.facing ~= "back" and context.other_card.ability.extra.rescore ~= 1 then
                 return {
                     message = localize('k_again_ex'),
                     repetitions = card.ability.extra.retriggers,

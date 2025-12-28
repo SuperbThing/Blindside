@@ -77,7 +77,7 @@ SMODS.Consumable {
                 }
             end
         end
-        if context.repetition and card.ability.extra.active and card.ability.extra.value == 6 and context.other_card and context.other_card.facing ~= 'back' and context.cardarea == G.play then
+        if context.repetition and card.ability.extra.active and card.ability.extra.value == 6 and context.other_card and context.other_card.facing ~= 'back' and context.cardarea == G.play and context.other_card.ability.extra.rescore ~= 1 then
             return {
                 repetitions = 1
             }

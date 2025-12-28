@@ -31,7 +31,7 @@
                     message = "Tag!"
                 }
             end
-            if context.repetition and context.other_card and context.other_card == card and context.other_card.facing ~= "back" then
+            if context.repetition and context.other_card and context.other_card == card and context.other_card.facing ~= "back" and context.other_card.ability.extra.rescore ~= 1 then
                 return {
                     repetitions = card.ability.extra.repetitions
                 }
