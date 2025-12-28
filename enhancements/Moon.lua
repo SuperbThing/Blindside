@@ -15,9 +15,13 @@
                     focus = card,
                     message = localize('k_tagged_ex'),
                     func = function()
-                        local tag_key = get_next_tag_key()
-                        while tag_key == 'tag_orbital' do
-                            tag_key = get_next_tag_key()
+                        local pool = {"tag_bld_maxim","tag_bld_toss","tag_bld_recursive","tag_bld_symmetry",}
+                        if (G.GAME.moon_batteries_this_round or 0) < 2 then
+                            table.insert(pool, "tag_bld_battery")
+                        end
+                        local tag_key = choose_stuff(pool, 1, "moon")[1]
+                        if tag_key == "tag_bld_battery" then
+                            G.GAME.moon_batteries_this_round = (G.GAME.moon_batteries_this_round or 0) + 1
                         end
                         add_tag(Tag(tag_key))
                     end,
