@@ -395,6 +395,7 @@ local card_list = {
         "Stress",
         "Hunger",
         "Lottery",
+        "Bank",
 }
 
 local trinket_list = {

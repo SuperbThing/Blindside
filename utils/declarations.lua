@@ -107,6 +107,7 @@
         "m_bld_stress",
         "m_bld_hunger",
         "m_bld_lottery",
+        "m_bld_bank",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",
