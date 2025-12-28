@@ -3545,7 +3545,7 @@ return {
 			['j_bld_pogs'] = {
 				["name"] = "Pogs",
 				["text"] = {
-					"Scoring {X:money,C:white}Yellow{} Blinds",
+					"Scoring {X:money,C:white}Yellow{} and {X:mult,C:white}Red{} Blinds",
 					"give {C:chips}+1{} Chip per",
 					"held {C:money}dollar",
 					"{C:inactive}(Currently: {C:chips}+#1#{C:inactive} Chips)"
