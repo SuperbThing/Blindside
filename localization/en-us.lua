@@ -898,6 +898,13 @@ return {
 					"be {C:dark_edition,E:1}Upgraded"
 				},
 			},
+			["tag_bld_battery"] = {
+				["name"] = "Battery Tag",
+				["text"] = {
+					"{C:blue}+1{} Hand",
+					"this round"
+				},
+			},
 		},
 		["bld_obj_mineral"] = {
 			["c_bld_stibnite"] = {
@@ -2701,7 +2708,7 @@ return {
 					"{C:mult}+#1#{} Mult for",
 					"each {C:attention}Tag{} held",
 					"{C:inactive}(Currently: {C:mult}+#2#{C:inactive} Mult)"},
-					{"Creates a random {C:attention}Tag{}",
+					{"Creates a random {C:attention}Round Tag{}",
 					"when discarded"}
 
 				},
