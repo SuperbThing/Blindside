@@ -3087,6 +3087,15 @@ return {
 					"every {C:money}$#2#{} held"},
 				},
 			},
+			["m_bld_lottery"] = {
+				["name"] = "The Lottery",
+				["text"] = {
+					{"{X:green,C:white}Green{} {X:black,C:white}Cursed{}",
+					"All {C:green,E:1}probabilities{} during played",
+					"hands will fail while {C:attention}held in hand",},
+					{"{C:green}Retained"}
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
