@@ -38,7 +38,7 @@
                     G.play.cards[i].config.center.blind_debuff(G.play.cards[i], true)
                 end
             end
-            if context.repetition and card.ability.extra.x_value.x == 4 and context.cardarea == G.play and context.other_card and context.other_card.facing ~= "back" then
+            if context.repetition and card.ability.extra.x_value.x == 4 and context.cardarea == G.play and context.other_card and context.other_card.facing ~= "back" and context.other_card.ability.extra.rescore ~= 1 then
                 return {
                     message = localize('k_again_ex'),
                     repetitions = 1,

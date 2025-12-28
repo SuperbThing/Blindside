@@ -5,7 +5,7 @@
         config = {
             extra = {
                 value = 999,
-                rescore = 3,
+                rescore = 1,
                 rescore_up = 2,
             }},
         hues = {"Blue"}, -- Faded?

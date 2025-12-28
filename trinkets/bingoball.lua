@@ -33,7 +33,7 @@
                 card.ability.extra.tracked_cards = choose_stuff(context.scoring_hand, card.ability.extra.num_retriggered, pseudoseed('bld_bingoball'))
             end
 
-            if context.repetition and tableContains(context.other_card, card.ability.extra.tracked_cards) then
+            if context.repetition and tableContains(context.other_card, card.ability.extra.tracked_cards) and context.other_card.ability.extra.rescore ~= 1 then
                 return {
                     repetitions = 1,
                     func = function ()
