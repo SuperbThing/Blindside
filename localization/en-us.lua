@@ -41,7 +41,7 @@ return {
 			["bld_ui_jokers"] = "Jokers",
 			["bld_ui_tags"] = "Tags",
 			["bld_ui_decks"] = "Decks",
-			["bld_ui_relics"] = "Relics",
+			["bld_ui_relics"] = "Price Tags",
 			['k_bld_symbol_pack'] = 'Symbol Pack',
 			['k_bld_mineral_pack'] = 'Crystalline Pack',
 			['bld_3_hands'] = '3 Random Hands',
