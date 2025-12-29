@@ -4,10 +4,10 @@
         atlas = 'bld_trinkets',
         pos = {x = 3, y = 7},
         rarity = 'bld_doodad',
-        cost = 9,
+        cost = 10,
         config = {
             extra = {
-                count = 10
+                count = 8
             }
         },
         blueprint_compat = true,
