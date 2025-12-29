@@ -54,3 +54,25 @@ function BLINDSIDE.set_up_deck(removed_hues, blinds, curses)
 
     G.GAME.starting_deck_size = #G.playing_cards
 end
+
+function BLINDSIDE.get_most_common_blind()
+    local blinds_list = {}
+    for _, card in pairs(G.playing_cards) do
+        local key = card.config.center.key
+
+        if not blinds_list[key] then
+            blinds_list[key] = 1
+        else
+            blinds_list[key] = blinds_list[key] + 1
+        end
+    end
+
+    local max = "m_bld_sharp"
+    for key, value in pairs(blinds_list) do
+        if not blinds_list[max] or blinds_list[max] < value then
+            max = key
+        end
+    end
+
+    return max
+end

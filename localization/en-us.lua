@@ -66,6 +66,7 @@ return {
 			['bld_neon_discards'] = 'Discards, Neon Tag ($5 each)',
 			['k_bld_inactive'] = "Inactive",
 			['k_bld_ate_mineral'] = "Crunch!",
+			['bld_idol_placeholder'] = "[most common blind]",
 			},
 		["v_dictionary"] = {
 			["a_rmult"] = "-#1#",
@@ -1784,6 +1785,20 @@ return {
 					"Gains +4 Mult if",
 					"played hand contains",
 					"more than 3 Blinds"
+				},
+			},
+			["bl_bld_burnt"] = {
+				["name"] = "Burnt Joker",
+				["text"] = {
+					"All scored Blinds",
+					"are burned"
+				},
+			},
+			["bl_bld_idol"] = {
+				["name"] = "The Idol",
+				["text"] = {
+					"Scoring #1#",
+					"gives Joker X1.5 Mult",
 				},
 			},
 			["bl_bld_yorick"] = {

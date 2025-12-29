@@ -481,3 +481,71 @@ BLINDSIDE.Joker({
         end
     end,
 })
+
+BLINDSIDE.Joker({
+    key = 'burnt',
+    atlas = 'bld_joker',
+    pos = {x=0, y=27},
+    boss_colour = G.C.ORANGE,
+    mult = 16,
+    dollars = 8,
+    order = 15,
+    boss = {min = 2},
+    active = true,
+    calculate = function(self, blind, context)
+        if context.burn_card and context.cardarea == G.play then
+            return {
+                remove = true
+            }
+        end
+    end,
+})
+
+BLINDSIDE.Joker({
+    key = 'idol',
+    atlas = 'bld_joker',
+    pos = {x=0, y=33},
+    boss_colour = HEX('E5D332'),
+    mult = 12,
+    dollars = 8,
+    order = 15,
+    boss = {min = 2},
+    active = true,
+    calculate = function(self, blind, context)
+        if context.scoring_hand and context.individual and context.cardarea == G.play then
+            if tableContains(context.other_card, context.scoring_hand) and context.other_card.config.center.key == BLINDSIDE.get_most_common_blind() then
+                return {
+                    message = "X1.5 JMult",
+                    colour = G.C.BLACK,
+                    focus = context.other_card,
+                    func = function ()
+                        BLINDSIDE.chipsmodify(0, 0, 1.5)
+                        G.E_MANAGER:add_event(Event({
+                            trigger = 'before',
+                            delay = 0.8,
+                            func = function ()
+                                
+                                return true
+                            end
+                        }))
+                    end
+                }
+            end
+        end
+    end,
+    loc_vars = function (self)
+        if G.playing_cards and #G.playing_cards > 0 then
+            return {
+                vars = {
+                    localize({key = BLINDSIDE.get_most_common_blind(), type = 'name_text', set = 'Enhanced'})
+                }
+            }
+        else
+            return {
+                vars = {
+                    localize('bld_idol_placeholder')
+                }
+            }
+        end
+    end
+})

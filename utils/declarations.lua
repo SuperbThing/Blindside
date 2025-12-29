@@ -421,6 +421,8 @@
         "bl_bld_burglar",
         "bl_bld_stone",
         "bl_bld_wee",
+        "bl_bld_burnt",
+        "bl_bld_idol",
         "bl_bld_yorick",
         },
     }
