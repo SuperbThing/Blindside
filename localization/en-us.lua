@@ -2672,10 +2672,17 @@ return {
 				["name"] = "The Bell",	
 				["text"] = {
 					{"{X:green,C:white}Green{}",
-					"Currently {C:chips}+#2#{} Chips"},
-					{"Gains {C:chips}+#1#{} Chips when",
-					"deck is {C:attention}reshuffled{}"},
-					{"{C:attention}Resets{} each round"}
+					"When discarded, creates a",
+					"random {C:bld_obj_filmcard}Channel{} card"},
+					{"{C:attention}Burns{}"}
+				},
+			},
+			["m_bld_bell_upgraded"] = {
+				["name"] = "The Bell",	
+				["text"] = {
+					"{X:green,C:white}Green{}",
+					"When discarded, creates a",
+					"random {C:bld_obj_filmcard}Channel{} card"
 				},
 			},
 			["m_bld_butterfly"] = {
