@@ -44,6 +44,9 @@
             info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
             return {
                 key = card.ability.extra.upgraded and 'm_bld_psychic_upgraded' or 'm_bld_psychic',
+                vars = {
+                    card.ability.extra.dollars
+                }
             }
         end,
         upgrade = function(card)
