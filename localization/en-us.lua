@@ -2189,7 +2189,7 @@ return {
 				["text"] = {
 					{"{X:green,C:white}Green{} {X:dark_edition,C:white}Faded{}",
 					"Increases all {C:green,E:1}probabilities{}",
-					"by {C:green}#1#{} this hand"},
+					"by {C:green}#1#{} this round"},
 					{"{C:attention}Burns"},
 				},
 			},
@@ -2864,7 +2864,7 @@ return {
 				["text"] = {
 					"{X:mult,C:white}Red{} {X:money,C:white}Yellow{}",
 					"If scoring hand contains",
-					"at least 3 Blinds, creates",
+					"at least {C:attention}3{} Blinds, creates",
 					"a {C:mult,E:1}Strike Tag{}"
 				},
 			},
