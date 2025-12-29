@@ -2509,10 +2509,8 @@ return {
 				["text"] = {
 					"{X:chips,C:white}Blue{}",
 					"While held in hand,",
-					"if scoring hand contains",
-					"{C:attention}#1#{} {X:chips,C:white}Blue{} Blinds, creates a",
-					"random {C:attention}Mineral{} card",
-					"{C:inactive,S:0.8}(Must have room)"
+					"{C:attention}retriggers{} adjacent",
+					"blinds held in hand"
 				},
 			},
 			["m_bld_vast_upgraded"] = {
