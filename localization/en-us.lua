@@ -2642,6 +2642,7 @@ return {
 					{"{X:dark_edition,C:white}Faded{}",
 					"{X:red,C:white}X#1#{} Mult"},
 					{"Always scores"},
+					{"Retriggers once"},
 					{"Might be useful",
 					"to {C:attention}lockpick{} things"}
 				},
