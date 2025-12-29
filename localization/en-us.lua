@@ -2698,8 +2698,19 @@ return {
 					"{C:inactive}(Currently: {C:mult}+#2#{C:inactive} Mult)"},
 					{"Creates a random",
 					"{C:attention}Round Tag{} when",
-					"discarded"}
-
+					"played"}
+				},
+			},
+			["m_bld_moon_inactive"] = {
+				["name"] = "The Moon",
+				["text"] = {
+					{"{X:money,C:white}Yellow{}",
+					"{C:mult}+#1#{} Mult for",
+					"each {C:attention}Tag{} held",
+					"{C:inactive}(Currently: {C:mult}+#2#{C:inactive} Mult)"},
+					{"{C:inactive}Creates a random",
+					"{C:inactive}Round Tag when",
+					"{C:inactive}played"}
 				},
 			},
 			["m_bld_dove"] = {
