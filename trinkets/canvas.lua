@@ -9,7 +9,7 @@
                 mult_mod = 8
             }
         },
-        cost = 8,
+        cost = 7,
         blueprint_compat = true,
         eternal_compat = true,
         loc_vars = function (self, info_queue, card)
