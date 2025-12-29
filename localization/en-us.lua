@@ -2684,7 +2684,7 @@ return {
 					{"{X:green,C:white}Green{}",
 					"When discarded, creates a",
 					"random {C:bld_obj_filmcard}Channel{} card"},
-					{"{C:attention}Burns{}"}
+					{"{C:attention}Burns{} on success"}
 				},
 			},
 			["m_bld_bell_upgraded"] = {
