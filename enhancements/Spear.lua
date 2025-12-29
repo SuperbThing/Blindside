@@ -44,11 +44,11 @@
                     }
                 end
             end
-            if context.burn_card == card and #context.scoring_hand >= 3 then
+            --[[if context.burn_card == card and #context.scoring_hand >= 3 then
                 return {
                     remove = true,
                 }
-            end
+            end]]
         end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue+1] = G.P_TAGS['tag_bld_strike']

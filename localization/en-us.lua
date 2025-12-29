@@ -2857,10 +2857,9 @@ return {
 				["name"] = "The Spear",
 				["text"] = {
 					"{X:mult,C:white}Red{} {X:money,C:white}Yellow{}",
-					"If scoring hand",
-					"contains at least",
-					"3 Blinds, creates a",
-					"{C:mult,E:1}Strike Tag{} and {C:attention}burns{}"
+					"If scoring hand contains",
+					"at least 3 Blinds, creates",
+					"a {C:mult,E:1}Strike Tag{}"
 				},
 			},
 			["m_bld_spear_upgraded"] = {
@@ -2871,7 +2870,7 @@ return {
 					{"If scoring hand",
 					"contains at least",
 					"3 Blinds, creates a",
-					"{C:mult,E:1}Strike Tag{} and {C:attention}burns{}"}
+					"{C:mult,E:1}Strike Tag{}"}
 				},
 			},
 			["m_bld_line"] = {
