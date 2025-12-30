@@ -3712,7 +3712,7 @@ return {
 			['j_bld_nixietubes'] = {
 				["name"] = "Nixie Tubes",
 				["text"] = {
-					"Every 10 used {C:blue}hands{}",
+					"Every 8 used {C:blue}hands{}",
 					"and {C:red}discards{}, creates",
 					"a {C:attention}Neon Tag",
 					"{C:inactive}(Currently #1# left)"
