@@ -426,6 +426,7 @@
         "bl_bld_idol",
         "bl_bld_throwback",
         "bl_bld_glass",
+        "bl_bld_smeared",
         "bl_bld_yorick",
         },
     }
