@@ -923,7 +923,7 @@ return {
 				["name"] = "Voodoo Tag",
 				["text"] = {
 					"Gives an unskippable",
-					"{C:attention}Voodoo Pack{}"
+					"{C:attention}Cursed Pack{}"
 				},
 			},
 		},
@@ -4323,8 +4323,8 @@ return {
 				}
 			},
 			["p_bld_voodoo"] = {
-				["group_name"] = "Voodoo Pack",
-				["name"] = "Voodoo Pack",
+				["group_name"] = "Cursed Pack",
+				["name"] = "Cursed Pack",
 				["text"] = {
 					"Choose {C:attention}1{} of {C:attention}3{}",
 					"{C:white,X:black}Cursed{} Blinds"

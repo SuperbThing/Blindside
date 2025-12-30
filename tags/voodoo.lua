@@ -2,7 +2,7 @@ SMODS.Tag {
     key = "voodoo",
     hide_ability = false,
     atlas = 'bld_tag',
-    pos = {x = 1, y = 2},
+    pos = {x = 5, y = 4},
         in_pool = function(self, args)
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
@@ -11,6 +11,9 @@ SMODS.Tag {
             return false
             end
         end,
+    loc_vars = function (self, info_queue, tag)
+        info_queue[#info_queue+1] = G.P_CENTERS['p_bld_voodoo']
+    end,
     apply = function(self, tag, context)
         if context.type == "new_blind_choice" then
 			local lock = tag.ID
