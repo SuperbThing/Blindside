@@ -365,6 +365,7 @@ function BLINDSIDE.create_blindcard_for_shop(area, is_boss_shop)
               local args = {}
               args.guaranteed = true
               args.options = G.P_CENTER_POOLS.bld_obj_blindcard_generate
+              args.shop = true
               local cardtype = BLINDSIDE.poll_enhancement(args)
               local card = SMODS.create_card({ set = 'Base', seal = enhancement, enhancement = cardtype, area = area })
               create_shop_card_ui(card, 'Enhanced', area)

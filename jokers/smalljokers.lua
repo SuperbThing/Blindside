@@ -42,7 +42,7 @@ BLINDSIDE.Joker({
     order = 2,
     small = {min = 1},
     pool_override = function()
-        return G.GAME.round_resets.ante ~= 1
+        return G.GAME.round_resets.ante ~= 1 and not (G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 3)
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -114,7 +114,7 @@ BLINDSIDE.Joker({
     order = 3,
     small = {min = 1},
     pool_override = function()
-        return G.GAME.round_resets.ante ~= 1
+        return G.GAME.round_resets.ante ~= 1 and not (G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 3)
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -186,7 +186,7 @@ BLINDSIDE.Joker({
     order = 4,
     small = {min = 1},
     pool_override = function()
-        return G.GAME.round_resets.ante ~= 1
+        return G.GAME.round_resets.ante ~= 1 and not (G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 3)
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -256,7 +256,7 @@ BLINDSIDE.Joker({
     order = 5,
     small = {min = 1},
     pool_override = function()
-        return G.GAME.round_resets.ante ~= 1
+        return G.GAME.round_resets.ante ~= 1 and not (G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 3)
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -326,7 +326,7 @@ BLINDSIDE.Joker({
     small = {min = 1},
     order = 6,
     pool_override = function()
-        return G.GAME.round_resets.ante ~= 1
+        return G.GAME.round_resets.ante ~= 1 and not (G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 3)
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -392,11 +392,11 @@ BLINDSIDE.Joker({
     pos = {x=0, y=2},
     boss_colour = G.C.RED,
     mult = 6,
-    dollars = 4,
+    dollars = 8,
     small = {min = 1},
     order = 6,
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
+        return G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 3
     end,
     calculate = function(self, blind, context)
         local color1 = "Red"
@@ -474,7 +474,7 @@ BLINDSIDE.Joker({
     pos = {x=0, y=5},
     boss_colour = G.C.RED,
     mult = 6,
-    dollars = 4,
+    dollars = 8,
     order = 23,
     small = {min = 1},
     active = true,
@@ -487,11 +487,11 @@ BLINDSIDE.Joker({
     pos = {x=0, y=5},
     boss_colour = G.C.CHIPS,
     mult = 6,
-    dollars = 4,
+    dollars = 8,
     small = {min = 1},
     order = 6,
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
+        return G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 3
     end,
     calculate = function(self, blind, context)
         local color1 = "Blue"
@@ -569,7 +569,7 @@ BLINDSIDE.Joker({
     pos = {x=0, y=1},
     boss_colour = G.C.CHIPS,
     mult = 6,
-    dollars = 4,
+    dollars = 8,
     order = 23,
     small = {min = 1},
     active = true,
@@ -582,11 +582,11 @@ BLINDSIDE.Joker({
     pos = {x=0, y=4},
     boss_colour = G.C.GREEN,
     mult = 6,
-    dollars = 4,
+    dollars = 8,
     small = {min = 1},
     order = 6,
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
+        return G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 3
     end,
     calculate = function(self, blind, context)
         local color1 = "Green"
@@ -664,7 +664,7 @@ BLINDSIDE.Joker({
     pos = {x=0, y=2},
     boss_colour = G.C.GREEN,
     mult = 6,
-    dollars = 4,
+    dollars = 8,
     order = 23,
     small = {min = 1},
     active = true,
@@ -677,11 +677,11 @@ BLINDSIDE.Joker({
     pos = {x=0, y=1},
     boss_colour = G.C.MONEY,
     mult = 6,
-    dollars = 4,
+    dollars = 8,
     small = {min = 1},
     order = 6,
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
+        return G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 3
     end,
     calculate = function(self, blind, context)
         local color1 = "Yellow"
@@ -759,7 +759,7 @@ BLINDSIDE.Joker({
     pos = {x=0, y=4},
     boss_colour = G.C.MONEY,
     mult = 6,
-    dollars = 4,
+    dollars = 8,
     order = 23,
     small = {min = 1},
     active = true,
@@ -772,11 +772,11 @@ BLINDSIDE.Joker({
     pos = {x=0, y=3},
     boss_colour = G.C.PURPLE,
     mult = 6,
-    dollars = 4,
+    dollars = 8,
     small = {min = 1},
     order = 6,
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
+        return G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 3
     end,
     calculate = function(self, blind, context)
         local color1 = "Purple"
@@ -851,7 +851,7 @@ BLINDSIDE.Joker({
     pos = {x=0, y=3},
     boss_colour = G.C.PURPLE,
     mult = 6,
-    dollars = 4,
+    dollars = 8,
     order = 23,
     small = {min = 1},
     active = true,

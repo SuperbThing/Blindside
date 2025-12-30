@@ -3816,10 +3816,31 @@ return {
 			["stake_bld_anaglyph_deck"] = {
 				name = "Anaglyph Stake??",
 				text = {
-					"{C:attention}Small{} and {C:attention}Big{} Jokers",
-					"can {C:attention}Double Up",
+					"Does {C:attention}nothing{} yet"
 				}
-			}
+			},
+			["stake_bld_zodiac_deck"] = {
+				name = "Zodiac Stake??",
+				text = {
+					"{C:inactive}(BUGGY RIGHT NOW)",
+					"{C:white,X:black}Cursed{} Blinds may",
+					"appear in {C:attention}shops"
+				}
+			},
+			["stake_bld_plasma_deck"] = {
+				name = "Plasma Stake??",
+				text = {
+					"Does {C:attention}nothing{} yet"
+				}
+			},
+			["stake_bld_ghost_deck"] = {
+				name = "Ghost Stake???",
+				text = {
+					"Ante {C:attention}3{} Small Joker",
+					"and Ante {C:attention}5{} Big Joker",
+					"always {C:attention}Double Up"
+				}
+			},
 		},
 		["Other"] = {
 			["bld_stubborn"] = {

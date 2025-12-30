@@ -9,7 +9,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return true
+        return not (G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 5)
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -66,7 +66,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return true
+        return not (G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 5)
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -122,7 +122,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return true
+        return not (G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 5)
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -178,7 +178,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return true
+        return not (G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 5)
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -236,7 +236,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return true
+        return not (G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 5)
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -287,12 +287,12 @@ BLINDSIDE.Joker({
     pos = {x=0, y=7},
     boss_colour = HEX("83c4b4"),
     mult = 12,
-    dollars = 6,
+    dollars = 12,
     order = 7,
     active = true,
     big = {min = 1},
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
+        return G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 5
     end,
     calculate = function(self, blind, context)
         local cond1 = context.poker_hands and has_group_of(3, context.poker_hands)
@@ -354,7 +354,7 @@ BLINDSIDE.Joker({
     pos = {x=0, y=8},
     boss_colour = HEX("83c4b4"),
     mult = 12,
-    dollars = 6,
+    dollars = 12,
     order = 23,
     small = {min = 1},
     active = true,
@@ -367,12 +367,12 @@ BLINDSIDE.Joker({
     pos = {x=0, y=9},
     boss_colour = HEX("62aebf"),
     mult = 12,
-    dollars = 6,
+    dollars = 12,
     order = 7,
     active = true,
     big = {min = 1},
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
+        return G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 5
     end,
     calculate = function(self, blind, context)
         local cond2 = context.poker_hands and has_group_of(3, context.poker_hands)
@@ -434,7 +434,7 @@ BLINDSIDE.Joker({
     pos = {x=0, y=7},
     boss_colour = HEX("62aebf"),
     mult = 12,
-    dollars = 6,
+    dollars = 12,
     order = 23,
     small = {min = 1},
     active = true,
@@ -447,12 +447,12 @@ BLINDSIDE.Joker({
     pos = {x=0, y=8},
     boss_colour = HEX("ad7e69"),
     mult = 12,
-    dollars = 6,
+    dollars = 12,
     order = 7,
     active = true,
     big = {min = 1},
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
+        return G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 5
     end,
     calculate = function(self, blind, context)
         local cond2 = context.poker_hands and has_group_of(5, context.poker_hands)
@@ -514,7 +514,7 @@ BLINDSIDE.Joker({
     pos = {x=0, y=10},
     boss_colour = HEX("ad7e69"),
     mult = 12,
-    dollars = 6,
+    dollars = 12,
     order = 23,
     small = {min = 1},
     active = true,
@@ -527,12 +527,12 @@ BLINDSIDE.Joker({
     pos = {x=0, y=10},
     boss_colour = HEX("fd5f55"),
     mult = 12,
-    dollars = 6,
+    dollars = 12,
     order = 7,
     active = true,
     big = {min = 1},
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
+        return G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 5
     end,
     calculate = function(self, blind, context)
         local cond1 = context.poker_hands and has_group_of(5, context.poker_hands)
@@ -594,7 +594,7 @@ BLINDSIDE.Joker({
     pos = {x=0, y=9},
     boss_colour = HEX("fd5f55"),
     mult = 12,
-    dollars = 6,
+    dollars = 12,
     order = 23,
     small = {min = 1},
     active = true,
@@ -607,12 +607,12 @@ BLINDSIDE.Joker({
     pos = {x=0, y=6},
     boss_colour = HEX("7fa5b5"),
     mult = 18,
-    dollars = 6,
+    dollars = 12,
     order = 7,
     active = true,
     big = {min = 1},
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
+        return G.GAME.modifiers.enable_bld_elites and G.GAME.round_resets.ante == 5
     end,
     calculate = function(self, blind, context)
         local cond1 = context.poker_hands and has_group_of(2, context.poker_hands)
@@ -674,7 +674,7 @@ BLINDSIDE.Joker({
     pos = {x=0, y=6},
     boss_colour = HEX("7fa5b5"),
     mult = 18,
-    dollars = 6,
+    dollars = 12,
     order = 23,
     small = {min = 1},
     active = true,

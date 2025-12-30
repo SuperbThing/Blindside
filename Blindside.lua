@@ -181,7 +181,7 @@ function BLINDSIDE.Blind:set_params()
         self.pools["bld_obj_blindcard_curse"] = true
     end
 
-    if not self.basic and not self.hidden and not self.curse then
+    if not self.basic and not self.hidden --[[and not self.curse]] then
         self.pools["bld_obj_blindcard_generate"] = true
 
         if tableContains("Red", self.hues) or tableContains("Yellow", self.hues) or tableContains("Green", self.hues) then
@@ -206,6 +206,10 @@ function BLINDSIDE.Blind:set_params()
 
     if self.rare then
         self.weight = 3 -- secret code for "i am rare"
+    end
+
+    if self.curse then
+        self.weight = 67 -- secret code for "i am cursed"
     end
 
     return self

@@ -957,12 +957,28 @@ function BLINDSIDE.poll_enhancement(args)
 
     local rand = pseudorandom(pseudoseed('bld_blind_rarity'))
 
-    if (rand < 0.85) then
-        rarity = 0
-    elseif rand <= 1 then --(rand < 0.999) then
-        rarity = 1
+    if args.shop then
+        if G.GAME.modifiers.enable_shop_curses and pseudorandom(pseudoseed('bld_blind_curse_in_shop')) > 0.9 then
+            rarity = 3
+        else
+            if (rand < 0.85) then
+                rarity = 0
+            elseif rand <= 1 then --(rand < 0.999) then
+                rarity = 1
+            else
+                rarity = 2
+            end
+        end
+    elseif args.cursed then
+        rarity = 3
     else
-        rarity = 2
+        if (rand < 0.85) then
+        rarity = 0
+        elseif rand <= 1 then --(rand < 0.999) then
+            rarity = 1
+        else
+            rarity = 2
+        end
     end
 
     local available_enhancements = {}
@@ -975,7 +991,7 @@ function BLINDSIDE.poll_enhancement(args)
                 assert(G.P_CENTERS[v], ("Could not find enhancement \"%s\"."):format(v))
                 local wght = G.P_CENTERS[v].weight or 5
                 local multicolor = #G.P_CENTERS[v].config.extra.hues > 1
-                local good_rarity = (wght == 5 and rarity == 0) or (wght == 3 and rarity == 1) or (wght == 1 and rarity == 2)
+                local good_rarity = (wght == 5 and rarity == 0) or (wght == 3 and rarity == 1) or (wght == 1 and rarity == 2) or (wght == 67 and rarity == 3)
                 local good_colors = rarity == 0 or (multicolor and rand >= 0.95) or (not multicolor and rand < 0.95)
 
                 if good_colors and good_rarity then
@@ -987,7 +1003,7 @@ function BLINDSIDE.poll_enhancement(args)
                 assert(G.P_CENTERS[v.key], ("Could not find enhancement \"%s\"."):format(v.key))
                 local wght = v.weight or 5
                 local multicolor = #v.config.extra.hues > 1
-                local good_rarity = (wght == 5 and rarity == 0) or (wght == 3 and rarity == 1) or (wght == 1 and rarity == 2)
+                local good_rarity = (wght == 5 and rarity == 0) or (wght == 3 and rarity == 1) or (wght == 1 and rarity == 2) or (wght == 67 and rarity == 3)
                 local good_colors = rarity == 0 or (multicolor and rand >= 0.95) or (not multicolor and rand < 0.95)
 
                 if good_colors and good_rarity then

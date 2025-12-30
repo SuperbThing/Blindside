@@ -16,6 +16,7 @@ SMODS.Consumable {
             SMODS.ObjectTypes.bld_obj_blindcard_generate:delete_card(G.hand.highlighted[1].config.center)
             args.options = G.P_CENTER_POOLS.bld_obj_blindcard_generate
             args.colors = card.ability.extra.hues
+            args.cursed = card.config.center.weight == 67
             local enhancement = BLINDSIDE.poll_enhancement(args)
             SMODS.ObjectTypes.bld_obj_blindcard_generate:inject_card(G.hand.highlighted[1].config.center)
 
