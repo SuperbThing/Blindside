@@ -1814,6 +1814,22 @@ return {
 					"gives Joker X1.5 Mult",
 				},
 			},
+			["bl_bld_throwback"] = {
+				["name"] = "Throwback",
+				["text"] = {
+					"X4 Mult if a Joker",
+					"was skipped this",
+					"ante",
+				},
+			},
+			["bl_bld_glass"] = {
+				["name"] = "Glass Joker",
+				["text"] = {
+					"X2 Mult each hand,",
+					"#1# in #2# chance",
+					"to break each hand",
+				},
+			},
 			["bl_bld_yorick"] = {
 				["name"] = "Yorick",
 				["text"] = {
