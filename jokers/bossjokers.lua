@@ -348,11 +348,11 @@ BLINDSIDE.Joker({
     boss = {min = 2},
     active = true,
     set_joker = function(self)
-        ease_hands_played(- G.GAME.round_resets.hands + 1)
-        ease_discard(5)
+        ease_hands_played(- G.GAME.round_resets.hands + 2)
+        ease_discard(3)
     end,
     disable = function()
-        ease_hands_played(G.GAME.round_resets.hands - 1)
+        ease_hands_played(G.GAME.round_resets.hands - 2)
     end,
 })
 

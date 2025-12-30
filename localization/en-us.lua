@@ -1780,8 +1780,8 @@ return {
 			["bl_bld_burglar"] = {
 				["name"] = "Burglar",
 				["text"] = {
-					"Play only one hand",
-					"Gain 5 discards",
+					"Play only two hands,",
+					"gain 3 discards",
 				},
 			},
 			["bl_bld_stone"] = {
