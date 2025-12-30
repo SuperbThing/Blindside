@@ -12,7 +12,7 @@ SMODS.Booster{
         weight = 0,
         pos = { x = 0, y = 0 },
         loc_vars = function(self, info_queue, card)
-            return {vars = {card.config.center.config.choose, card.ability.extra}}
+            return {vars = {card.ability.choose, card.ability.extra}}
         end,
         ease_background_colour = function(self)
             ease_colour(G.C.DYN_UI.MAIN, HEX("3c2d47"))
