@@ -602,3 +602,15 @@ BLINDSIDE.Joker({
         end
     end,
 })
+
+BLINDSIDE.Joker({
+    key = 'smeared',
+    atlas = 'bld_joker',
+    pos = {x=0, y=32},
+    boss_colour = HEX('FD5F55'),
+    mult = 12,
+    dollars = 6,
+    order = 15,
+    boss = {min = 1},
+    active = true,
+})

@@ -1830,6 +1830,13 @@ return {
 					"over #1# Chips",
 				},
 			},
+			["bl_bld_smeared"] = {
+				["name"] = "Smeared Joker",
+				["text"] = {
+					"All blinds are",
+					"considered Faded"
+				},
+			},
 			["bl_bld_yorick"] = {
 				["name"] = "Yorick",
 				["text"] = {

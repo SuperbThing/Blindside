@@ -433,6 +433,9 @@
                     allFaded = true
                 end
         end
+        if G.GAME.blind.name == 'bl_bld_smeared' and not G.GAME.blind.disabled then
+            allFaded = true
+        end
         if not allFaded then
         if flush_calc then
         if self.seal and self.seal == "bld_wild" and suit ~= "Bleh" then
