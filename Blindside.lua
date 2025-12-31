@@ -445,7 +445,6 @@ local card_list = {
     "Lottery",
     "Rain",
     "Death",
-    "Daze",
 }
 
 local trinket_list = {
