@@ -112,6 +112,7 @@
         "m_bld_market",
         "m_bld_rain",
         "m_bld_death",
+        "m_bld_sinker",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",

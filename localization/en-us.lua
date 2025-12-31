@@ -3226,6 +3226,15 @@ return {
 					"another played Blind",
 				},
 			},
+			["m_bld_sinker"] = {
+				["name"] = "The Sinker",
+				["text"] = {
+					{"{X:mult,C:white}Red{} {X:black,C:white}Cursed{}",
+					"{C:red}-1{} discard",
+					"and {C:attention}burns"},
+					{"{C:green}Retained"}
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
