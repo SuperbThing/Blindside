@@ -3235,6 +3235,14 @@ return {
 					{"{C:green}Retained"}
 				},
 			},
+			["m_bld_downer"] = {
+				["name"] = "The Downer",
+				["text"] = {
+					{"{X:purple,C:white}Purple{} {X:black,C:white}Cursed{}",
+					"{C:white,X:chips}X#1#{} Chips"},
+					{"{C:green}Retained"}
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

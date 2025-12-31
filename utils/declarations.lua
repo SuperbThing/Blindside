@@ -113,6 +113,7 @@
         "m_bld_rain",
         "m_bld_death",
         "m_bld_sinker",
+        "m_bld_downer",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",
