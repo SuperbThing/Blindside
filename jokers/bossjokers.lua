@@ -594,9 +594,11 @@ BLINDSIDE.Joker({
             BLINDSIDE.chipsmodify(0, 0, 2, 0, true)
             G.GAME.playing_with_fire_num = G.GAME.playing_with_fire_num + 1
             if blind.original_mult*blind.original_chips < SMODS.calculate_round_score() then
-            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function()
                 play_sound('glass'..math.random(1, 6), math.random()*0.2 + 0.9,0.5)
-                blind:disable()
+                blind.disabled = true
+                blind:set_text()
+                blind:wiggle()
             return true end }))
             end
         end
