@@ -3234,6 +3234,30 @@ return {
 					"another played Blind",
 				},
 			},
+			["m_bld_sinker"] = {
+				["name"] = "The Sinker",
+				["text"] = {
+					{"{X:mult,C:white}Red{} {X:black,C:white}Cursed{}",
+					"{C:red}-1{} discard",
+					"and {C:attention}burns"},
+					{"{C:green}Retained"}
+				},
+			},
+			["m_bld_downer"] = {
+				["name"] = "The Downer",
+				["text"] = {
+					{"{X:purple,C:white}Purple{} {X:black,C:white}Cursed{}",
+					"{C:white,X:chips}X#1#{} Chips"},
+					{"{C:green}Retained"}
+				},
+			},
+			["m_bld_nil"] = {
+				["name"] = "The Nil",
+				["text"] = {
+					"{X:dark_edition,C:white}Faded{} {X:black,C:white}Cursed{}",
+					"Sets {C:mult}Mult{} to {C:attention}0",
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
