@@ -62,34 +62,18 @@ SMODS.Back({
     end
 })
 
--- draws successfully on the menu and on the deck, also draws on the deck in-run
--- G.STATE == 11 ensures it only draws on the main menu
 SMODS.DrawStep {
-    key = 'gold_shiny',
+    key = 'bld_gold_shiny',
     order = 21,
     func = function (self, layer)
-        if self.area and self.area.config and self.area.config.type == 'deck' then
+        if self.area and self.area.config then
             local current_back = not self.params.galdur_selector
                 and ((Galdur and Galdur.config.use and type(self.params.galdur_back) == "table" and self.params.galdur_back) or type(self.params.viewed_back) == "table" and self.params.viewed_back or (self.params.viewed_back and G.GAME.viewed_back or G.GAME.selected_back) or Back(G.P_CENTERS["b_red"]))
-            if current_back and (current_back.effect.center.key == 'b_bld_golddispenser' or current_back.effect.center.key == 'b_bld_yellowdispenser') and G.STATE == 11 then
+            if current_back and (current_back.effect.center.key == 'b_bld_golddispenser' or current_back.effect.center.key == 'b_bld_yellowdispenser') and self.sprite_facing == 'back' then
                 self.children.back:draw_shader('voucher', nil, self.ARGS.send_to_shader, true)
             end
         end
     end
 }
-
--- draws successfully on the deck in-run, draws with an offset when outside the deck in-run
-SMODS.DrawStep {
-    key = 'gold_shiny_cards',
-    order = 22,
-    func = function (self, layer)
-        if self.playing_card and G.GAME.selected_back and (G.GAME.selected_back.effect.center.key == 'b_bld_golddispenser' or G.GAME.selected_back.effect.center.key == 'b_bld_yellowdispenser') and self.sprite_facing == 'back' then
-            self.children.back:draw_shader('voucher', nil, self.ARGS.send_to_shader, true)
-        end
-    end
-}
-
--- neither of these draw when the new run menu is opened during a current run
--- so we need something else for that (G.STATE is not sufficient this time)
 ----------------------------------------------
 ------------MOD CODE END----------------------
