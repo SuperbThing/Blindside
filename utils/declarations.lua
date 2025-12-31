@@ -118,6 +118,7 @@
         "m_bld_bill",
         "m_bld_tax",
         "m_bld_famous",
+        "m_bld_pill",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",

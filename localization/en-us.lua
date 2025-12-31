@@ -3306,6 +3306,17 @@ return {
 					"{C:attention}be selected",
 				},
 			},
+			["m_bld_pill"] = {
+				["name"] = "The Pill",
+				["text"] = {
+					{"{X:green,C:white}Green{} {X:black,C:white}Cursed{}",
+					"{C:white,X:mult}X#1#{} Mult"},
+					{"{C:attention,E:1}Self-Scoring{} with a",
+					"{C:green}#2# in #3#{} chance"},
+					{"{C:attention}Forced to",
+					"{C:attention}be selected",}
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

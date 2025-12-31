@@ -447,14 +447,16 @@ local card_list = {
     "Stress",
     "Hunger",
     "Lottery",
-    "Rain",
-    "Death",
     "Sinker",
     "Downer",
     "Nil",
     "Bill",
     "Tax",
     "Famous",
+    
+    "Pill",
+    "Rain",
+    "Death",
 }
 
 local trinket_list = {
