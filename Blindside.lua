@@ -447,11 +447,19 @@ local card_list = {
     "Stress",
     "Hunger",
     "Lottery",
-    "Rain",
-    "Death",
     "Sinker",
     "Downer",
     "Nil",
+    "Bill",
+    "Tax",
+    "Famous",
+
+    "Hurt",
+    "Grind",
+    "Pill",
+    "Rain",
+    "Work",
+    "Death",
 }
 
 local trinket_list = {
@@ -527,7 +535,8 @@ local trinket_list = {
         "prayerwheel",
         "geode",
         "peppermintcandycane",
-        "fruitycandycane"
+        "fruitycandycane",
+        "inkandquill"
 }
 
 local joker_list = {

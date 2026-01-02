@@ -57,11 +57,11 @@ return {
 			['k_fossil_excavate'] = "Excavated!",
 			['k_exorcised_ex'] = "Exorcised!",
 			['bld_playing_with_fire'] = "Playing With Fire",
-			['bld_playing_with_fire_each_1'] = "$1 each",
-			['bld_playing_with_fire_each_2'] = "$2 each",
-			['bld_playing_with_fire_each_3'] = "$3 each",
-			['bld_playing_with_fire_each_big_joker_1'] = "$1 each XMult",
-			['bld_playing_with_fire_each_big_joker_2'] = "$2 each XMult",
+			['bld_playing_with_fire_each_1'] = "$1 each trigger",
+			['bld_playing_with_fire_each_2'] = "$2 each trigger",
+			['bld_playing_with_fire_each_3'] = "$3 each trigger",
+			['bld_playing_with_fire_each_big_joker_1'] = "$1 each XChips",
+			['bld_playing_with_fire_each_big_joker_2'] = "$2 each XChips",
 			['bld_neon_hands'] = 'Hands, Neon Tag ($3 each)',
 			['bld_neon_discards'] = 'Discards, Neon Tag ($5 each)',
 			['k_bld_inactive'] = "Inactive",
@@ -3280,6 +3280,76 @@ return {
 					"Sets {C:mult}Mult{} to {C:attention}0",
 				},
 			},
+			["m_bld_bill"] = {
+				["name"] = "The Bill",
+				["text"] = {
+					{"{X:money,C:white}Yellow{} {X:black,C:white}Cursed{}",
+					"{C:money}-$#1#{} and {C:attention}burns"},
+					{"{C:attention}Stubborn"}
+				},
+			},
+			["m_bld_tax"] = {
+				["name"] = "The Tax",
+				["text"] = {
+					{"{X:money,C:white}Yellow{} {X:black,C:white}Cursed{}",
+					"Takes {C:attention}half{} of all held",
+					"money more than {C:money}$20{}",
+					"{C:inactive}(Currently {C:money}-$#1#{C:inactive})"},
+					{"{C:attention}Stubborn"}
+				},
+			},
+			["m_bld_famous"] = {
+				["name"] = "The Famous",
+				["text"] = {
+					"{X:chips,C:white}Blue{} {X:black,C:white}Cursed{}",
+					"{C:attention}Forced to",
+					"{C:attention}be selected",
+				},
+			},
+			["m_bld_pill"] = {
+				["name"] = "The Pill",
+				["text"] = {
+					{"{X:green,C:white}Green{} {X:black,C:white}Cursed{}",
+					"{C:white,X:mult}X#1#{} Mult"},
+					{"{C:attention,E:1}Self-Scoring{} with a",
+					"{C:green}#2# in #3#{} chance"},
+					{"{C:attention}Forced to",
+					"{C:attention}be selected",}
+				},
+			},
+			["m_bld_hurt"] = {
+				["name"] = "The Hurt",
+				["text"] = {
+					"{X:mult,C:white}Red{} {X:black,C:white}Cursed{}",
+					"{C:mult}#1#{} Mult, then {C:mult}+#2#{} for",
+					"every {X:black,C:white}Cursed{} Blind in",
+					"full deck",
+					"{C:inactive}(Currently {C:mult}#3#{C:inactive} Mult)"
+				},
+			},
+			["m_bld_grind"] = {
+				["name"] = "The Grind",
+				["text"] = {
+					"{X:money,C:white}Yellow{} {X:black,C:white}Cursed{}",
+					"{C:money}-$#1#{}, then {C:money}+$#2#{} for",
+					"every other {X:black,C:white}Cursed{}",
+					"Blind in played hand",
+				},
+			},
+			["m_bld_work"] = {
+				["name"] = "The Work",
+				["text"] = {
+					{"{X:purple,C:white}Purple{} {X:black,C:white}Cursed{}",
+					"When played, creates",
+					"a copy of {C:attention}The Stress"},
+					{
+						"When {C:attention}held in hand{},",
+						"gives {X:mult,C:white}+X#1#{} Mult for",
+						"every {X:black,C:white}Cursed{} Blind",
+						"{C:attention}held in hand",
+					}
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
@@ -3308,8 +3378,10 @@ return {
 			['j_bld_canvas'] = {
 				["name"] = "Canvas",
 				["text"] = {
-					"If played hand contains a {C:attention}Wild Blind{}",
-					"reduce effect of {C:attention}Big{} and {C:attention}Small Jokers"
+					"If played hand contains a",
+					"{C:attention}Wild Blind{} or {C:attention}Multicolor",
+					"Blind, reduce effect of",
+					"{C:attention}Big{} or {C:attention}Small Joker"
 				}
 			},
 			['j_bld_toysoldier'] = {
@@ -3549,9 +3621,11 @@ return {
 			['j_bld_award'] = {
 				["name"] = "Award",
 				["text"] = {
-					"At the end of round,",
-					"{X:money,C:white}Yellow{} Blinds held",
-					"in hand give {C:money}+#1#${}",
+					{"At the end of round,",
+					"Blinds {C:attention}held in hand",
+					"give {C:money}+$#1#{}"},
+					{"{X:money,C:white}Yellow{} Blinds instead",
+					"give {C:money}+$#2#{}"}
 				}
 			},
 			['j_bld_kazoo'] = {
@@ -3587,8 +3661,10 @@ return {
 			['j_bld_cowskull'] = {
 				["name"] = "Cow Skull",
 				["text"] = {
-					"{C:attention}Hunter{} Blinds",
-					"always give {C:money}+#1#${}",
+					{"Creates a {C:attention}Strike Tag{}",
+					"when Joker is selected"},
+					{"{C:attention}Hunter{} Blinds always",
+					"give at least {C:money}+#1#${}"},
 				}
 			},
 			['j_bld_bracelet'] = {
@@ -3897,6 +3973,13 @@ return {
 					"becomes {C:attention}Enamel"
 				},
 			},
+			['j_bld_inkandquill'] = {
+				["name"] = "Ink & Quill",
+				["text"] = {
+					"{C:white,X:mult}X#1#{} Mult if poker",
+					"hand contains a {C:attention}Down{}",
+				},
+			},
 		},
 		["Edition"] = {
 			['e_bld_enameled'] = {
@@ -3986,6 +4069,14 @@ return {
 			},
 		},
 		["Other"] = {
+			["bld_down"] = {
+				["name"] = "Down",
+				["text"] = {
+					"A special poker hand",
+					"formed when 2 {C:attention}Pairs{} of",
+					"different {C:attention}hues{} overlap"
+				}
+			},
 			["bld_stubborn"] = {
 				["name"] = "Stubborn",
 				["text"] = {
