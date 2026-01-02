@@ -3659,8 +3659,10 @@ return {
 			['j_bld_cowskull'] = {
 				["name"] = "Cow Skull",
 				["text"] = {
-					"{C:attention}Hunter{} Blinds",
-					"always give {C:money}+#1#${}",
+					{"Creates a {C:attention}Strike Tag{}",
+					"when Joker is selected"},
+					{"{C:attention}Hunter{} Blinds always",
+					"give at least {C:money}+#1#${}"},
 				}
 			},
 			['j_bld_bracelet'] = {

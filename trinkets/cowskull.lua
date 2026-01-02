@@ -6,14 +6,15 @@
         rarity = 'bld_curio',
         config = {
             extra = {
-                hunterbonus = 2,
+                hunterbonus = 1,
             }
         },
-        cost = 8,
+        cost = 12,
         blueprint_compat = false,
         eternal_compat = true,
         loc_vars = function (self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_SEALS['bld_hunter']
+        info_queue[#info_queue+1] = G.P_TAGS['tag_bld_strike']
             return {
                 vars = {
                 card.ability.extra.hunterbonus,
@@ -29,7 +30,22 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.individual and context.cardarea == G.play then 
+            if context.setting_blind then
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after', delay = 0.4,
+                    func = (function()
+                        add_tag(Tag('tag_bld_strike'))
+                        play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
+                        play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
+                        return true
+                    end)
+                }))
+
+                return {
+                    message = localize('k_tagged_ex')
+                }
+            end
+            if context.individual and context.cardarea == G.play and not G.GAME.blind.boss then
                 if context.other_card.seal == 'bld_hunter' and context.other_card.facing ~= "back" then
                     return {
                         dollars = card.ability.extra.hunterbonus
