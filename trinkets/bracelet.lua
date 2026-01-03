@@ -25,8 +25,7 @@
             end
         end,
         calculate = function (self, card, context)
-            if context.after and SMODS.calculate_round_score() - G.GAME.blind.chips >= 0 then
-                print("set seal?")
+            if context.after and G.GAME.chips + SMODS.calculate_round_score() - G.GAME.blind.chips >= 0 then
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         context.scoring_hand[1]:set_seal('bld_floral', nil, true)
