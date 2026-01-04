@@ -3350,6 +3350,25 @@ return {
 					}
 				},
 			},
+			["m_bld_loop"] = {
+				["name"] = "The Loop",
+				["text"] = {
+					{"{X:green,C:white}Green{}",
+					"Creates a {C:attention}Symmetry",
+					"{C:attention}Tag{} before scoring",},
+					{"{C:attention,E:1}Self-Scoring{} with a",
+					"{C:green}#1# in #2#{} chance"},
+				},
+			},
+			["m_bld_loop_upgraded"] = {
+				["name"] = "The Loop",
+				["text"] = {
+					{"{X:green,C:white}Green{}",
+					"Creates a {C:attention}Symmetry",
+					"{C;attention}Tag{} before scoring",},
+					{"Always scores"},
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
