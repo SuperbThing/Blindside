@@ -19,6 +19,10 @@
                 card.ability.forced_selection = true
                 G.hand:add_to_highlighted(card, true)
             end
+
+            if context.after then
+                card.ability.forced_selection = false
+            end
         end,
         loc_vars = function(self, info_queue, card)
 

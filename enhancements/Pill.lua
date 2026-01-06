@@ -47,6 +47,10 @@ BLINDSIDE.Blind({
                 }
             end
         end
+
+        if context.after then
+            card.ability.forced_selection = false
+        end
     end,
     loc_vars = function(self, info_queue, card)
     info_queue[#info_queue+1] = {key = 'bld_self_scoring', set = 'Other'}
