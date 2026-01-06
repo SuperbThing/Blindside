@@ -4101,7 +4101,8 @@ return {
 			["stake_bld_plasma_deck"] = {
 				name = "Plasma Stake??",
 				text = {
-					"Does {C:attention}nothing{} yet"
+					"Face off against {C:red}tougher",
+					"{C:attention}Small{} and {C:attention}Big Jokers"
 				}
 			},
 			["stake_bld_ghost_deck"] = {
