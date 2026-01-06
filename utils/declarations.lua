@@ -132,6 +132,7 @@
         "m_bld_small",
         "m_bld_big",
         "m_bld_amber_acorn",
+        "m_bld_cerulean_bell",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",

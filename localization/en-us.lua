@@ -3446,6 +3446,15 @@ return {
 					"each Blind flipped",},
 				},
 			},
+			["m_bld_cerulean_bell"] = {
+				["name"] = "Ceruelan Bell",
+				["text"] = {
+					{"{X:chips,C:white}Blue{} {C:white,X:purple,E:1}Legendary{}",
+					"{C:chips}+#1#{} Chips"},
+					{"{C:attention}Forced to",
+					"{C:attention}be selected",}
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
