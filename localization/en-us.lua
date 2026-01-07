@@ -946,8 +946,8 @@ return {
 			["tag_bld_heartbreak"] = {
 				["name"] = "Heartbreak Tag",
 				["text"] = {
-					"Disables next",
-					"{C:attention}Joker{}"
+					"Disables the",
+					"next {C:attention}Joker{}"
 				},
 			},
 		},
@@ -3604,10 +3604,10 @@ return {
 			['j_bld_pumpkin'] = {
 				["name"] = "Pumpkin",
 				["text"] = {
-					{"Each hand, {C:green}#2# in #3#{}",
-					"chance for {C:mult}-#1#{} Joker Mult"},
-					{"Reduction chance increases",
-					"by {C:green}+1{} for each scoring",
+					{"After hand, {C:green}#2# in #3#{} chance",
+					"for {C:mult}-#1#{} Mult to Joker"},
+					{"Chance increases by",
+					"{C:white,X:green}+1{} for each scoring",
 					"{C:attention}Spooky{} Blind"},
 					{"Chance resets",
 					"after trigger"}
