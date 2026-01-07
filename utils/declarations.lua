@@ -464,6 +464,7 @@
         "bl_bld_yorick",
         "bl_bld_triboulet",
         "bl_bld_perkeo",
+        "bl_bld_chicot",
         },
     }
 

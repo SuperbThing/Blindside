@@ -1929,6 +1929,14 @@ return {
 					"each hand"
 				},
 			},
+			["bl_bld_chicot"] = {
+				["name"] = "Chicot",
+				["text"] = {
+					"Converts scored blinds",
+					"into Big and Small",
+					"blinds after scoring",
+				},
+			},
 		},
 		["Enhanced"] = {
 			["m_bld_adder"] = {

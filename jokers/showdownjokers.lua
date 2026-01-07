@@ -1,3 +1,16 @@
+function copy3(obj, seen)
+    -- Handle non-tables and previously-seen tables.
+    if type(obj) ~= 'table' then return obj end
+    if seen and seen[obj] then return seen[obj] end
+  
+    -- New table; mark it as seen and copy recursively.
+    local s = seen or {}
+    local res = {}
+    s[obj] = res
+    for k, v in pairs(obj) do res[copy3(k, s)] = copy3(v, s) end
+    return setmetatable(res, getmetatable(obj))
+end
+
 SMODS.Blind({
     key = 'yorick',
     atlas = 'bld_joker',
@@ -312,3 +325,66 @@ function Blind:draw()
         self.children.animatedSprite:draw_shader("negative", nil, self.ARGS.send_to_shader)
     end
 end
+
+BLINDSIDE.Joker({
+    key = 'chicot',
+    atlas = 'bld_joker',
+    pos = {x=0, y=42},
+    boss_colour = HEX('FD5F55'),
+    mult = 16,
+    dollars = 10,
+    hands = {},
+    boss = {min = 1, showdown = true},
+    in_pool = function(self, args)
+        if G.GAME.selected_back.effect.center.config.extra then
+            if not G.GAME.selected_back.effect.center.config.extra.blindside and G.GAME.round_resets.ante%6 == 0 then return false end
+            return true
+        else
+        return false
+        end
+    end,
+    calculate = function(self, blind, context)
+        if context.after and not blind.disabled then
+            local transformed = false
+            for _, scored_card in ipairs(context.scoring_hand) do
+                if not scored_card.original then
+                    scored_card.original = copy3(scored_card)
+                    transformed = true
+                    local new_type = 'm_bld_big'
+                    if scored_card:is_color("Red") or scored_card:is_color("Yellow") then
+                        new_type = 'm_bld_big'
+                    elseif scored_card:is_color("Blue") or scored_card:is_color("Purple") then
+                        new_type = 'm_bld_small'
+                    else
+                        if pseudorandom('flip') < 1/2 then
+                            new_type = 'm_bld_big'
+                        else
+                            new_type = 'm_bld_small'
+                        end
+                    end
+                    scored_card:set_ability(new_type, nil, true)
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            scored_card:juice_up()
+                            play_sound('tarot2', percent, 0.6)
+                            return true
+                        end
+                    }))
+                end
+            end
+            if transformed then    
+                G.GAME.playing_with_fire_num = G.GAME.playing_with_fire_num + 1
+            G.GAME.playing_with_fire_each = G.GAME.used_vouchers.v_bld_swearjar and "bld_playing_with_fire_each_2" or "bld_playing_with_fire_each_1"
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + 1 + (G.GAME.used_vouchers.v_bld_swearjar and 1 or 0)
+            end
+        end
+    end,
+    defeat_joker = function()
+        for key, value in pairs(G.playing_cards) do
+            if value.original then
+                value:set_ability(value.original.config.center)
+                value = value.original
+            end
+        end
+    end
+})
