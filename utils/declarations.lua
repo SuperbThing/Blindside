@@ -403,6 +403,7 @@
         "tag_bld_neon",
         "tag_bld_battery",
         "tag_bld_voodoo",
+        "tag_bld_heartbreak",
         "bl_bld_joker",
         "bl_bld_oddtodd",
         "bl_bld_evensteven",

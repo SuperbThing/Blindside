@@ -943,6 +943,13 @@ return {
 					"{C:attention}Cursed Pack{}"
 				},
 			},
+			["tag_bld_heartbreak"] = {
+				["name"] = "Heartbreak Tag",
+				["text"] = {
+					"Disables next",
+					"{C:attention}Joker{}"
+				},
+			},
 		},
 		["bld_obj_mineral"] = {
 			["c_bld_stibnite"] = {
@@ -3484,7 +3491,7 @@ return {
 					"{X:mult,C:white}Red{} {C:white,X:purple,E:1}Legendary{}",
 					"If scored in the",
 					"{C:attention}winning hand{}, creates",
-					"an {C:attention}Imprisonment Tag"
+					"an {C:attention}Heartbreak Tag"
 				},
 			},
 			["m_bld_crimson_heart_upgraded"] = {
@@ -3494,7 +3501,7 @@ return {
 					"{C:white,X:mult}X#1#{} Mult"},
 					{"If scored in the",
 					"{C:attention}winning hand{}, creates",
-					"an {C:attention}Imprisonment Tag"}
+					"an {C:attention}Heartbreak Tag"}
 				},
 			},
 			["m_bld_verdant_leaf"] = {

@@ -29,7 +29,7 @@
                 card.ability.extra.was_last_hand = false
                 G.E_MANAGER:add_event(Event({
                     func = function ()
-                        add_tag(Tag('tag_bld_imprisonment'))
+                        add_tag(Tag('tag_bld_heartbreak'))
                         play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
                         play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
                         return true
@@ -39,7 +39,7 @@
             end
         end,
         loc_vars = function(self, info_queue, card)
-            info_queue[#info_queue+1] = G.P_TAGS['tag_bld_imprisonment']
+            info_queue[#info_queue+1] = G.P_TAGS['tag_bld_heartbreak']
             return {
                 key = card.ability.extra.upgraded and 'm_bld_crimson_heart_upgraded' or 'm_bld_crimson_heart',
                 vars = {
