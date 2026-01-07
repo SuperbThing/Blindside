@@ -19,6 +19,9 @@ SMODS.Voucher {
         code = "base4",
         concept = "AstraLuna"
     },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = {key = 'bld_playing_with_fire_tooltip', set = 'Other'}
+    end,
     redeem = function(self, card)
         add_tag(Tag('tag_bld_swearjar_relic'))
     end

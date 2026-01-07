@@ -363,7 +363,7 @@ return {
 			["v_bld_scissors"] = {
 				["name"] = "Scissors",
 				["text"] = {
-					"Leftmost initial Blind,",
+					"{C:attention}Leftmost{} initial Blind,",
 					"Booster, or card each",
 					"shop is {C:attention}free"
 				},
@@ -371,7 +371,7 @@ return {
 			["v_bld_exactoblade"] = {
 				["name"] = "Exacto Blade",
 				["text"] = {
-					"All initial Blinds,",
+					"{C:attention}All{} initial Blinds,",
 					"Boosters, and cards",
 					"each shop are {C:attention}free"
 				},
@@ -392,7 +392,7 @@ return {
 				},
 			},
 			["v_bld_microscope"] = {
-				["name"] = "Microscope",
+				["name"] = "Crystal Ball",
 				["text"] = {
 					"Rerolls cost",
 					"{C:money}$2{} less"
@@ -442,15 +442,15 @@ return {
 			["v_bld_coolrock"] = {
 				["name"] = "Cool Rock",
 				["text"] = {
-					"{C:bld_obj_mineral}Mineral{} cards may appear",
-					"in Blind Shops"
+					"{C:bld_obj_mineral}Mineral{} cards may",
+					"appear in Blind Shops"
 				},
 			},
 			["v_bld_television"] = {
 				["name"] = "Television",
 				["text"] = {
-					"{C:bld_obj_filmcard}Channel{} cards may appear",
-					"in Blind Shops"
+					"{C:bld_obj_filmcard}Channel{} cards may",
+					"appear in Blind Shops"
 				},
 			},
 			["v_bld_satellite"] = {
@@ -478,8 +478,8 @@ return {
 			["v_bld_vaccine"] = {
 				["name"] = "Vaccine",
 				["text"] = {	
-					"All {C:attention}Blinds and Booster Packs{}",
-					"cost {C:money}$1{} less",
+					"All {C:attention}Blinds{} and {C:attention}Booster{}",
+					"{C:attention}Packs{} cost {C:money}$1{} less",
 				},
 			},
 			["v_bld_clapper"] = {
@@ -593,7 +593,7 @@ return {
 				},
 			},
 			["tag_bld_microscope_relic"] = {
-				["name"] = "Microscope",
+				["name"] = "Crystal Ball",
 				["text"] = {
 					"Rerolls cost",
 					"{C:money}$2{} less"
@@ -791,15 +791,15 @@ return {
 			["tag_bld_coolrock_relic"] = {
 				["name"] = "Cool Rock",
 				["text"] = {
-					"{C:bld_obj_mineral}Mineral{} cards may appear",
-					"in Blind Shops"
+					"{C:bld_obj_mineral}Mineral{} cards may",
+					"appear in Blind Shops"
 				},
 			},
 			["tag_bld_television_relic"] = {
 				["name"] = "Television",
 				["text"] = {
-					"{C:bld_obj_filmcard}Channel{} cards may appear",
-					"in Blind Shops"
+					"{C:bld_obj_filmcard}Channel{} cards may",
+					"appear in Blind Shops"
 				},
 			},
 			["tag_bld_satellite_relic"] = {
@@ -883,8 +883,8 @@ return {
 			["tag_bld_vaccine_relic"] = {
 				["name"] = "Vaccine",
 				["text"] = {	
-					"All {C:attention}Blinds and Booster Packs{}",
-					"cost {C:money}$1{} less",
+					"All {C:attention}Blinds{} and {C:attention}Booster{}",
+					"{C:attention}Packs{} cost {C:money}$1{} less",
 				},
 			},
 			["tag_bld_clapper_relic"] = {
@@ -4242,6 +4242,15 @@ return {
 			},
 		},
 		["Other"] = {
+			["bld_playing_with_fire_tooltip"] = {
+				["name"] = "Playing With Fire",
+				["text"] = {
+					"Bonus {C:money}money{} earned",
+					"at {C:attention}end of round{} for",
+					"each time the score",
+					"requirement {C:attention}increases"
+				}
+			},
 			["bld_down"] = {
 				["name"] = "Down",
 				["text"] = {
