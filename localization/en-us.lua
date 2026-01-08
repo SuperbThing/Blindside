@@ -363,7 +363,7 @@ return {
 			["v_bld_scissors"] = {
 				["name"] = "Scissors",
 				["text"] = {
-					"Leftmost initial Blind,",
+					"{C:attention}Leftmost{} initial Blind,",
 					"Booster, or card each",
 					"shop is {C:attention}free"
 				},
@@ -371,7 +371,7 @@ return {
 			["v_bld_exactoblade"] = {
 				["name"] = "Exacto Blade",
 				["text"] = {
-					"All initial Blinds,",
+					"{C:attention}All{} initial Blinds,",
 					"Boosters, and cards",
 					"each shop are {C:attention}free"
 				},
@@ -392,7 +392,7 @@ return {
 				},
 			},
 			["v_bld_microscope"] = {
-				["name"] = "Microscope",
+				["name"] = "Crystal Ball",
 				["text"] = {
 					"Rerolls cost",
 					"{C:money}$2{} less"
@@ -442,15 +442,15 @@ return {
 			["v_bld_coolrock"] = {
 				["name"] = "Cool Rock",
 				["text"] = {
-					"{C:bld_obj_mineral}Mineral{} cards may appear",
-					"in Blind Shops"
+					"{C:bld_obj_mineral}Mineral{} cards may",
+					"appear in Blind Shops"
 				},
 			},
 			["v_bld_television"] = {
 				["name"] = "Television",
 				["text"] = {
-					"{C:bld_obj_filmcard}Channel{} cards may appear",
-					"in Blind Shops"
+					"{C:bld_obj_filmcard}Channel{} cards may",
+					"appear in Blind Shops"
 				},
 			},
 			["v_bld_satellite"] = {
@@ -478,8 +478,8 @@ return {
 			["v_bld_vaccine"] = {
 				["name"] = "Vaccine",
 				["text"] = {	
-					"All {C:attention}Blinds and Booster Packs{}",
-					"cost {C:money}$1{} less",
+					"All {C:attention}Blinds{} and {C:attention}Booster{}",
+					"{C:attention}Packs{} cost {C:money}$1{} less",
 				},
 			},
 			["v_bld_clapper"] = {
@@ -593,7 +593,7 @@ return {
 				},
 			},
 			["tag_bld_microscope_relic"] = {
-				["name"] = "Microscope",
+				["name"] = "Crystal Ball",
 				["text"] = {
 					"Rerolls cost",
 					"{C:money}$2{} less"
@@ -791,15 +791,15 @@ return {
 			["tag_bld_coolrock_relic"] = {
 				["name"] = "Cool Rock",
 				["text"] = {
-					"{C:bld_obj_mineral}Mineral{} cards may appear",
-					"in Blind Shops"
+					"{C:bld_obj_mineral}Mineral{} cards may",
+					"appear in Blind Shops"
 				},
 			},
 			["tag_bld_television_relic"] = {
 				["name"] = "Television",
 				["text"] = {
-					"{C:bld_obj_filmcard}Channel{} cards may appear",
-					"in Blind Shops"
+					"{C:bld_obj_filmcard}Channel{} cards may",
+					"appear in Blind Shops"
 				},
 			},
 			["tag_bld_satellite_relic"] = {
@@ -883,8 +883,8 @@ return {
 			["tag_bld_vaccine_relic"] = {
 				["name"] = "Vaccine",
 				["text"] = {	
-					"All {C:attention}Blinds and Booster Packs{}",
-					"cost {C:money}$1{} less",
+					"All {C:attention}Blinds{} and {C:attention}Booster{}",
+					"{C:attention}Packs{} cost {C:money}$1{} less",
 				},
 			},
 			["tag_bld_clapper_relic"] = {
@@ -946,8 +946,8 @@ return {
 			["tag_bld_heartbreak"] = {
 				["name"] = "Heartbreak Tag",
 				["text"] = {
-					"Disables next",
-					"{C:attention}Joker{}"
+					"Disables the",
+					"next {C:attention}Joker{}"
 				},
 			},
 		},
@@ -3176,7 +3176,7 @@ return {
 				["name"] = "The Curse",
 				["text"] = {
 					{"{X:dark_edition,C:white}Faded{} {X:black,C:white}Cursed{}",
-					"{C:mult}+#1#{} Mult",
+					"{C:mult}#1#{} Mult",
 					"to {C:attention}Joker"},
 					{"{C:attention}Burns"},
 				},
@@ -3202,7 +3202,7 @@ return {
 				["name"] = "The Spent",
 				["text"] = {
 					{"{X:money,C:white}Yellow{} {X:black,C:white}Cursed{}",
-					"{C:money}-$#1#{} while",
+					"{C:money}#1#{} while",
 					"{C:attention}held in hand"},
 					{"{C:green}Retained"},
 				},
@@ -3224,6 +3224,14 @@ return {
 					"scoring Blinds",
 				},
 			},
+			["m_bld_sad_upgraded"] = {
+				["name"] = "The Sad",
+				["text"] = {
+					"{X:chips,C:white}Blue{} {X:black,C:white}Cursed{}",
+					"{C:red}Debuffs{} and {C:attention}burns{}",
+					"scoring {X:black,C:white}Cursed{} Blinds",
+				},
+			},
 			["m_bld_silence"] = {
 				["name"] = "The Silence",
 				["text"] = {
@@ -3239,7 +3247,7 @@ return {
 					{"{X:green,C:white}Green{} {X:black,C:white}Cursed{}",
 					"While {C:attention}held in hand{},",
 					"{C:green}#2# in #3#{} chance for",
-					"{C:red}+#1#{} Mult to {C:attention}Joker"},
+					"{C:red}#1#{} Mult to {C:attention}Joker"},
 					{"{C:green}Retained"}
 				},
 			},
@@ -3280,6 +3288,15 @@ return {
 					{"{C:green}Retained"}
 				},
 			},
+			["m_bld_lottery_upgraded"] = {
+				["name"] = "The Lottery",
+				["text"] = {
+					{"{X:green,C:white}Green{} {X:black,C:white}Cursed{}",
+					"{C:white,X:green}+1{} to all {C:green,E:1}probabilities{} during",
+					"scoring while {C:attention}held in hand",},
+					{"{C:green}Retained"}
+				},
+			},
 			["m_bld_rupture"] = {
 				["name"] = "The Rupture",
 				["text"] = {
@@ -3305,7 +3322,7 @@ return {
 				["name"] = "The Rain",
 				["text"] = {
 					{"{X:chips,C:white}Blue{} {X:black,C:white}Cursed{}",
-					"{C:white,X:chips}X0{} Chips"},
+					"{C:white,X:chips}X#2#{} Chips"},
 					{"{C:white,X:chips}+X#1#{} Chips for every",
 					"other {C:white,X:chips}Blue{} Blind played",
 					"or {C:attention}held in hand"},
@@ -3319,6 +3336,15 @@ return {
 					"another played Blind",
 				},
 			},
+			["m_bld_death_upgraded"] = {
+				["name"] = "The Death",
+				["text"] = {
+					"{X:dark_edition,C:white}Faded{} {X:black,C:white}Cursed{}",
+					"When scoring, {C:red}destroys",
+					"played Blind {C:attention}to the left",
+					"{C:inactive}(If one exists)"
+				},
+			},
 			["m_bld_sinker"] = {
 				["name"] = "The Sinker",
 				["text"] = {
@@ -3328,11 +3354,30 @@ return {
 					{"{C:green}Retained"}
 				},
 			},
+			["m_bld_sinker_upgraded"] = {
+				["name"] = "The Sinker",
+				["text"] = {
+					{"{X:mult,C:white}Red{} {X:black,C:white}Cursed{}",
+					"When discarded,",
+					"{C:red}+1{} discard",
+					"and {C:attention}burns"},
+					{"{C:green}Retained"},
+				},
+			},
 			["m_bld_downer"] = {
 				["name"] = "The Downer",
 				["text"] = {
 					{"{X:purple,C:white}Purple{} {X:black,C:white}Cursed{}",
-					"{C:white,X:chips}X#1#{} Chips"},
+					"{C:white,X:mult}X#1#{} Mult"},
+					{"{C:green}Retained"}
+				},
+			},
+			["m_bld_downer_upgraded"] = {
+				["name"] = "The Downer",
+				["text"] = {
+					{"{X:purple,C:white}Purple{} {X:black,C:white}Cursed{}",
+					"{C:mult}+20{} Mult, then",
+					"{C:white,X:mult}X#1#{} Mult"},
 					{"{C:green}Retained"}
 				},
 			},
@@ -3347,7 +3392,7 @@ return {
 				["name"] = "The Bill",
 				["text"] = {
 					{"{X:money,C:white}Yellow{} {X:black,C:white}Cursed{}",
-					"{C:money}-$#1#{} and {C:attention}burns"},
+					"{C:money}#1#{} and {C:attention}burns"},
 					{"{C:attention}Stubborn"}
 				},
 			},
@@ -3361,12 +3406,32 @@ return {
 					{"{C:attention}Stubborn"}
 				},
 			},
+			["m_bld_tax_upgraded"] = {
+				["name"] = "The Tax",
+				["text"] = {
+					{"{X:money,C:white}Yellow{} {X:black,C:white}Cursed{}",
+					"{C:attention}Doubles{} held money if",
+					"you have {C:money}$10{} or less",
+					"{C:inactive}(Currently {C:money}+$#1#{C:inactive})"},
+					{"{C:attention}Stubborn"}
+				},
+			},
 			["m_bld_famous"] = {
 				["name"] = "The Famous",
 				["text"] = {
 					"{X:chips,C:white}Blue{} {X:black,C:white}Cursed{}",
 					"{C:attention}Forced to",
 					"{C:attention}be selected",
+				},
+			},
+			["m_bld_famous_upgraded"] = {
+				["name"] = "The Famous",
+				["text"] = {
+					{"{X:chips,C:white}Blue{} {X:black,C:white}Cursed{}",
+					"{C:attention}Forced to",
+					"{C:attention}be selected"},
+					{"When discarded, {C:attention}burn{}",
+					"all discarded Blinds"}
 				},
 			},
 			["m_bld_pill"] = {
@@ -3376,6 +3441,16 @@ return {
 					"{C:white,X:mult}X#1#{} Mult"},
 					{"{C:attention,E:1}Self-Scoring{} with a",
 					"{C:green}#2# in #3#{} chance"},
+					{"{C:attention}Forced to",
+					"{C:attention}be selected",}
+				},
+			},
+			["m_bld_pill_upgraded"] = {
+				["name"] = "The Pill",
+				["text"] = {
+					{"{X:green,C:white}Green{} {X:black,C:white}Cursed{}",
+					"{C:white,X:mult}X#1#{} Mult"},
+					{"Always scores"},
 					{"{C:attention}Forced to",
 					"{C:attention}be selected",}
 				},
@@ -3390,6 +3465,16 @@ return {
 					"{C:inactive}(Currently {C:mult}#3#{C:inactive} Mult)"
 				},
 			},
+			["m_bld_hurt_upgraded"] = {
+				["name"] = "The Hurt",
+				["text"] = {
+					"{X:mult,C:white}Red{} {X:black,C:white}Cursed{}",
+					"{C:mult}+#2#{} Mult for",
+					"every {X:black,C:white}Cursed{} Blind",
+					"in full deck",
+					"{C:inactive}(Currently {C:mult}#3#{C:inactive} Mult)"
+				},
+			},
 			["m_bld_grind"] = {
 				["name"] = "The Grind",
 				["text"] = {
@@ -3397,6 +3482,16 @@ return {
 					"{C:money}-$#1#{}, then {C:money}+$#2#{} for",
 					"every other {X:black,C:white}Cursed{}",
 					"Blind in played hand"},
+					{"{C:attention}Stubborn"}
+				},
+			},
+			["m_bld_grind_upgraded"] = {
+				["name"] = "The Grind",
+				["text"] = {
+					{"{X:money,C:white}Yellow{} {X:black,C:white}Cursed{}",
+					"{C:money}+$#2#{} for every",
+					"other {X:black,C:white}Cursed{} Blind",
+					"in played hand"},
 					{"{C:attention}Stubborn"}
 				},
 			},
@@ -3611,10 +3706,10 @@ return {
 			['j_bld_pumpkin'] = {
 				["name"] = "Pumpkin",
 				["text"] = {
-					{"Each hand, {C:green}#2# in #3#{}",
-					"chance for {C:mult}-#1#{} Joker Mult"},
-					{"Reduction chance increases",
-					"by {C:green}+1{} for each scoring",
+					{"After hand, {C:green}#2# in #3#{} chance",
+					"for {C:mult}-#1#{} Mult to Joker"},
+					{"Chance increases by",
+					"{C:white,X:green}+1{} for each scoring",
 					"{C:attention}Spooky{} Blind"},
 					{"Chance resets",
 					"after trigger"}
@@ -4249,6 +4344,15 @@ return {
 			},
 		},
 		["Other"] = {
+			["bld_playing_with_fire_tooltip"] = {
+				["name"] = "Playing With Fire",
+				["text"] = {
+					"Bonus {C:money}money{} earned",
+					"at {C:attention}end of round{} for",
+					"each time the score",
+					"requirement {C:attention}increases"
+				}
+			},
 			["bld_down"] = {
 				["name"] = "Down",
 				["text"] = {

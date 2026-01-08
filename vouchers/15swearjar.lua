@@ -14,6 +14,14 @@ SMODS.Voucher {
     set_card_type_badge = function(self, card, badges)
         badges[#badges+1] = create_badge(localize('k_relic'), G.C.RED, G.C.WHITE, 1.2 )
     end,
+    credit = {
+        art = "AstraLuna",
+        code = "base4",
+        concept = "AstraLuna"
+    },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = {key = 'bld_playing_with_fire_tooltip', set = 'Other'}
+    end,
     redeem = function(self, card)
         add_tag(Tag('tag_bld_swearjar_relic'))
     end
