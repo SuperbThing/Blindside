@@ -1047,7 +1047,7 @@ return {
 				["text"] = {
                     "When {C:attention}active{}, shuffle",
                     "{C:attention}5 BETA.Blinds{} into",
-                    "your deck each round.",
+                    "your deck each round",
                     "{C:inactive}(#1#/#2# Rounds){}"
 				},
 			},
@@ -4390,9 +4390,9 @@ return {
 				["name"] = "Wild Blind",
 				["text"] = {
 					"Can be used as",
-					"every Hue, and",
-					"is immune to all",
-					"debuffs not from",
+					"every {C:attention}Hue{}, and",
+					"is {C:attention}immune{} to all",
+					"{C:attention}debuffs{} not from",
 					"its own effects"
 				}
 			},
@@ -4414,7 +4414,7 @@ return {
 				["name"] = "Hunter Blind",
 				["text"] = {
 					"{C:money}+#1#${} when scored",
-					"during Boss {C:attention}Joker"
+					"during {C:attention}Boss Joker"
 				}
 			},
 			["bld_floral_seal"] = {
