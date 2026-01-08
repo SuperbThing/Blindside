@@ -35,7 +35,7 @@
                 level_up_hand(card, context.scoring_name, false, 1)
             end
 
-            if context.hand_discard and context.other_card == card and card.ability.extra.upgraded then
+            if (context.hand_discard or context.hand_retain) and context.other_card == card and card.ability.extra.upgraded then
                 return { burn = true }
             end
 
