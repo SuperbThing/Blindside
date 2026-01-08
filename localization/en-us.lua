@@ -3241,6 +3241,15 @@ return {
 					"for the {C:attention}played hand{}"
 				},
 			},
+			["m_bld_silence_upgraded"] = {
+				["name"] = "The Silence",
+				["text"] = {
+					"{X:dark_edition,C:white}Faded{} {X:black,C:white}Cursed{}",
+					"While {C:attention}held in hand{},",
+					"levels up the {C:attention}played",
+					"{C:attention}hand{} and {C:attention}burns"
+				},
+			},
 			["m_bld_mold"] = {
 				["name"] = "The Mold",
 				["text"] = {
