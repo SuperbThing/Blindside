@@ -2,6 +2,14 @@ SMODS.Consumable {
     key = 'blindsoul',
     set = 'bld_obj_ritual',
     atlas = 'bld_consumable',
+    hidden = true,
+    soul_sets = {
+        'bld_obj_ritual',
+        'bld_obj_filmcard',
+        'bld_obj_mineral',
+        'Playing Card',
+    },
+    soul_rate = 0.003,
     can_use = function (self, card)
         return true
     end,
