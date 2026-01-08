@@ -4472,9 +4472,9 @@ return {
 			["bld_frost_seal"] = {
 				["name"] = "Frost Blind",
 				["text"] = {
-					"If remaining hands of",
-					"round are {C:attention}even{},",
-					"retriggers {C:attention}once{}"
+					"If remaining {C:blue}hands{} are",
+					"{C:attention}even{} when this blind {C:attention}scores{},",
+					"it retriggers {C:attention}once{}"
 				}
 			},
 			["bld_spooky_seal"]	= {
