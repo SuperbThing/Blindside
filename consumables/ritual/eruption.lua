@@ -12,8 +12,14 @@ SMODS.Consumable {
         }
     },
     use = function(self, card, area)
-        local chosen_cards = choose_stuff(G.hand.cards, card.ability.extra.upgrade, 'eruption')
-        upgrade_blinds(chosen_cards, nil, true)
+        local choose_cards = {}
+        for k, v in ipairs(G.hand.cards) do
+            if not v.ability.extra.upgraded then
+                table.insert(choose_cards, v)
+            end
+        end
+        local chosen_cards = choose_stuff(choose_cards, math.min(card.ability.extra.upgrade, #choose_cards), 'eruption')
+        upgrade_blinds(chosen_cards, nil, false)
 
         G.E_MANAGER:add_event(Event({
             func = function ()
