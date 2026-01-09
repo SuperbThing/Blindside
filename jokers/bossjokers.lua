@@ -151,9 +151,11 @@ BLINDSIDE.Joker({
             G.GAME.playing_with_fire = G.GAME.playing_with_fire + 2 + (G.GAME.used_vouchers.v_bld_swearjar and 1 or 0)
             BLINDSIDE.chipsmodify(2, 0, 0)
             blind:wiggle()
-            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
-                BLINDSIDE.chipsupdate()
-            return true end }))
+            if context.other_card == context.full_hand[#context.full_hand] then
+                G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+                    BLINDSIDE.chipsupdate()
+                return true end }))
+            end
         end
     end,
 })
