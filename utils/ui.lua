@@ -528,8 +528,8 @@ function G.FUNCS.your_collection_blindjokers_page(args)
 	local blinds_to_be_alerted = {}
 	local row, col = 1, 1
 	for k, v in ipairs(blind_tab) do
-		local atlas_key = v.discovered and v.atlas or 'blind_chips'
-		local temp_blind = SMODS.create_sprite(G.your_collection[row].T.x + G.your_collection[row].T.w/2, G.your_collection[row].T.y, 1.3, 1.3, atlas_key, v.discovered and v.pos or G.b_undiscovered.pos)
+		local atlas_key = v.discovered and v.atlas or 'bld_joker'
+		local temp_blind = SMODS.create_sprite(G.your_collection[row].T.x + G.your_collection[row].T.w/2, G.your_collection[row].T.y, 1.3, 1.3, atlas_key, v.discovered and v.pos or G.blindside_joker_undiscovered.pos)
 		temp_blind.states.click.can = false
 		temp_blind.states.drag.can = false
 		temp_blind.states.hover.can = true
