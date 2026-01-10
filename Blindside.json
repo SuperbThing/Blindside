@@ -5,7 +5,7 @@
 	"description": "What if Blinds were your playing cards? What if Jokers were the enemy?",
 	"prefix": "bld",
 	"main_file": "Blindside.lua",
-	"priority": 0,
+	"priority": -100,
 	"badge_colour": "3F6AA4",
 	"badge_text_colour": "FFFFFF",
 	"display_name": "Blindside",

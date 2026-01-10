@@ -842,11 +842,12 @@ end
             G.P_CENTER_POOLS.Enhanced[k] = nil
         end
         end
+        G.P_CENTER_POOLS.Enhanced = remove_nils(G.P_CENTER_POOLS.Enhanced)
 
         local ret = func()
 
         for k, v in pairs(removed) do
-        G.P_CENTER_POOLS.Enhanced[k] = v
+            table.insert(G.P_CENTER_POOLS.Enhanced,v)
         end
 
         return ret
@@ -860,11 +861,12 @@ end
             G.P_CENTER_POOLS.Edition[k] = nil
         end
         end
+        G.P_CENTER_POOLS.Edition = remove_nils(G.P_CENTER_POOLS.Edition)
 
         local ret = func()
 
         for k, v in pairs(removed) do
-        G.P_CENTER_POOLS.Edition[k] = v
+            table.insert(G.P_CENTER_POOLS.Edition,v)
         end
 
         return ret
@@ -878,11 +880,12 @@ end
             G.P_CENTER_POOLS.Seal[k] = nil
         end
         end
+        G.P_CENTER_POOLS.Seal = remove_nils(G.P_CENTER_POOLS.Seal)
 
         local ret = func()
 
         for k, v in pairs(removed) do
-        G.P_CENTER_POOLS.Seal[k] = v
+            table.insert(G.P_CENTER_POOLS.Seal,v)
         end
 
         return ret
@@ -890,17 +893,20 @@ end
     
     local function wrap_without_blindboosters(func)
         local removed = {}
+        local initialnum = 0
         for k, v in pairs(G.P_CENTER_POOLS.Booster) do
+        initialnum = k
         if BLINDSIDE.is_blindside(v.key) then
             removed[k] = v
             G.P_CENTER_POOLS.Booster[k] = nil
         end
         end
+        G.P_CENTER_POOLS.Booster = remove_nils(G.P_CENTER_POOLS.Booster)
 
         local ret = func()
 
         for k, v in pairs(removed) do
-        G.P_CENTER_POOLS.Booster[k] = v
+            table.insert(G.P_CENTER_POOLS.Booster,v)
         end
 
         return ret
@@ -914,11 +920,12 @@ end
             G.P_CENTER_POOLS.Joker[k] = nil
         end
         end
+        G.P_CENTER_POOLS.Joker = remove_nils(G.P_CENTER_POOLS.Joker)
 
         local ret = func()
 
         for k, v in pairs(removed) do
-        G.P_CENTER_POOLS.Joker[k] = v
+            table.insert(G.P_CENTER_POOLS.Joker,v)
         end
 
         return ret
@@ -932,6 +939,7 @@ end
             G.P_BLINDS[k] = nil
         end
         end
+        G.P_BLINDS = remove_nils(G.P_BLINDS)
         local ret = func()
 
         for k, v in pairs(removed) do
@@ -948,6 +956,7 @@ end
             G.P_BLINDS[k] = nil
         end
         end
+        G.P_BLINDS = remove_nils(G.P_BLINDS)
         local ret = func(args)
 
         for k, v in pairs(removed) do
@@ -971,6 +980,22 @@ end
         end
         return ret
     end
+    
+    local function wrap_without_blindtagspage(func,args)
+        local removed = {}
+        for k, v in pairs(G.P_TAGS) do
+        if BLINDSIDE.is_blindside(v.key) then
+            removed[k] = v
+            G.P_TAGS[k] = nil
+        end
+        end
+        local ret = func(args)
+
+        for k, v in pairs(removed) do
+        G.P_TAGS[k] = v
+        end
+        return ret
+    end
 
     local function wrap_without_blinddeck(func)
         local removed = {}
@@ -980,10 +1005,28 @@ end
             G.P_CENTER_POOLS.Back[k] = nil
         end
         end
+        G.P_CENTER_POOLS.Back = remove_nils(G.P_CENTER_POOLS.Back)
         local ret = func()
 
         for k, v in pairs(removed) do
-        G.P_CENTER_POOLS.Back[k] = v
+            table.insert(G.P_CENTER_POOLS.Back,v)
+        end
+        return ret
+    end
+    
+    local function wrap_without_blindpricetags(func)
+        local removed = {}
+        for k, v in pairs(G.P_CENTER_POOLS.Voucher) do
+        if BLINDSIDE.is_blindside(v.key) then
+            removed[k] = v
+            G.P_CENTER_POOLS.Voucher[k] = nil
+        end
+        end
+        G.P_CENTER_POOLS.Voucher = remove_nils(G.P_CENTER_POOLS.Voucher)
+        local ret = func()
+
+        for k, v in pairs(removed) do
+            table.insert(G.P_CENTER_POOLS.Voucher,v)
         end
         return ret
     end
@@ -1022,6 +1065,11 @@ end
     create_UIBox_your_collection_tags_content = function()
         return wrap_without_blindtags(tag_ui_ref)
     end
+    
+    local tags_page_ref = G.FUNCS.your_collection_tags_page
+    function G.FUNCS.your_collection_tags_page(args)
+        return wrap_without_blindtagspage(tags_page_ref,args)
+    end
 
     local joker_ui_seal = create_UIBox_your_collection_seals
     create_UIBox_your_collection_seals = function()
@@ -1031,6 +1079,11 @@ end
     local deck_ui_ref = create_UIBox_your_collection_decks
     create_UIBox_your_collection_decks = function()
         return wrap_without_blinddeck(deck_ui_ref)
+    end
+
+    local voucher_ui_ref = create_UIBox_your_collection_vouchers
+    create_UIBox_your_collection_vouchers = function()
+        return wrap_without_blindpricetags(voucher_ui_ref)
     end
 
     function Card:get_blind_nominal(mod)
