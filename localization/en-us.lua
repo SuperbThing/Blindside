@@ -348,14 +348,14 @@ return {
 				}
 			},
 			['v_bld_souvenir'] = {
-				["name"] = "Souvenir",
+				["name"] = "Poor Disguise",
 				["text"] = {
 					"All Trinkets",
 					"are {C:attention}33%{} off"
 				}
 			},
 			['v_bld_mementomori'] = {
-				["name"] = "Memento Mori",
+				["name"] = "Masquerade",
 				["text"] = {
 					"All Trinkets",
 					"are {C:attention}66%{} off"
@@ -542,14 +542,14 @@ return {
 				},
 			},
 			['tag_bld_souvenir_relic'] = {
-				["name"] = "Souvenir",
+				["name"] = "Poor Disguise",
 				["text"] = {
 					"All Trinkets",
 					"are {C:attention}33%{} off"
 				}
 			},
 			['tag_bld_mementomori_relic'] = {
-				["name"] = "Memento Mori",
+				["name"] = "Masquerade",
 				["text"] = {
 					"All Trinkets",
 					"are {C:attention}66%{} off"
