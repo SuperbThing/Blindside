@@ -10,7 +10,7 @@ SMODS.Booster{
         atlas = 'bld_booster',
         cost = 3,
         weight = 0,
-        pos = { x = 0, y = 0 },
+        pos = { x = 0, y = 8 },
         loc_vars = function(self, info_queue, card)
             return {vars = {card.ability.choose, card.ability.extra}}
         end,
