@@ -1966,7 +1966,7 @@ match_indent = true
 [[patches]]
 [patches.pattern]
 target = "functions/common_events.lua"
-pattern = '''play_sound('card1', 0.85 + percent*0.2/100, 0.6*(vol or 1))'''
+pattern = '''--disabled play_sound('card1', 0.85 + percent*0.2/100, 0.6*(vol or 1))'''
 position = "at"
 payload = '''
 if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
