@@ -874,18 +874,23 @@
     })
 
     SMODS.Sound({
-        key = 'bld_chip1',
-        path = 'chip1.wav'
-    })
-    
-    SMODS.Sound({
         key = 'bld_xylo1',
         path = 'xylo1.wav'
     })
 
     SMODS.Sound({
+        key = 'bld_chipslide1',
+        path = 'chipslide1.wav'
+    })
+
+    SMODS.Sound({
+        key = 'bld_chipslide2',
+        path = 'chipslide2.wav'
+    })
+
+    SMODS.Sound({
         key = 'bld_chip1',
-        path = 'poker_chip4.wav'
+        path = 'chip1.wav'
     })
 
 

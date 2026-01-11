@@ -1984,16 +1984,50 @@ match_indent = true
 [[patches]]
 [patches.pattern]
 target = "cardarea.lua"
-pattern = '''--disabled if not silent then play_sound('cardSlide1') end'''
+pattern = '''if not silent then play_sound('cardSlide1') end'''
 position = "at"
 payload = '''
 if not silent then
     if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
         --play_sound('bld_chip1')
         --play_sound('chips1', 0.8, 0.25)
-        play_sound('cardSlide1')
+        play_sound('bld_chipslide1')
     else
         play_sound('cardSlide1')
+    end
+end
+'''
+match_indent = true
+
+
+# chippy noise
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''play_sound('cardSlide1', 0.85 + percent*0.2)'''
+position = "at"
+payload = '''
+    if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
+        play_sound('bld_chipslide1', 0.85 + percent*0.2)
+    else
+        play_sound('cardSlide1', 0.85 + percent*0.2)
+    end
+'''
+match_indent = true
+
+
+# chippy noise
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''play_sound('cardSlide2', nil, 0.3)'''
+position = "at"
+payload = '''
+if not silent then
+    if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
+        play_sound('bld_chipslide2', nil, 0.3)
+    else
+        play_sound('cardSlide2', nil, 0.3)
     end
 end
 '''
