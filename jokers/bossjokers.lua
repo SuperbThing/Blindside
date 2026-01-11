@@ -598,7 +598,6 @@ BLINDSIDE.Joker({
     calculate = function(self, blind, context)
         if context.after and not G.GAME.blind.disabled then
             if blind.original_mult*blind.original_chips < G.GAME.chips + SMODS.calculate_round_score() then
-                    print(G.GAME.chips + SMODS.calculate_round_score())
                 G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function()
                     play_sound('glass'..math.random(1, 6), math.random()*0.2 + 0.9,0.5)
                     blind.disabled = true
