@@ -38,18 +38,10 @@
             if context.after and not context.blueprint and not context.other_card and not context.repetition then
                 card.ability.extra.hands_played = card.ability.extra.hands_played + 1
                 if card.ability.extra.hands_played >= card.ability.extra.hands_target then
+                    ease_hands_played(1)
                     card.ability.extra.hands_played = 0
                     return {
-                        message = localize("k_caught_dream"),
-                        func = function ()
-                            G.E_MANAGER:add_event(Event({
-                                func = function ()
-                                    card:juice_up(0.3, 0.7)
-                                    ease_hands_played(1)
-                                    return true
-                                end                                
-                            }))
-                        end
+                        message = localize("k_caught_dream")
                     }
                 end
             end
