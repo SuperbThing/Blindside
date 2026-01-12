@@ -13,4 +13,5 @@ right after on the same save file. The only difference is what<br>
 deck you choose to play with.<br>
 ## Status
 Currently in BETA, we are finishing up the content of Blindside.<br>
-You can download it in Releases and install it like any other mod.
+You can download it in Releases and install it like any other mod.<br>
+Updates will feature primarily new content as opposed to reworks.
