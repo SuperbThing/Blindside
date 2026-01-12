@@ -18,6 +18,11 @@
                 }
             end
         end,
+        credit = {
+            art = "TarkanTheDragonBird",
+            code = "base4",
+            concept = "TarkanTheDragonBird"
+        },
         loc_vars = function(self, info_queue, card)
             return {
                 vars = {
