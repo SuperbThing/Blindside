@@ -1936,6 +1936,22 @@ return {
 					"number of Blinds"
 				},
 			},
+			["bl_bld_gros_michel"] = {
+				["name"] = "Gros Michel",
+				["text"] = {
+					"Gains +#1# Mult after",
+					"each hand, but 1 Mult",
+					"less each time"
+				},
+			},
+			["bl_bld_cavendish"] = {
+				["name"] = "Cavendish",
+				["text"] = {
+					"Gains X#1# Mult after",
+					"each hand, but X0.1 Mult",
+					"less each time"
+				},
+			},
 			["bl_bld_yorick"] = {
 				["name"] = "Yorick",
 				["text"] = {
