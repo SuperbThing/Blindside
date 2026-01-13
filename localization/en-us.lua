@@ -727,8 +727,8 @@ return {
 			["tag_bld_magic"] = {
 				["name"] = "Magic Tag",
 				["text"] = {
-					"Create a random",
-					"{C:bld_curio}Curio Trinket",
+					"Create a",
+					"random {C:bld_curio}Trinket",
 					"{C:inactive}(Must have room)"
 				},
 			},
