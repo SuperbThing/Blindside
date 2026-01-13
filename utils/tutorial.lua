@@ -44,27 +44,16 @@ G.FUNCS.blindside_tutorial_controller = function()
     G.SETTINGS.blindside_tutorial_progress.forced_shop.spawn['j_bld_lighter'] = true
     G.SETTINGS.blindside_tutorial_progress.forced_shop.spawn['j_bld_porcelaindoll'] = true
     if not G.SETTINGS.paused and (not G.SETTINGS.blindside_tutorial_complete) then
-        if G.STATE == G.STATES.BLIND_SELECT and G.blind_select and not G.SETTINGS.blindside_tutorial_progress.completed_parts['small_blind'] then
-            G.SETTINGS.blindside_tutorial_progress.section = 'small_blind'
-            G.FUNCS.blindside_tutorial_part('small_blind')
-            G.SETTINGS.blindside_tutorial_progress.completed_parts['small_blind']  = true
-            G:save_progress()
-        end
-        if G.STATE == G.STATES.BLIND_SELECT and G.blind_select and not G.SETTINGS.blindside_tutorial_progress.completed_parts['big_blind'] and G.GAME.round > 0 then
-            G.SETTINGS.blindside_tutorial_progress.section = 'big_blind'
-            G.FUNCS.blindside_tutorial_part('big_blind')
-            G.SETTINGS.blindside_tutorial_progress.completed_parts['big_blind']  = true
-            G.SETTINGS.blindside_tutorial_progress.forced_tags = nil
-            G:save_progress()
-        end
-        if G.STATE == G.STATES.SELECTING_HAND and not G.SETTINGS.blindside_tutorial_progress.completed_parts['second_hand'] and G.SETTINGS.blindside_tutorial_progress.hold_parts['big_blind'] then
+        if G.STATE == G.STATES.SELECTING_HAND and not G.SETTINGS.blindside_tutorial_progress.completed_parts['second_hand'] and G.SETTINGS.blindside_tutorial_progress.hold_parts['shop_1'] then
             G.SETTINGS.blindside_tutorial_progress.section = 'second_hand'
             G.FUNCS.blindside_tutorial_part('second_hand')
             G.SETTINGS.blindside_tutorial_progress.completed_parts['second_hand']  = true
             G:save_progress()
         end
-        if G.SETTINGS.blindside_tutorial_progress.hold_parts['second_hand'] then
-            G.SETTINGS.blindside_tutorial_complete = true
+        if G.STATE == G.STATES.SELECTING_HAND and not G.SETTINGS.blindside_tutorial_progress.completed_parts['reshuffle'] and G.SETTINGS.blindside_tutorial_progress.hold_parts['whoa_what_happened'] and #G.deck.cards < 5  then
+            G.FUNCS.blindside_tutorial_part('reshuffle')
+            G.SETTINGS.blindside_tutorial_progress.completed_parts['reshuffle']  = true
+            G:save_progress()
         end
         if not G.SETTINGS.blindside_tutorial_progress.completed_parts['first_hand_section'] then 
             if G.STATE == G.STATES.SELECTING_HAND and not G.SETTINGS.blindside_tutorial_progress.completed_parts['first_hand'] then
@@ -78,24 +67,33 @@ G.FUNCS.blindside_tutorial_controller = function()
                 G.SETTINGS.blindside_tutorial_progress.completed_parts['first_hand_2']  = true
                 G:save_progress()
             end
-            if G.STATE == G.STATES.SELECTING_HAND and not G.SETTINGS.blindside_tutorial_progress.completed_parts['first_hand_3'] and G.SETTINGS.blindside_tutorial_progress.hold_parts['first_hand_2']  then
-                G.FUNCS.blindside_tutorial_part('first_hand_3')
-                G.SETTINGS.blindside_tutorial_progress.completed_parts['first_hand_3']  = true
-                G:save_progress()
-            end
-            if G.STATE == G.STATES.SELECTING_HAND and not G.SETTINGS.blindside_tutorial_progress.completed_parts['first_hand_4'] and G.SETTINGS.blindside_tutorial_progress.hold_parts['first_hand_3']  then
-                G.FUNCS.blindside_tutorial_part('first_hand_4')
-                G.SETTINGS.blindside_tutorial_progress.completed_parts['first_hand_4']  = true
+            if G.STATE == G.STATES.SELECTING_HAND and not G.SETTINGS.blindside_tutorial_progress.completed_parts['whoa_what_happened'] and G.SETTINGS.blindside_tutorial_progress.hold_parts['first_hand_2']  then
+                G.FUNCS.blindside_tutorial_part('whoa_what_happened')
+                G.SETTINGS.blindside_tutorial_progress.completed_parts['whoa_what_happened'] = true
                 G.SETTINGS.blindside_tutorial_progress.completed_parts['first_hand_section']  = true
                 G:save_progress()
             end
         end
          if G.STATE == G.STATES.SHOP and G.shop and G.shop.VT.y < 5 and not G.SETTINGS.blindside_tutorial_progress.completed_parts['shop_1'] then
-            G.SETTINGS.blindside_tutorial_progress.section = 'shop'
+            G.SETTINGS.blindside_tutorial_progress.section = 'shop_1'
             G.FUNCS.blindside_tutorial_part('shop_1')
             G.SETTINGS.blindside_tutorial_progress.completed_parts['shop_1']  = true
-            G.SETTINGS.blindside_tutorial_progress.forced_voucher = nil
             G:save_progress()
+        end
+         if G.STATE == G.STATES.SHOP and G.shop and G.shop.VT.y < 5 and not G.SETTINGS.blindside_tutorial_progress.completed_parts['shop_2'] and G.SETTINGS.blindside_tutorial_progress.hold_parts['second_hand'] then
+            G.SETTINGS.blindside_tutorial_progress.section = 'shop_2'
+            G.FUNCS.blindside_tutorial_part('shop_2')
+            G.SETTINGS.blindside_tutorial_progress.completed_parts['shop_2']  = true
+            G:save_progress()
+        end
+         if G.STATE == G.STATES.SHOP and G.shop and G.shop.VT.y < 5 and not G.SETTINGS.blindside_tutorial_progress.completed_parts['shop_3'] and G.GAME.last_joker then
+            G.SETTINGS.blindside_tutorial_progress.section = 'shop_3'
+            G.FUNCS.blindside_tutorial_part('shop_3')
+            G.SETTINGS.blindside_tutorial_progress.completed_parts['shop_3']  = true
+            G:save_progress()
+        end
+        if G.SETTINGS.blindside_tutorial_progress.hold_parts['shop_3'] then
+            G.SETTINGS.blindside_tutorial_complete = true
         end
     end
 end
@@ -103,115 +101,41 @@ end
 G.FUNCS.blindside_tutorial_part = function(_part)
     local step = 1
     G.SETTINGS.paused = true
-    if _part == 'small_blind' then 
+    if _part == 'first_hand' then
         step = blindside_tutorial_info({
-            text_key = 'sb_1',
+            text_key = 'bld_fh_1',
             attach = {major = G.ROOM_ATTACH, type = 'cm', offset = {x = 0, y = 0}},
             step = step,
         })
         step = blindside_tutorial_info({
-            text_key = 'sb_2',
+            text_key = 'bld_fh_2',
             attach = {major = G.ROOM_ATTACH, type = 'cm', offset = {x = 0, y = 0}},
             step = step,
         })
         step = blindside_tutorial_info({
-            text_key = 'sb_3',
+            text_key = 'bld_fh_3',
             highlight = {
-                G.blind_select.UIRoot.children[1].children[1].config.object:get_UIE_by_ID('blind_name'),
-                G.blind_select.UIRoot.children[1].children[1].config.object:get_UIE_by_ID('blind_desc'),
+                G.hand,
             },
-            attach = {major =  G.blind_select.UIRoot.children[1].children[1], type = 'tr', offset = {x = 2, y = 4}},
+            attach = {major = G.hand, type = 'cl', offset = {x = -1.5, y = 0}},
+            snap_to = function() return G.hand.cards[1] end,
             step = step,
         })
         step = blindside_tutorial_info({
-            text_key = 'sb_4',
-            highlight = {
-                G.blind_select.UIRoot.children[1].children[1]
-            },
-            snap_to = function() 
-                if G.blind_select and G.blind_select.UIRoot and G.blind_select.UIRoot.children[1] and G.blind_select.UIRoot.children[1].children[1] and G.blind_select.UIRoot.children[1].children[1].config.object then 
-                    return G.blind_select.UIRoot.children[1].children[1].config.object:get_UIE_by_ID('select_blind_button') end
-                end,
-            attach = {major =  G.blind_select.UIRoot.children[1].children[1], type = 'tr', offset = {x = 2, y = 4}},
-            step = step,
-            no_button = true,
-            button_listen = 'select_blind'
-        })
-    elseif _part == 'big_blind' then 
-        step = blindside_tutorial_info({
-            text_key = 'bb_1',
-            highlight = {
-                G.blind_select.UIRoot.children[1].children[2].config.object:get_UIE_by_ID('blind_name'),
-                G.blind_select.UIRoot.children[1].children[2].config.object:get_UIE_by_ID('blind_desc'),
-            },
             hard_set = true,
-            attach = {major =  G.HUD, type = 'cm', offset = {x = 0, y = -2}},
-            step = step,
-        })
-        step = blindside_tutorial_info({
-            text_key = 'bb_2',
+            text_key = 'bld_fh_4',
             highlight = {
-                G.blind_select.UIRoot.children[1].children[2].config.object:get_UIE_by_ID('blind_name'),
-                G.blind_select.UIRoot.children[1].children[2].config.object:get_UIE_by_ID('tag_desc'),
+                G.hand,
             },
-            attach = {major =  G.HUD, type = 'cm', offset = {x = 0, y = -2}},
+            attach = {major = G.hand, type = 'cl', offset = {x = -1.5, y = 0}},
+            snap_to = function() return G.hand.cards[1] end,
             step = step,
         })
         step = blindside_tutorial_info({
-            text_key = 'bb_3',
-            highlight = {
-                G.blind_select.UIRoot.children[1].children[3].config.object:get_UIE_by_ID('blind_name'),
-                G.blind_select.UIRoot.children[1].children[3].config.object:get_UIE_by_ID('blind_desc'),
-            },
-            attach = {major =  G.HUD, type = 'cm', offset = {x = 0, y = -2}},
-            step = step,
-        })
-        step = blindside_tutorial_info({
-            text_key = 'bb_4',
-            highlight = {
-                G.blind_select.UIRoot.children[1].children[3].config.object:get_UIE_by_ID('blind_name'),
-                G.blind_select.UIRoot.children[1].children[3].config.object:get_UIE_by_ID('blind_desc'),
-                G.blind_select.UIRoot.children[1].children[3].config.object:get_UIE_by_ID('blind_extras'),
-                G.HUD:get_UIE_by_ID('hud_ante')
-            },
-            attach = {major =  G.HUD, type = 'cm', offset = {x = 0, y = -2}},
-            step = step,
-        })
-        step = blindside_tutorial_info({
-            text_key = 'bb_5',
-            loc_vars = {G.GAME.win_ante},
-            highlight = {
-                G.blind_select,
-                G.HUD:get_UIE_by_ID('hud_ante')
-            },
-            attach = {major =  G.HUD, type = 'cm', offset = {x = 0, y = -2}},
-            step = step,
-            no_button = true,
-            snap_to = function() 
-                if G.blind_select and G.blind_select.UIRoot and G.blind_select.UIRoot.children[1] and G.blind_select.UIRoot.children[1].children[2] and
-                G.blind_select.UIRoot.children[1].children[2].config.object then 
-                    return G.blind_select.UIRoot.children[1].children[2].config.object:get_UIE_by_ID('select_blind_button') end
-                end,
-            button_listen = 'select_blind'
-        })
-    elseif _part == 'first_hand' then
-        step = blindside_tutorial_info({
-            text_key = 'fh_1',
-            attach = {major = G.ROOM_ATTACH, type = 'cm', offset = {x = 0, y = 0}},
-            step = step,
-        })
-        step = blindside_tutorial_info({
-            text_key = 'fh_2',
-            highlight = {
-                G.HUD:get_UIE_by_ID('hand_text_area')
-            },
-            attach = {major = G.ROOM_ATTACH, type = 'cm', offset = {x = 0, y = 0}},
-            step = step,
-        })
-        step = blindside_tutorial_info({
-            text_key = 'fh_3',
+            text_key = 'bld_fh_5',
             attach = {major = G.ROOM_ATTACH, type = 'cm', offset = {x = 0, y = 0}},
             highlight = {
+                G.hand,
                 G.HUD:get_UIE_by_ID('run_info_button')
             },
             no_button = true,
@@ -221,224 +145,197 @@ G.FUNCS.blindside_tutorial_part = function(_part)
         })
     elseif _part == 'first_hand_2' then
         step = blindside_tutorial_info({
-            hard_set = true,
-            text_key = 'fh_4',
-            highlight = {
-                G.hand,
-                G.HUD:get_UIE_by_ID('run_info_button')
-            },
-            attach = {major = G.hand, type = 'cl', offset = {x = -1.5, y = 0}},
-            snap_to = function() return G.hand.cards[1] end,
-            step = step,
-        })
-        step = blindside_tutorial_info({
-            text_key = 'fh_5',
+            text_key = 'bld_fh_6',
             highlight = {
                 G.hand,
                 G.buttons:get_UIE_by_ID('play_button'),
-                G.HUD:get_UIE_by_ID('run_info_button')
             },
             attach = {major = G.hand, type = 'cl', offset = {x = -1.5, y = 0}},
             no_button = true,
             button_listen = 'play_cards_from_highlighted',
             step = step,
         })
-    elseif _part == 'first_hand_3' then
+    elseif _part == 'whoa_what_happened' then
         step = blindside_tutorial_info({
             hard_set = true,
-            text_key = 'fh_6',
+            text_key = 'bld_wtf_1',
+            highlight = {
+                G.HUD_blind,
+            },
+            attach = {major = G.HUD_blind, type = 'cm', offset = {x = 0, y = 6}},
+            step = step,
+        })
+        step = blindside_tutorial_info({
+            hard_set = true,
+            text_key = 'bld_wtf_2',
             highlight = {
                 G.hand,
-                G.buttons:get_UIE_by_ID('discard_button'),
-                G.HUD:get_UIE_by_ID('run_info_button')
             },
             attach = {major = G.hand, type = 'cl', offset = {x = -1.5, y = 0}},
-            no_button = true,
-            button_listen = 'discard_cards_from_highlighted',
             step = step,
         })
-    elseif _part == 'first_hand_4' then
         step = blindside_tutorial_info({
             hard_set = true,
-            text_key = 'fh_7',
+            text_key = 'bld_wtf_3',
             highlight = {
-                G.HUD:get_UIE_by_ID('hud_hands').parent,
+                G.hand,
             },
-            attach = {major = G.ROOM_ATTACH, type = 'cm', offset = {x = 0, y = 0}},
+            attach = {major = G.hand, type = 'cl', offset = {x = -1.5, y = 0}},
             step = step,
         })
         step = blindside_tutorial_info({
-            text_key = 'fh_8',
-            highlight = {
-                G.HUD:get_UIE_by_ID('hud_hands').parent,
-                G.HUD:get_UIE_by_ID('row_dollars_chips'),
-                G.HUD_blind
-            },
+            text_key = 'bld_wtf_4',
             attach = {major = G.ROOM_ATTACH, type = 'cm', offset = {x = 0, y = 0}},
+            step = step,
+        })
+    elseif _part == 'reshuffle' then
+        step = blindside_tutorial_info({
+            hard_set = true,
+            text_key = 'bld_rshfl_1',
+            highlight = {
+                G.deck,
+            },
+            attach = {major = G.deck, type = 'cm', offset = {x = 0, y = -4}},
+            step = step,
+        })
+        step = blindside_tutorial_info({
+            hard_set = true,
+            text_key = 'bld_rshfl_2',
+            highlight = {
+                G.deck,
+            },
+            attach = {major = G.deck, type = 'cm', offset = {x = 0, y = -4}},
             step = step,
         })
     elseif _part == 'second_hand' then
         step = blindside_tutorial_info({
-            text_key = 'sh_1',
+            text_key = 'bld_sh_1',
             hard_set = true,
             highlight = {
-                G.jokers
+                G.HUD_blind
             },
-            attach = {major =  G.HUD, type = 'cm', offset = {x = 0, y = -2}},
+            attach = {major =  G.HUD_blind, type = 'cm', offset = {x = 0, y = 6}},
             step = step,
         })
-        local empress = find_joker('The Empress')[1]
-        if empress then 
-            step = blindside_tutorial_info({
-                text_key = 'sh_2',
-                highlight = {
-                    empress
-                },
-                attach = {major =  G.HUD, type = 'cm', offset = {x = 0, y = -2}},
-                step = step,
-            })
-            step = blindside_tutorial_info({
-                text_key = 'sh_3',
-                attach = {major =  G.HUD, type = 'cm', offset = {x = 0, y = -2}},
-                highlight = {
-                    empress,
-                    G.hand
-                },
-                no_button = true,
-                button_listen = 'use_card',
-                snap_to = function() return G.hand.cards[1] end,
-                step = step,
-            })
-        end
+        step = blindside_tutorial_info({
+            text_key = 'bld_sh_2',
+            hard_set = true,
+            highlight = {
+                G.HUD_blind
+            },
+            attach = {major =  G.HUD_blind, type = 'cm', offset = {x = 0, y = 6}},
+            step = step,
+        })
     elseif _part == 'shop_1' then
         step = blindside_tutorial_info({
             hard_set = true,
-            text_key = 's_1',
+            text_key = 'bld_s_1',
             highlight = {
                 G.SHOP_SIGN,
-                G.HUD:get_UIE_by_ID('dollar_text_UI').parent.parent.parent
             },
             attach = {major = G.shop, type = 'tm', offset = {x = 0, y = 4}},
             step = step,
         })
         step = blindside_tutorial_info({
-            text_key = 's_2',
+            text_key = 'bld_s_2',
             highlight = {
                 G.SHOP_SIGN,
                 G.HUD:get_UIE_by_ID('dollar_text_UI').parent.parent.parent,
-                G.shop_jokers.cards[2],
+                G.shop_booster
             },
-            snap_to = function() return G.shop_jokers.cards[2] end,
-            attach = {major = G.shop, type = 'tr', offset = {x = -0.5, y = 6}},
-            no_button = true,
-            button_listen = 'buy_from_shop',
-            step = step,
-        })
-        step = blindside_tutorial_info({
-            text_key = 's_3',
-            loc_vars = {#G.P_CENTER_POOLS.Joker},
-            highlight = function() return {
-                G.SHOP_SIGN,
-                G.HUD:get_UIE_by_ID('dollar_text_UI').parent.parent.parent,
-                G.jokers.cards[1],
-            } end,
-            attach = {major = G.shop, type = 'tm', offset = {x = 0, y = 6}},
-            step = step,
-        })
-        step = blindside_tutorial_info({
-            text_key = 's_4',
-            highlight = function() return {
-                G.SHOP_SIGN,
-                G.HUD:get_UIE_by_ID('dollar_text_UI').parent.parent.parent,
-                G.jokers.cards[1],
-            } end,
-            attach = {major = G.shop, type = 'tm', offset = {x = 0, y = 6}},
-            step = step,
-        })
-        step = blindside_tutorial_info({
-            text_key = 's_5',
-            highlight = function() return {
-                G.SHOP_SIGN,
-                G.HUD:get_UIE_by_ID('dollar_text_UI').parent.parent.parent,
-                G.jokers,
-            } end,
-            attach = {major = G.shop, type = 'tm', offset = {x = 0, y = 6}},
-            step = step,
-        })
-        step = blindside_tutorial_info({
-            text_key = 's_6',
-            highlight = function() return {
-                G.SHOP_SIGN,
-                G.HUD:get_UIE_by_ID('dollar_text_UI').parent.parent.parent,
-                G.shop_jokers.cards[1],
-            } end,
-            snap_to = function() return G.shop_jokers.cards[1] end,
-            no_button = true,
-            button_listen = 'buy_from_shop',
-            attach = {major = G.shop, type = 'tr', offset = {x = -0.5, y = 6}},
-            step = step,
-        })
-        step = blindside_tutorial_info({
-            text_key = 's_7',
-            highlight = function() return {
-                G.SHOP_SIGN,
-                G.HUD:get_UIE_by_ID('dollar_text_UI').parent.parent.parent,
-                G.consumeables.cards[#G.consumeables.cards],
-            } end,
-            attach = {major = G.shop, type = 'tm', offset = {x = 0, y = 6}},
-            step = step,
-        })
-        step = blindside_tutorial_info({
-            text_key = 's_8',
-            highlight = function() return {
-                G.SHOP_SIGN,
-                G.HUD:get_UIE_by_ID('dollar_text_UI').parent.parent.parent,
-                G.consumeables
-            } end,
-            attach = {major = G.shop, type = 'tm', offset = {x = 0, y = 6}},
-            step = step,
-        })
-        step = blindside_tutorial_info({
-            text_key = 's_9',
-            highlight = function() return {
-                G.SHOP_SIGN,
-                G.HUD:get_UIE_by_ID('dollar_text_UI').parent.parent.parent,
-                G.shop_vouchers,
-            } end,
-            snap_to = function() return G.shop_vouchers.cards[1] end,
-            attach = {major = G.shop, type = 'tr', offset = {x = -4, y = 6}},
-            step = step,
-        })
-        step = blindside_tutorial_info({
-            text_key = 's_10',
-            highlight = function() return {
-                G.SHOP_SIGN,
-                G.HUD:get_UIE_by_ID('dollar_text_UI').parent.parent.parent,
-                G.shop_vouchers,
-            } end,
-            attach = {major = G.shop, type = 'tr', offset = {x = -4, y = 6}},
-            step = step,
-        })
-        step = blindside_tutorial_info({
-            text_key = 's_11',
-            highlight = function() return {
-                G.SHOP_SIGN,
-                G.HUD:get_UIE_by_ID('dollar_text_UI').parent.parent.parent,
-                G.shop_booster,
-            } end,
             snap_to = function() return G.shop_booster.cards[1] end,
-            attach = {major = G.shop, type = 'tl', offset = {x = 3, y = 6}},
+            attach = {major = G.shop, type = 'tm', offset = {x = 0, y = 8}},
+            no_button = true,
+            button_listen = 'buy_from_shop',
             step = step,
         })
         step = blindside_tutorial_info({
-            text_key = 's_12',
+            text_key = 'bld_s_3',
             highlight = function() return {
                 G.shop:get_UIE_by_ID('next_round_button'),
+                G.shop_booster
             } end,
             snap_to = function() if G.shop then return G.shop:get_UIE_by_ID('next_round_button') end end,
             no_button = true,
             button_listen = 'toggle_shop',
-            attach = {major = G.shop, type = 'tm', offset = {x = 0, y = 6}},
+            attach = {major = G.shop, type = 'tm', offset = {x = 0, y = 8}},
+            step = step,
+        })
+    elseif _part == 'shop_2' then
+        step = blindside_tutorial_info({
+            hard_set = true,
+            text_key = 'bld_st_1',
+            highlight = {
+                G.SHOP_SIGN,
+                G.HUD:get_UIE_by_ID('dollar_text_UI').parent.parent.parent,
+                G.shop_jokers
+            },
+            attach = {major = G.shop, type = 'tm', offset = {x = 0, y = 4}},
+            step = step,
+        })
+        step = blindside_tutorial_info({
+            text_key = 'bld_st_2',
+            highlight = {
+                G.SHOP_SIGN,
+                G.HUD:get_UIE_by_ID('dollar_text_UI').parent.parent.parent,
+                G.shop_jokers
+            },
+            snap_to = function() return G.shop_jokers.cards[1] end,
+            attach = {major = G.shop, type = 'tm', offset = {x = 0, y = 4}},
+            no_button = true,
+            button_listen = 'buy_from_shop',
+            step = step,
+        })
+        step = blindside_tutorial_info({
+            text_key = 'bld_st_3',
+            highlight = function() return {
+                G.shop:get_UIE_by_ID('next_round_button'),
+                G.jokers,
+                G.shop_jokers
+            } end,
+            snap_to = function() if G.shop then return G.shop:get_UIE_by_ID('next_round_button') end end,
+            no_button = true,
+            button_listen = 'toggle_shop',
+            attach = {major = G.shop, type = 'tm', offset = {x = 0, y = 4}},
+            step = step,
+        })
+    elseif _part == 'shop_3' then
+        step = blindside_tutorial_info({
+            text_key = 'bld_sb_1',
+            attach = {major = G.ROOM_ATTACH, type = 'cm', offset = {x = 0, y = 0}},
+            step = step,
+        })
+        step = blindside_tutorial_info({
+            hard_set = true,
+            text_key = 'bld_sb_2',
+            highlight = {
+                G.SHOP_SIGN,
+                G.HUD:get_UIE_by_ID('dollar_text_UI').parent.parent.parent,
+                G.shop_jokers,
+                G.shop_vouchers
+            },
+            attach = {major = G.shop, type = 'tm', offset = {x = 0, y = 4}},
+            step = step,
+        })
+        step = blindside_tutorial_info({
+            text_key = 'bld_sb_3',
+            highlight = {
+                G.SHOP_SIGN,
+                G.HUD:get_UIE_by_ID('dollar_text_UI').parent.parent.parent,
+                G.shop_booster
+            },
+            snap_to = function() return G.shop_booster.cards[1] end,
+            attach = {major = G.shop, type = 'tm', offset = {x = -4, y = 4}},
+            step = step,
+        })
+        step = blindside_tutorial_info({
+            text_key = 'bld_sb_4',
+            attach = {major = G.ROOM_ATTACH, type = 'cm', offset = {x = 0, y = 0}},
+            step = step,
+        })
+        step = blindside_tutorial_info({
+            text_key = 'bld_sb_5',
+            attach = {major = G.ROOM_ATTACH, type = 'cm', offset = {x = 0, y = 0}},
             step = step,
         })
     end
@@ -448,7 +345,7 @@ G.FUNCS.blindside_tutorial_part = function(_part)
         blockable = false,
         timer = 'REAL',
         func = function()
-            if (G.OVERLAY_TUTORIAL.step == step and
+            if (G.OVERLAY_TUTORIAL and G.OVERLAY_TUTORIAL.step == step and
             not G.OVERLAY_TUTORIAL.step_complete) or G.OVERLAY_TUTORIAL.skip_steps then
                 if G.OVERLAY_TUTORIAL.Jimbo then G.OVERLAY_TUTORIAL.Jimbo:remove() end
                 if G.OVERLAY_TUTORIAL.content then G.OVERLAY_TUTORIAL.content:remove() end
@@ -553,22 +450,29 @@ end
     G.OVERLAY_TUTORIAL:remove()
     G.OVERLAY_TUTORIAL = nil
     G.E_MANAGER:clear_queue('tutorial')
-    if G.SETTINGS.blindside_tutorial_progress.section == 'small_blind' then
-      G.SETTINGS.blindside_tutorial_progress.completed_parts['small_blind']  = true
-    elseif G.SETTINGS.blindside_tutorial_progress.section == 'big_blind' then
-      G.SETTINGS.blindside_tutorial_progress.completed_parts['big_blind']  = true
-      G.SETTINGS.blindside_tutorial_progress.forced_tags = nil
-    elseif G.SETTINGS.blindside_tutorial_progress.section == 'second_hand' then
+    if G.SETTINGS.blindside_tutorial_progress.section == 'second_hand' then
       G.SETTINGS.blindside_tutorial_progress.completed_parts['second_hand']  = true
       G.SETTINGS.blindside_tutorial_progress.hold_parts['second_hand'] = true
+    elseif G.SETTINGS.blindside_tutorial_progress.section == 'reshuffle' then
+      G.SETTINGS.blindside_tutorial_progress.completed_parts['reshuffle']  = true
+      G.SETTINGS.blindside_tutorial_progress.hold_parts['reshuffle'] = true
     elseif G.SETTINGS.blindside_tutorial_progress.section == 'first_hand' then
       G.SETTINGS.blindside_tutorial_progress.completed_parts['first_hand']  = true
       G.SETTINGS.blindside_tutorial_progress.completed_parts['first_hand_2']  = true
-      G.SETTINGS.blindside_tutorial_progress.completed_parts['first_hand_3']  = true
-      G.SETTINGS.blindside_tutorial_progress.completed_parts['first_hand_4']  = true
+      G.SETTINGS.blindside_tutorial_progress.completed_parts['whoa_what_happened']  = true
+      G.SETTINGS.blindside_tutorial_progress.hold_parts['whoa_what_happened'] = true
       G.SETTINGS.blindside_tutorial_progress.completed_parts['first_hand_section']  = true
-    elseif G.SETTINGS.blindside_tutorial_progress.section == 'shop' then
+    elseif G.SETTINGS.blindside_tutorial_progress.section == 'shop_1' then
       G.SETTINGS.blindside_tutorial_progress.completed_parts['shop_1']  = true
+      G.SETTINGS.blindside_tutorial_progress.hold_parts['shop_1'] = true
+      G.SETTINGS.blindside_tutorial_progress.forced_voucher = nil
+    elseif G.SETTINGS.blindside_tutorial_progress.section == 'shop_2' then
+      G.SETTINGS.blindside_tutorial_progress.completed_parts['shop_2']  = true
+      G.SETTINGS.blindside_tutorial_progress.hold_parts['shop_2'] = true
+      G.SETTINGS.blindside_tutorial_progress.forced_voucher = nil
+    elseif G.SETTINGS.blindside_tutorial_progress.section == 'shop_3' then
+      G.SETTINGS.blindside_tutorial_progress.completed_parts['shop_3']  = true
+      G.SETTINGS.blindside_tutorial_progress.hold_parts['shop_3'] = true
       G.SETTINGS.blindside_tutorial_progress.forced_voucher = nil
     end     
   end

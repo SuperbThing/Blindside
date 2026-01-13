@@ -2083,7 +2083,7 @@ payload = '''
 # TUTORIAL - Start Run
 [[patches]]
 [patches.pattern]
-target = '-- disable functions/UI_definitions.lua'
+target = 'functions/UI_definitions.lua'
 pattern = '''
 UIBox_button{id = 'main_menu_play', button = not G.SETTINGS.tutorial_complete and "start_run" or "setup_run", colour = G.C.BLUE, minw = 3.65, minh = 1.55, label = {localize('b_play_cap')}, scale = text_scale*2, col = true},
 '''
@@ -2096,7 +2096,7 @@ UIBox_button{id = 'main_menu_play', button = (not G.SETTINGS.tutorial_complete a
 # TUTORIAL - Tutorial Controller
 [[patches]]
 [patches.pattern]
-target = '-- disable game.lua'
+target = 'game.lua'
 pattern = '''
 if not G.SETTINGS.tutorial_complete then G.FUNCS.tutorial_controller() end
 '''
@@ -2109,7 +2109,7 @@ if not G.SETTINGS.blindside_tutorial_complete then G.FUNCS.blindside_tutorial_co
 # TUTORIAL - No skips
 [[patches]]
 [patches.pattern]
-target = '-- disable functions/button_callbacks.lua'
+target = 'functions/button_callbacks.lua'
 pattern = '''
 if _tag_container and not G.SETTINGS.tutorial_complete and not G.SETTINGS.tutorial_progress.completed_parts['shop_1'] then _tag_container.states.visible = false
 '''
@@ -2122,7 +2122,7 @@ elseif _tag_container and not G.SETTINGS.blindside_tutorial_complete and not G.S
 # TUTORIAL - Forced generation
 [[patches]]
 [patches.pattern]
-target = '-- disable game.lua'
+target = 'game.lua'
 pattern = '''
 local forced_voucher = (G.SETTINGS.tutorial_progress or {}).forced_voucher
 '''
@@ -2135,7 +2135,7 @@ forced_voucher = (G.SETTINGS.blindside_tutorial_progress or {}).forced_voucher
 # TUTORIAL - Forced generation
 [[patches]]
 [patches.pattern]
-target = '-- disable game.lua'
+target = 'game.lua'
 pattern = '''
 self.GAME.round_resets.blind_tags.Small = G.SETTINGS.tutorial_progress and G.SETTINGS.tutorial_progress.forced_tags and G.SETTINGS.tutorial_progress.forced_tags[1] or get_next_tag_key()
 '''
@@ -2148,7 +2148,7 @@ self.GAME.round_resets.blind_tags.Small = G.SETTINGS.tutorial_progress and G.SET
 # TUTORIAL - Forced generation
 [[patches]]
 [patches.pattern]
-target = '-- disable game.lua'
+target = 'game.lua'
 pattern = '''
 self.GAME.round_resets.blind_tags.Big = G.SETTINGS.tutorial_progress and G.SETTINGS.tutorial_progress.forced_tags and G.SETTINGS.tutorial_progress.forced_tags[2] or get_next_tag_key()
 '''

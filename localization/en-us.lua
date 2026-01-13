@@ -1,5 +1,114 @@
 return {
 	["misc"] = {
+        ["tutorial"] = {
+            ["bld_fh_1"] = {
+                "Hey there! My name is",
+                "{C:attention}Flippy{}, your personal",
+                "Blindside assistant!"
+            },
+            ["bld_fh_2"] = {
+                "I see this is your first",
+                "time playing {C:attention}Blindside{}.",
+                "Allow me to help!"
+            },
+            ["bld_fh_3"] = {
+                "On this side of the world,",
+                "you play {C:attention}blinds{} instead of",
+                "playing cards to score"
+            },
+            ["bld_fh_4"] = {
+                "Each blind has a unique {C:attention}effect{},",
+                "hover over each to see!",
+            },
+            ["bld_fh_5"] = {
+                "As always, you can check the",
+                "{C:attention}Run Info{} screen to",
+                "{C:attention}Poker Hands{} playable",
+                "with these new blinds!",
+            },
+            ["bld_fh_6"] = {
+				"Now, put those classic {C:attention}Balatro{}",
+				"skills to the test, and play a hand!",
+            },
+            ["bld_wtf_1"] = {
+				"Whats this? Seems like the {C:attention}Joker",
+				"increased their {C:attention}score{} too!",
+            },
+            ["bld_wtf_2"] = {
+				"And the rest of your",
+				"hand was {C:attention}discarded{}",
+				"for a brand new one!",
+            },
+            ["bld_wtf_3"] = {
+				"Seems like things change",
+				"after each hand you play!",
+            },
+            ["bld_wtf_4"] = {
+				"Whatever the case, try",
+				"to beat this {C:attention}devilish fellow{}",
+				"before they beat you!",
+            },
+            ["bld_sh_1"] = {
+				"Different {C:attention}Jokers{} have different",
+				"triggers for their effects!",
+            },
+            ["bld_sh_2"] = {
+				"So you better watch out, or",
+				"you'll be {C:attention}playing with fire{}",
+            },
+            ["bld_st_1"] = {
+				"This time, lets focus on {C:attention}Trinkets{}!",
+            },
+            ["bld_st_2"] = {
+				"These items fill the role of your",
+				"standard Balatro {C:attention}Joker{}. Buy one!",
+            },
+            ["bld_st_3"] = {
+				"With plenty of options to choose",
+				"from, you can enhance your run",
+				"in many different ways!",
+            },
+            ["bld_sb_1"] = {
+				"Finally, this here is the {C:attention}Boss Shop{}!",
+            },
+            ["bld_sb_2"] = {
+				"After each boss, {C:attention}Trinkets{} and {C:attention}Price Tags{}",
+				"are refreshed and restocked.",
+				"Hope you got what you wanted!",
+            },
+            ["bld_sb_3"] = {
+				"In addition, {C:attention}Booster Packs{} and {C:attention}Consumables",
+				"become available for purchase!",
+				"These help improve your run and deck.",
+            },
+            ["bld_sb_4"] = {
+				"Buy as much as you need, since you wont",
+				"be getting this anywhere else.",
+            },
+            ["bld_sb_5"] = {
+				"Ive taught you all you need to know.",
+				"Good luck out there, and have fun!",
+            },
+            ["bld_rshfl_1"] = {
+				"Uh oh, running low on {C:attention}blinds{}?",
+            },
+            ["bld_rshfl_2"] = {
+				"Don't worry! Your deck will",
+				"{C:attention}reshuffle{} on its own when empty!",
+            },
+            ["bld_s_1"] = {
+				"Not the {C:attention}shop{} you're used to, huh?",
+            },
+            ["bld_s_2"] = {
+				"Lets focus on these {C:attention}blinds{} for now.",
+				"Here you can buy various blinds",
+				"that improve and fill your {C:attention}deck{}. Try one!",
+            },
+            ["bld_s_3"] = {
+				"Then, we can proceed",
+				"onto the next Joker!",
+            },
+        },
 		["dictionary"] = {
 			["k_relic"] = "Price Tag",
 			["k_chaching_ex"] = "Cha-ching!",
