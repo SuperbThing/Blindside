@@ -1986,8 +1986,8 @@ return {
 				["name"] = "Glass Joker",
 				["text"] = {
 					"X2 Mult each hand,",
-					"disabled when scoring",
-					"over #1# Chips",
+					"self-destructs when",
+					"scoring over #1# Chips",
 				},
 			},
 			["bl_bld_smeared"] = {
@@ -2047,16 +2047,16 @@ return {
 				["name"] = "Gros Michel",
 				["text"] = {
 					"+2 Mult each hand,",
-					"disabled when scoring",
-					"over #1# Chips",
+					"self-destructs when",
+					"scoring over #1# Chips",
 				},
 			},
 			["bl_bld_cavendish"] = {
 				["name"] = "Cavendish",
 				["text"] = {
 					"X1.5 Mult each hand,",
-					"disabled when scoring",
-					"over #1# Chips",
+					"self-destructs when",
+					"scoring over #1# Chips",
 				},
 			},
 			["bl_bld_yorick"] = {
