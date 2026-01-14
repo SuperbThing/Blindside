@@ -409,7 +409,7 @@ BLINDSIDE.Joker({
             end
         end
 
-        if context.before then
+        if context.before or context.pre_discard then
             BLINDSIDE.alert_debuff(self, false)
         end
 
