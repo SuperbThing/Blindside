@@ -380,6 +380,7 @@ function blindside_tutorial_info(args)
     local attach = args.attach or {major = row_dollars_chips, type = 'tm', offset = {x=0, y=-0.5}}
     local pos = args.pos or {x=attach.major.T.x + attach.major.T.w/2, y=attach.major.T.y + attach.major.T.h/2}
     pos.center = 'm_bld_flip'
+    pos.googly = true
     local button = args.button or {button = localize('b_next'), func = 'tut_next'}
     args.highlight = args.highlight or {}
     G.E_MANAGER:add_event(Event({
@@ -390,6 +391,7 @@ function blindside_tutorial_info(args)
             not G.OVERLAY_TUTORIAL.step_complete then
                 G.CONTROLLER.interrupt.focus = true
                 G.OVERLAY_TUTORIAL.Jimbo = G.OVERLAY_TUTORIAL.Jimbo or Card_Character(pos)
+                G.OVERLAY_TUTORIAL.Jimbo.children.card.googly = true
                 if type(args.highlight) == 'function' then args.highlight = args.highlight() end
                 args.highlight[#args.highlight+1] = G.OVERLAY_TUTORIAL.Jimbo
                 G.OVERLAY_TUTORIAL.Jimbo:add_speech_bubble(args.text_key, align, args.loc_vars)
