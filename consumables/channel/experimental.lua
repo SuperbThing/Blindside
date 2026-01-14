@@ -20,6 +20,7 @@ SMODS.Consumable {
         delay(0.6)
     end,
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_TAGS['tag_bld_reroll']
         return {
             vars = {
                 card.ability.tags
