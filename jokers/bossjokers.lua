@@ -660,6 +660,13 @@ BLINDSIDE.Joker({
     get_assist = function (self)
         return G.P_BLINDS["bl_bld_matador"]
     end,
+    disable = function()
+        local times = math.floor(G.GAME.dollars/8)
+        BLINDSIDE.chipsmodify(times * -4, 0, 0, 0, true)
+        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+            BLINDSIDE.chipsupdate()
+        return true end }))
+    end,
 })
 
 BLINDSIDE.Joker({
