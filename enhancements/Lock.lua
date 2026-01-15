@@ -20,7 +20,7 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.repetition and context.cardarea == G.play and card.facing ~= 'back' and card.ability.extra.upgraded and context.other_card.ability.extra.rescore ~= 1 then
+            if context.repetition and context.cardarea == G.play and context.other_card and card.facing ~= 'back' and card.ability.extra.upgraded and context.other_card.ability.extra.rescore ~= 1 then
                 return {
                     repetitions = card.ability.extra.repetitions
                 }
