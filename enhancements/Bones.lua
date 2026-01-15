@@ -5,6 +5,7 @@
         config = {
             extra = {
                 value = 100,
+                ikeeptrackoftriggers = false,
                 chance = 3,
             }},
         hues = {"Green", "Faded"},
@@ -22,8 +23,9 @@
             end
         end,
         calculate = function(self, card, context)
-                if (context.cardarea == G.play or (card.ability.extra.upgraded and context.cardarea == G.hand)) and context.before then
+                if (context.cardarea == G.play or (card.ability.extra.upgraded and context.cardarea == G.hand)) and context.before and not card.ability.extra.ikeeptrackoftriggers then
 		            G.GAME.probabilities.normal = G.GAME.probabilities.normal + card.ability.extra.chance
+                    card.ability.extra.ikeeptrackoftriggers = true
                 end
                 if context.burn_card and context.cardarea == G.play and context.burn_card == card then
                     return { remove = true }
@@ -33,8 +35,9 @@
                         burn = true
                     }
                 end
-                if context.end_of_round and not context.repetition and context.playing_card_end_of_round then
+                if context.end_of_round and not context.repetition and context.playing_card_end_of_round and card.ability.extra.ikeeptrackoftriggers then
 		            G.GAME.probabilities.normal = G.GAME.probabilities.normal - card.ability.extra.chance
+                    card.ability.extra.ikeeptrackoftriggers = false
                 end
         end,
         loc_vars = function(self, info_queue, card)
