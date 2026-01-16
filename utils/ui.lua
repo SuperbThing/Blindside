@@ -1424,12 +1424,12 @@ function create_UIBox_blindside_collection()
       }},
     }},
     {n=G.UIT.C, config={align = "cm", padding = 0.15}, nodes={
-      UIBox_button({button = 'your_collection_blindside_blindcards', count = G.DISCOVER_TALLIES.allblindcards, label = {localize('bld_ui_blindcards')}, minw = 5, minh = 1.3, id = 'your_collection_blindside_blindcards'}),
+      UIBox_button({button = 'your_collection_blindside_blindcards', label = {localize('bld_ui_blindcards')}, minw = 5, minh = 1.3, id = 'your_collection_blindside_blindcards'}),
       UIBox_button({button = 'your_collection_blindside_enhance', label = {localize('bld_ui_enhance')}, minw = 5, id = 'your_collection_blindside_enhance'}),
       UIBox_button({button = 'your_collection_blindside_editions', label = {localize('bld_ui_edition')}, count = G.DISCOVER_TALLIES.blindeditions, minw = 5, id = 'your_collection_blindside_editions'}),
       UIBox_button({button = 'your_collection_blindside_boosters', label = {localize('bld_ui_boosters')}, count = G.DISCOVER_TALLIES.blindboosters, minw = 5, id = 'your_collection_blindside_boosters'}),
       UIBox_button({button = 'your_collection_blindside_blindtags', label = {localize('bld_ui_tags')}, count = G.DISCOVER_TALLIES.blindtags, minw = 5, id = 'your_collection_blindside_blindtags'}),
-      UIBox_button({button = 'your_collection_blindside_jokers', label = {localize('bld_ui_jokers')}, count = G.DISCOVER_TALLIES.blindboosters, minw = 5, minh = 2.0, id = 'your_collection_blindside_jokers', focus_args = {snap_to = true}}),
+      UIBox_button({button = 'your_collection_blindside_jokers', label = {localize('bld_ui_jokers')}, count = G.DISCOVER_TALLIES.blindjokers, minw = 5, minh = 2.0, id = 'your_collection_blindside_jokers', focus_args = {snap_to = true}}),
     }},
   }})
   return t
@@ -1595,12 +1595,12 @@ function mod_tab_collection()
         }},
         }},
         {n=G.UIT.C, config={align = "cm", padding = 0.15}, nodes={
-        UIBox_button({button = 'your_collection_blindside_blindcards', count = G.DISCOVER_TALLIES.allblindcards, label = {localize('bld_ui_blindcards')}, minw = 5, minh = 1.3, id = 'your_collection_blindside_blindcards'}),
+        UIBox_button({button = 'your_collection_blindside_blindcards', label = {localize('bld_ui_blindcards')}, minw = 5, minh = 1.3, id = 'your_collection_blindside_blindcards'}),
         UIBox_button({button = 'your_collection_blindside_enhance', label = {localize('bld_ui_enhance')}, minw = 5, id = 'your_collection_blindside_enhance'}),
         UIBox_button({button = 'your_collection_blindside_editions', label = {localize('bld_ui_edition')}, count = G.DISCOVER_TALLIES.blindeditions, minw = 5, id = 'your_collection_blindside_editions'}),
         UIBox_button({button = 'your_collection_blindside_boosters', label = {localize('bld_ui_boosters')}, count = G.DISCOVER_TALLIES.blindboosters, minw = 5, id = 'your_collection_blindside_boosters'}),
         UIBox_button({button = 'your_collection_blindside_blindtags', label = {localize('bld_ui_tags')}, count = G.DISCOVER_TALLIES.blindtags, minw = 5, id = 'your_collection_blindside_blindtags'}),
-        UIBox_button({button = 'your_collection_blindside_jokers', label = {localize('bld_ui_jokers')}, count = G.DISCOVER_TALLIES.blindboosters, minw = 5, minh = 2.0, id = 'your_collection_blindside_jokers', focus_args = {snap_to = true}}),
+        UIBox_button({button = 'your_collection_blindside_jokers', label = {localize('bld_ui_jokers')}, count = G.DISCOVER_TALLIES.blindjokers, minw = 5, minh = 2.0, id = 'your_collection_blindside_jokers', focus_args = {snap_to = true}}),
         }},
     }
 end
