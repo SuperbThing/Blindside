@@ -25,7 +25,10 @@
                 return {
                     chips = card.ability.extra.chips
                 }
-            end            
+            end         
+            if context.end_of_round then
+                card:start_dissolve()
+            end   
         end,
         upgrade = function(card) 
             if not card.ability.extra.upgraded then

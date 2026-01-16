@@ -451,13 +451,6 @@ BLINDSIDE.Joker({
             }))
         end
     end,
-    joker_defeat = function()
-        for key, value in pairs(G.playing_cards) do
-            if SMODS.has_enhancement(value, 'm_bld_tablet') then
-                value:start_dissolve()
-            end
-        end
-    end
 })
 
 BLINDSIDE.Joker({
