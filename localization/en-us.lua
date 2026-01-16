@@ -183,6 +183,7 @@ return {
 			['k_bld_ate_mineral'] = "Crunch!",
 			['bld_idol_placeholder'] = "[most played blind]",
 			['k_downgrade_ex'] = "Downgrade!",
+			['bld_hand_contains'] = "Hand contains ",
 			},
 		["v_dictionary"] = {
 			["a_rmult"] = "-#1#",
