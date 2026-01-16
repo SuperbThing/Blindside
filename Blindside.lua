@@ -456,6 +456,7 @@ local card_list = {
     "Uno",
     "Monolith",
     "Hearth",
+    --"Absolute",
 
     "Top",
     "Path",
