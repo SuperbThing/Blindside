@@ -376,6 +376,8 @@ return {
 					"added to deck, gain",
 					"{C:red}+1{} permanent discard",
 					"{s:0.2} {}",
+					"{C:red}+1{} discard",
+					"{s:0.2} {}",
 					"All Blinds {C:attention,T:bld_burn}burn"
 				},
 				["unlock"] = {
