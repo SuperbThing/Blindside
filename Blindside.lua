@@ -181,6 +181,21 @@ BLINDSIDE.Blind = SMODS.Enhancement:extend {
             card:set_debuff(true)
         end
     end,
+    set_badges = function(self, card, badges)
+        if card.config.center.weight == 67 then
+            badges[#badges+1] = create_badge(localize('k_bld_curse'), G.C.BLACK, G.C.WHITE, 1 )
+        elseif card.config.center.weight == 99 then
+            badges[#badges+1] = create_badge(localize('k_bld_legendary'), G.C.PURPLE, G.C.WHITE, 1 )
+        elseif card.config.center.weight == 33 then
+            badges[#badges+1] = create_badge(localize('k_bld_basic'), G.C.BLUE, G.C.WHITE, 1 )
+        elseif card.config.center.weight == 5 then
+            badges[#badges+1] = create_badge(localize('k_bld_common'), G.C.MONEY, G.C.WHITE, 1 )
+        elseif card.config.center.weight == 3 then
+            badges[#badges+1] = create_badge(localize('k_bld_rare'), G.C.RED, G.C.WHITE, 1 )
+        else
+            badges[#badges+1] = create_badge(localize('k_bld_common'), G.C.GREEN, G.C.WHITE, 1 )
+        end
+    end,
     blindside_blind = true,
 }
 
