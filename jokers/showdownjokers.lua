@@ -379,7 +379,7 @@ BLINDSIDE.Joker({
         for key, value in pairs(G.playing_cards) do
             if value.original then
                 value:set_ability(value.original.config.center)
-                value.ability = value.original
+                value.ability = copy3(value.original)
                 value.original = nil
             end
         end
