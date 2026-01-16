@@ -5,7 +5,7 @@
         config = {
             extra = {
                 value = 30,
-                mult = 4,
+                mult = 2,
                 xmult = 1.75,
             }},
         hues = {"Red"},
@@ -16,14 +16,20 @@
             end
 
             if context.cardarea == G.play and context.main_scoring then
+                local not_red = 0
+                for key, value in pairs(context.scoring_hand) do
+                    if not value:is_color('Red') then
+                        not_red = not_red + 1
+                    end
+                end
                 if card.ability.extra.upgraded then
                     return {
-                        mult = -card.ability.extra.mult,
+                        mult = -card.ability.extra.mult * not_red,
                         xmult = card.ability.extra.xmult
                     }
                 else
                     return {
-                        mult = -card.ability.extra.mult
+                        mult = -card.ability.extra.mult * not_red
                     }
                 end
             end

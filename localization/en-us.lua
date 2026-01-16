@@ -3104,7 +3104,8 @@ return {
 				["name"] = "The Wound",
 				["text"] = {
 					{"{X:mult,C:white}Red{} {X:black,C:white}Cursed{}",
-					"{C:mult}-#1#{} Mult"},
+					"{C:mult}-#1#{} Mult for each scoring",
+					"Blind without {X:mult,C:white}Red{} hue"},
 					{"{C:attention}Burns{}"}
 				},
 			},
@@ -3112,8 +3113,9 @@ return {
 				["name"] = "The Wound",
 				["text"] = {
 					{"{X:mult,C:white}Red{} {X:black,C:white}Cursed{}",
-					"{C:mult}-#1#{} Mult, then",
-					"{X:mult,C:white}X#2#{} Mult"},
+					"{C:mult}-#1#{} Mult for each scoring",
+					"Blind without {X:mult,C:white}Red{} hue,",
+					"then {X:mult,C:white}X#2#{} Mult"},
 					{"{C:attention}Burns{}"}
 				},
 			},
