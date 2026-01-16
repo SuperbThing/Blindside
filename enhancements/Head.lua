@@ -9,6 +9,11 @@
                 xmult_gain = 1,
                 value = 100,
             }},
+        credit = {
+            art = "pangaea47",
+            code = "AstraLuna",
+            concept = "AstraLuna"
+        },
         hues = {"Purple", "Faded"},
         rare = true,
         calculate = function(self, card, context)
