@@ -213,8 +213,9 @@ BLINDSIDE.Joker({
     joker_load = function(self)
         if G.GAME.blind.blindassist then
             G.GAME.blindassist.states.visible = true
-            G.GAME.blindassist:set_assist_blind(G.GAME.blind.blindassist)
+            G.GAME.blindassist:set_assist_blind(G.P_BLINDS[G.GAME.blind.blindassist])
             G.GAME.blindassist:change_dim(1.5,1.5)
+            G.GAME.blindassist.negative = true
         end
     end
 })
